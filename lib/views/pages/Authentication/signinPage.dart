@@ -30,7 +30,7 @@ class SignInPage extends StatelessWidget {
                     children: <Widget>[
                       SizedBox(height: 120),
                       Text(
-                        "Pride Kids!", //smile,cheka,upendo
+                        "Happy Kids!", //smile,cheka,upendo
                         style: TextStyle(
                             fontSize: 40,
                             fontWeight: FontWeight.bold,
