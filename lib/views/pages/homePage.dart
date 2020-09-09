@@ -20,7 +20,7 @@ class HomePage extends StatelessWidget {
       drawer: Drawer(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
-        child: Icon(Icons.ondemand_video),
+        child: Icon(Icons.navigate_next),
       ),
     );
   }
