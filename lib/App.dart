@@ -3,6 +3,9 @@ import 'package:jifunze/constants/routes.dart';
 import 'package:jifunze/views/pages/Authentication/authenticationPage.dart';
 import 'package:jifunze/views/pages/Authentication/signUpPage.dart';
 import 'package:jifunze/views/pages/Authentication/signinPage.dart';
+import 'package:jifunze/views/pages/FamilyTree.dart';
+import 'package:jifunze/views/pages/Game/game_world.dart';
+import 'package:jifunze/views/pages/LevelsPage.dart';
 import 'package:jifunze/views/pages/homePage.dart';
 import 'package:jifunze/views/pages/startup/consentPage.dart';
 import 'package:jifunze/views/pages/startup/kid.dart';
@@ -21,7 +24,7 @@ class App extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: StartupPage(),
+      home: GameWorld(),
       routes: {
         signUpPage: (_) => SignUpPage(),
         signInPage: (_) => SignInPage(),
@@ -31,6 +34,8 @@ class App extends StatelessWidget {
         welcomePage: (_) => WelcomePage(),
         consentPage: (_) => ConsentPage(),
         startupPage: (_) => StartupPage(),
+        familyTree: (_) => FamilyTree(),
+        levelsPage: (_) => LevelsPage(),
       },
     );
   }

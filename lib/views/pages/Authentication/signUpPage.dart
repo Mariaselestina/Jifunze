@@ -6,7 +6,7 @@ class SignUpPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+     
       body: SingleChildScrollView(
         child: Stack(
           children: <Widget>[
@@ -29,7 +29,7 @@ class SignUpPage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      SizedBox(height: 60),
+                      SizedBox(height: 25),
                       Text(
                         "Happy Kids",
                         style: TextStyle(
@@ -37,12 +37,12 @@ class SignUpPage extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                             color: Colors.black),
                       ),
-                      SizedBox(height: 50),
+                      SizedBox(height: 20),
                       TextFormField(
                         validator: (value) {
                           if (value.isEmpty) {
                             return "Please enter your phone number or email";
-                          } else
+                          } 
                             return null;
                         },
                         style: TextStyle(color: Colors.black),
@@ -106,13 +106,13 @@ class SignUpPage extends StatelessWidget {
                                 color: Colors.deepOrangeAccent,
                                 onPressed: () {
                                   if (_formKey.currentState.validate()) {
-                                    Navigator.pushNamed(context, homePage);
+                                    Navigator.pushNamed(context, signInPage);
                                   } else {
                                     print("I am in deep trouble");
                                   }
                                 },
-                                child: Text("Register"),
-                                textColor: Colors.white,
+                                child: Text("Register", style: TextStyle(color: Colors.white, fontSize: 20),),
+                               
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(20)),
                               ),
@@ -121,7 +121,7 @@ class SignUpPage extends StatelessWidget {
                           SizedBox(width: 50),
                         ],
                       ),
-                      SizedBox(height: 20),
+                      SizedBox(height: 10),
                      Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
@@ -135,14 +135,14 @@ class SignUpPage extends StatelessWidget {
                                     "Have an Account?",
                                     style: TextStyle(
                                         color: Colors.green,
-                                        fontSize: 15,
+                                        fontSize: 20,
                                         fontWeight: FontWeight.bold),
                                   ),
                                   Text(
                                     "Log in!",
                                     style: TextStyle(
                                       color: Colors.black,
-                                      fontSize: 15,
+                                      fontSize: 20,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),

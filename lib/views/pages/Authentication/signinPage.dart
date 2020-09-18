@@ -28,7 +28,7 @@ class SignInPage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      SizedBox(height: 120),
+                      SizedBox(height: 20),
                       Text(
                         "Happy Kids!", //smile,cheka,upendo
                         style: TextStyle(
@@ -36,9 +36,9 @@ class SignInPage extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                             color: Colors.black),
                       ),
-                      SizedBox(height: 70),
+                      SizedBox(height: 30),
                       TextFormField(
-                        maxLength: 10,
+                       
                         validator: validateMobile,
                         style: TextStyle(color: Colors.black),
                         decoration: InputDecoration(
@@ -49,7 +49,7 @@ class SignInPage extends StatelessWidget {
                             )),
                         keyboardType: TextInputType.emailAddress,
                       ),
-                      SizedBox(height: 20),
+                      SizedBox(height: 5),
                       TextFormField(
                         validator: (value) {
                           if (value.isEmpty) {
@@ -86,13 +86,13 @@ class SignInPage extends StatelessWidget {
                                 color: Colors.deepOrangeAccent,
                                 onPressed: () {
                                   if (_formKey.currentState.validate()) {
-                                    Navigator.pushNamed(context, homePage);
+                                    Navigator.pushNamed(context, consentPage);
                                   } else {
                                     print("I am in deep trouble!");
                                   }
                                 },
-                                child: Text("Login"),
-                                textColor: Colors.white,
+                                child: Text("Login", style: TextStyle(color: Colors.white, fontSize: 20  ),),
+                                
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(20)),
                               ),
@@ -101,17 +101,8 @@ class SignInPage extends StatelessWidget {
                           SizedBox(width: 50),
                         ],
                       ),
-                      SizedBox(height: 20),
+                      SizedBox(height: 15),
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Text("or connect with",
-                              style:
-                                  TextStyle(fontSize: 13, color: Colors.black))
-                        ],
-                      ),
-                      SizedBox(height: 5),
-                    Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           FlatButton(
@@ -124,14 +115,14 @@ class SignInPage extends StatelessWidget {
                                     "New here?",
                                     style: TextStyle(
                                         color: Colors.green,
-                                        fontSize: 15,
+                                        fontSize: 20,
                                         fontWeight: FontWeight.bold),
                                   ),
                                   Text(
                                     "Sign up!",
                                     style: TextStyle(
                                       color: Colors.black,
-                                      fontSize: 15,
+                                      fontSize: 20,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
@@ -171,10 +162,10 @@ class WaveClipper1 extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     final path = Path();
-    path.lineTo(size.width /3, 0.0);
+    path.lineTo(size.width / 3, 0.0);
 
     path.cubicTo(1.5 * size.width / 3, size.height / 2, 2.5 * size.width / 3,
-        0.5* size.height / 3, size.width, size.height); // cubic curve
+        0.5 * size.height / 3, size.width, size.height); // cubic curve
     path.lineTo(size.width, 0); // vertical line
 
     path.close();

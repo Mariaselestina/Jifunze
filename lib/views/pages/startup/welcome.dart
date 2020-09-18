@@ -5,7 +5,7 @@ class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue,
+      backgroundColor: Colors.orangeAccent,
       body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -48,7 +48,7 @@ class WelcomePage extends StatelessWidget {
           ]),
       bottomNavigationBar: BottomAppBar(
         elevation: 0,
-        color: Colors.blue,
+        color: Colors.orangeAccent,
         child: Row(children: <Widget>[
           IconButton(
             icon: Icon(

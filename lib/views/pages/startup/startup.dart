@@ -8,7 +8,7 @@ class StartupPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).primaryColor,
+      backgroundColor: Colors.orangeAccent,
       body: Stack(
         children: <Widget>[
           ClipPath(
@@ -17,14 +17,15 @@ class StartupPage extends StatelessWidget {
               width: double.infinity,
               height: double.infinity,
               decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                      colors: [Colors.white, Theme.of(context).accentColor])),
+                color: Colors.greenAccent),
+                  //gradient: LinearGradient(
+                      //colors: [Colors.white, Theme.of(context).primaryColor])),
               child: Center(
                   child: Padding(
                 padding: const EdgeInsets.only(top: 50),
                 child: Text(
                   'Get a parent to unlock the app',
-                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold,color: Colors.blueGrey),
                 ),
               )),
             ),
@@ -47,7 +48,7 @@ class StartupPage extends StatelessWidget {
                       onPressed: () {
                         Navigator.pushNamed(context, kidPage);
                       },
-                      color: Colors.deepOrangeAccent,
+                      color: Colors.green,
                       child: Text(
                         "I'AM A KID",
                         style: TextStyle(
@@ -68,9 +69,9 @@ class StartupPage extends StatelessWidget {
                           borderRadius: BorderRadius.circular(10.0),
                           side: BorderSide(color: Colors.red)),
                       onPressed: () {
-                         Navigator.pushNamed(context, welcomePage);
+                        Navigator.pushNamed(context, welcomePage);
                       },
-                      color: Colors.deepOrangeAccent,
+                      color: Colors.green,
                       child: Text(
                         "I'AM A PARENT",
                         style: TextStyle(
