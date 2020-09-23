@@ -13,7 +13,7 @@ class LevelCard extends StatelessWidget {
           child: Stack(children: [
         Container(
           decoration: BoxDecoration(
-              color: Colors.red,
+       
               image: DecorationImage(
                   fit: BoxFit.fill, image: AssetImage(level.cover))),
           height: 150,
