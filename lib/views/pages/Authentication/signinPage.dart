@@ -86,7 +86,7 @@ class SignInPage extends StatelessWidget {
                                 color: Colors.deepOrangeAccent,
                                 onPressed: () {
                                   if (_formKey.currentState.validate()) {
-                                    Navigator.pushNamed(context, consentPage);
+                                    Navigator.pushNamed(context, levelsPage);
                                   } else {
                                     print("I am in deep trouble!");
                                   }

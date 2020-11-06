@@ -46,11 +46,12 @@ class StartupPage extends StatelessWidget {
                           borderRadius: BorderRadius.circular(10.0),
                           side: BorderSide(color: Colors.red)),
                       onPressed: () {
-                        Navigator.pushNamed(context, kidPage);
+                          Navigator.pushNamed(context, levelsPage);
+                        //Navigator.pushNamed(context, kidPage);
                       },
                       color: Colors.green,
                       child: Text(
-                        "I'AM A KID",
+                        "CHILD",
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: tSize,
@@ -69,11 +70,11 @@ class StartupPage extends StatelessWidget {
                           borderRadius: BorderRadius.circular(10.0),
                           side: BorderSide(color: Colors.red)),
                       onPressed: () {
-                        Navigator.pushNamed(context, welcomePage);
+                        Navigator.pushNamed(context, authenticationPage);
                       },
                       color: Colors.green,
                       child: Text(
-                        "I'AM A PARENT",
+                        "PARENT",
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: tSize,

@@ -4,11 +4,24 @@ import 'package:jifunze/views/pages/Authentication/authenticationPage.dart';
 import 'package:jifunze/views/pages/Authentication/signUpPage.dart';
 import 'package:jifunze/views/pages/Authentication/signinPage.dart';
 import 'package:jifunze/views/pages/FamilyTree.dart';
-import 'package:jifunze/views/pages/Game/game_world.dart';
-import 'package:jifunze/views/pages/LevelsPage.dart';
+
+import 'package:jifunze/views/pages/Game/level1/bodyPartsA.dart';
+import 'package:jifunze/views/pages/Game/level1/bodyPartsB.dart';
+
+import 'package:jifunze/views/pages/Game/level1/bodyPartsC.dart';
+import 'package:jifunze/views/pages/Game/level1/bodyPartsCC.dart';
+
+import 'package:jifunze/views/pages/Game/level3/environmentC.dart';
+
+import 'package:jifunze/views/pages/Game/level2/presentsA.dart';
+
 import 'package:jifunze/views/pages/homePage.dart';
 import 'package:jifunze/views/pages/startup/consentPage.dart';
-import 'package:jifunze/views/pages/startup/kid.dart';
+import 'package:jifunze/views/pages/startup/environmentLevelsPage.dart';
+import 'package:jifunze/views/pages/startup/levelsPage.dart';
+import 'package:jifunze/views/pages/startup/bodyPartsLevelsPage.dart';
+import 'package:jifunze/views/pages/startup/presentsLevelsPage.dart';
+
 import 'package:jifunze/views/pages/startup/startup.dart';
 import 'package:jifunze/views/pages/startup/welcome.dart';
 
@@ -24,18 +37,26 @@ class App extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: GameWorld(),
+      home: LevelsPage(),
       routes: {
         signUpPage: (_) => SignUpPage(),
         signInPage: (_) => SignInPage(),
         homePage: (_) => HomePage(),
         authenticationPage: (_) => AuthenticationPage(),
-        kidPage: (_) => KidPage(),
         welcomePage: (_) => WelcomePage(),
         consentPage: (_) => ConsentPage(),
         startupPage: (_) => StartupPage(),
         familyTree: (_) => FamilyTree(),
         levelsPage: (_) => LevelsPage(),
+        bodyPartsLevelsPage: (_) => BodyPartsLevelsPage(),
+        presentsLevelsPage: (_) => PresentsLevelsPage(),
+        environmentLevelsPage: (_) => EnvironmentLevelsPage(),
+        bodyPartsA: (_) => BodyPartsA(),
+        bodyPartsB: (_) => BodyPartsB(),
+        bodyPartsC: (_) => BodyPartsC(),
+        bodyPartsCC: (_) => BodyPartsCC(),
+        presentsA: (_) => PresentsA(),
+        environmentC: (_) => EnvironmentC(),
       },
     );
   }

@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:jifunze/constants/routes.dart';
 
 class WelcomePage extends StatelessWidget {
+  final double kHeight = 50.0;
+  final double kWeight = 150.0;
+  final double tSize = 15.0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.orangeAccent,
+      backgroundColor: Colors.red,
       body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -17,7 +20,7 @@ class WelcomePage extends StatelessWidget {
                 color: Colors.grey,
               ),
             ),
-               Row(
+            Row(
               children: <Widget>[
                 Expanded(
                   child: Text(
@@ -48,16 +51,27 @@ class WelcomePage extends StatelessWidget {
           ]),
       bottomNavigationBar: BottomAppBar(
         elevation: 0,
-        color: Colors.orangeAccent,
+        color: Colors.red,
         child: Row(children: <Widget>[
-          IconButton(
-            icon: Icon(
-              Icons.arrow_back_ios,
-              color: Colors.white,
+          Container(
+            width: kWeight,
+            height: kHeight,
+            child: RaisedButton(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                  side: BorderSide(color: Colors.red)),
+              onPressed: () {
+                Navigator.pushNamed(context, levelsPage);
+              },
+              color: Colors.red,
+              child: Text(
+                "SKIP",
+                style: TextStyle(
+                  color: Colors.yellowAccent,
+                  fontSize: tSize,
+                ),
+              ),
             ),
-            onPressed: () {
-              Navigator.pop(context);
-            },
           ),
           Spacer(),
           IconButton(
@@ -66,7 +80,7 @@ class WelcomePage extends StatelessWidget {
               color: Colors.white,
             ),
             onPressed: () {
-              Navigator.pushNamed(context, authenticationPage);
+              Navigator.pushNamed(context, consentPage);
             },
           )
         ]),

@@ -2,20 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:jifunze/model/item.dart';
 import 'package:jifunze/views/components/cards/item_card.dart';
 
-class GameWorld extends StatefulWidget {
+class EnvironmentC extends StatefulWidget {
   @override
-  _GameWorldState createState() => _GameWorldState();
+  _EnvironmentCState createState() => _EnvironmentCState();
 }
 
-class _GameWorldState extends State<GameWorld> {
-  int _currentStage = 1;
-
-  _selectStage(int stage) {
-    setState(() {
-      _currentStage = stage;
-    });
-  }
-
+class _EnvironmentCState extends State<EnvironmentC> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -94,13 +86,11 @@ class _GameWorldState extends State<GameWorld> {
                       SizedBox(
                         width: 5,
                       ),
-                      Expanded(
-                          child: Container(height: 4, color: Colors.grey)),
+                      Expanded(child: Container(height: 4, color: Colors.grey)),
                       SizedBox(
                         width: 5,
                       ),
-                      Expanded(
-                          child: Container(height: 4, color: Colors.grey))
+                      Expanded(child: Container(height: 4, color: Colors.grey))
                     ],
                   ),
                 ],

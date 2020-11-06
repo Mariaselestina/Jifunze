@@ -6,7 +6,7 @@ class ConsentPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       
-      backgroundColor: Colors.orangeAccent,
+      backgroundColor: Colors.red,
       body: SingleChildScrollView(
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -54,7 +54,7 @@ class ConsentPage extends StatelessWidget {
       ),
       bottomNavigationBar: BottomAppBar(
         elevation: 0,
-        color: Colors.orangeAccent,
+        color: Colors.red,
         child: Row(children: <Widget>[
           IconButton(
             icon: Icon(
@@ -72,7 +72,7 @@ class ConsentPage extends StatelessWidget {
               color: Colors.white,
             ),
             onPressed: () {
-              Navigator.pushNamed(context, homePage);
+              Navigator.pushNamed(context, startupPage);
             },
           ),
         ]),

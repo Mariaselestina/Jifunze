@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:jifunze/constants/routes.dart';
+
 import 'package:jifunze/model/level.dart';
 import 'package:jifunze/views/components/cards/level_card.dart';
 
-class LevelsPage extends StatelessWidget {
+class OriginalLevelsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -12,7 +14,6 @@ class LevelsPage extends StatelessWidget {
             padding: const EdgeInsets.all(20.0),
             child: Row(
               children: <Widget>[
-                 
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.only(top: 20),
@@ -23,12 +24,10 @@ class LevelsPage extends StatelessWidget {
                             (index) => LevelCard(
                                   level: levelOneList[index],
                                   onPressed: () {
+                                    Navigator.pushNamed(context, bodyPartsA);
                                     print(levelOneList[index].id);
                                   },
-                                ))
-                                ),
-
-                            
+                                ))),
                   ),
                 ),
                 Expanded(
@@ -45,7 +44,6 @@ class LevelsPage extends StatelessWidget {
                               fontSize: 25,
                               fontWeight: FontWeight.bold),
                         ),
-                        
                         SizedBox(height: 40),
                       ]),
                 ),
