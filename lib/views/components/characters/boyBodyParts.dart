@@ -1,5 +1,4 @@
-
-import 'package:audioplayer/audioplayer.dart';
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -9,7 +8,7 @@ class Boy extends StatefulWidget {
 }
 
 class _BoyState extends State<Boy> {
-  AudioPlayer audioPlayer = AudioPlayer();
+  AudioPlayer audioPlayer = AudioPlayer(mode: PlayerMode.LOW_LATENCY);
 
   @override
   Widget build(BuildContext context) {
@@ -24,32 +23,31 @@ class _BoyState extends State<Boy> {
               fit: BoxFit.fill,
             ),
           ),
-          
           Positioned(
               bottom: 260,
               left: MediaQuery.of(context).size.width / 2.2,
               child: InkWell(
                   onTap: () {
-                     playLocal();
+                    playLocal();
                     print('no no no');
                   },
-                  child: Container(height: 10, width: 24))),
-          Positioned(
-              bottom: 120,
-              left: MediaQuery.of(context).size.width / 2.4,
+                  child: Container(height: 10, width: 24, color: Colors.black,))),
+            Positioned(
+              bottom: 123,
+              left: MediaQuery.of(context).size.width / 2.3,
               child: InkWell(
                   onTap: () {
-                     playLocal();
+                    playLocal();
                     print('no no no');
                   },
-                  child: Container(height: 43, width: 80))),
-        ],
+                  child: Container(height: 55, width: 80, color: Colors.red,)),
+             ) ],
       ),
     );
   }
 
-   playLocal() async {
-      audioPlayer.play('assets/audio/applauses/no.mp3', isLocal: true);
+  playLocal() async {
+    await audioPlayer.play('assets/audio/crdb_bank.wav', isLocal: true);
     //return(result);
   }
 }

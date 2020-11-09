@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import 'package:jifunze/constants/routes.dart';
-import 'package:jifunze/views/components/characters/boy.dart';
-import 'package:jifunze/views/components/characters/girl.dart';
+import 'package:jifunze/views/components/characters/boyBodyParts.dart';
+import 'package:jifunze/views/components/characters/girlBodyParts.dart';
 
 class BodyPartsA extends StatefulWidget {
   @override

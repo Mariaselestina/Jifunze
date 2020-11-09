@@ -1,18 +1,58 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:jifunze/views/components/characters/boyClothes.dart';
+import 'package:jifunze/views/components/characters/girlClothes.dart';
 
-class BodyPartsB extends StatelessWidget {
+class BodyPartsB extends StatefulWidget {
+  @override
+  _BodyPartsBState createState() => _BodyPartsBState();
+}
+
+class _BodyPartsBState extends State<BodyPartsB> {
+   bool _isBoyClothes = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
-        child: SvgPicture.asset( 
-          'assets/images/environment/env_oneb.svg', width: 200, height: 100,
-          fit: BoxFit.fill,
-        ),
+      body: Stack(
+        children: [          
+          _isBoyClothes ? BoyClothes() : GirlClothes(),
+          Row(children: [
+            InkWell(
+              onTap: () {
+               
+                setState(() {
+                  _isBoyClothes = false;
+                });
+              },
+              child: Container(
+                height: 60,
+                width: 90,
+              child: SvgPicture.asset(
+              'assets/images/characters/girl.svg',
+              fit: BoxFit.fill,
+            ),
+              ),
+            ),
+            InkWell(
+              onTap: () {
+              
+                setState(() {
+                  _isBoyClothes = true;
+                });
+              },
+              child: Container(
+                height: 50,
+                width: 70,
+              child: SvgPicture.asset(
+              'assets/images/characters/boy.svg',
+              fit: BoxFit.fill,
+            ),
+              ),
+            ),
+          ]),
+         
+        ],
       ),
       
     );
