@@ -1,4 +1,4 @@
-import 'package:audioplayer/audioplayer.dart';
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -8,7 +8,7 @@ class Girl extends StatefulWidget {
 }
 
 class _GirlState extends State<Girl> {
-  AudioPlayer audioPlayer = AudioPlayer();
+  AudioPlayer audioPlayer = AudioPlayer(mode: PlayerMode.LOW_LATENCY);
   bool _isPlaying = false;
 
   @override
@@ -62,20 +62,18 @@ class _GirlState extends State<Girl> {
     );
   }
 
-
   playLocal() async {
-    int result =0;
+    int result = 0;
     setState(() {
       _isPlaying = !_isPlaying;
     });
-    if(!_isPlaying){
-    
-     audioPlayer.play('assets/audio/applauses', isLocal: true);
+    if (!_isPlaying) {
+      print('posss');
+      audioPlayer.play('assets/audio/crdb_bank.wav', isLocal: true);
     }
-    if(_isPlaying){
+    if (_isPlaying) {
       audioPlayer.stop();
     }
-
 
     print('---------------------------------------');
     print(result);
