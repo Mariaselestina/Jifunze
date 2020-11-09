@@ -49,7 +49,7 @@ class _BoyState extends State<Boy> {
   }
 
    playLocal() async {
-      audioPlayer.play('assets/audio/applauses', isLocal: true);
+      audioPlayer.play('assets/audio/applauses/no.mp3', isLocal: true);
     //return(result);
   }
 }

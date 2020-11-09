@@ -70,7 +70,7 @@ class _GirlState extends State<Girl> {
     });
     if(!_isPlaying){
     
-     audioPlayer.play('assets/audio/applauses', isLocal: true);
+     audioPlayer.play('assets/audio/applauses/no.mp3', isLocal: true);
     }
     if(_isPlaying){
       audioPlayer.stop();
