@@ -27,36 +27,37 @@ class _GirlClothesState extends State<GirlClothes> {
             ),
           ),
           Positioned(
-              bottom: 254,
-              left: MediaQuery.of(context).size.width / 2.1,
+              top:MediaQuery.of(context).size.height / 3.3,
+              left: MediaQuery.of(context).size.width / 3.3,
               child: InkWell(
                   onTap: () {
                     playLocal();
                     print('no no no');
                   },
                   child: Container(
-                    height: 12,
+                    height: 15,
                     width: 25,
                     color: Colors.black,
                   ))),
+                   Positioned(
+           bottom: MediaQuery.of(context).size.width / 3,
+              left: MediaQuery.of(context).size.width / 3.7,
+              child: InkWell(
+                  onTap: () {
+                    playLocal();
+                    print('no no no');
+                  },
+                  child: Container(height: 40, width: 70, color: Colors.blue))),
           Positioned(
-              bottom: 190,
-              left: MediaQuery.of(context).size.width / 2.3,
+              bottom: MediaQuery.of(context).size.width / 4.7,
+              left: MediaQuery.of(context).size.width / 3.7,
               child: InkWell(
                   onTap: () {
                     playLocal();
                     print('no no no');
                   },
                   child: Container(height: 50, width: 75, color: Colors.red))),
-          Positioned(
-              bottom: 123,
-              left: MediaQuery.of(context).size.width / 2.3,
-              child: InkWell(
-                  onTap: () {
-                    playLocal();
-                    print('no no no');
-                  },
-                  child: Container(height: 55, width: 80))),
+         
         ],
       ),
     );

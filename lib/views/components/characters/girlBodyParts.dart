@@ -21,43 +21,42 @@ class _GirlState extends State<Girl> {
             width: MediaQuery.of(context).size.width,
             child: SvgPicture.asset(
               'assets/images/characters/girlnaked.svg',
-              width: 200,
-              height: 100,
+            
               fit: BoxFit.fill,
             ),
           ),
           Positioned(
-              bottom: 254,
-              left: MediaQuery.of(context).size.width / 2.1,
+              top:MediaQuery.of(context).size.height / 2.89,
+              left: MediaQuery.of(context).size.width / 2.07,
               child: InkWell(
                   onTap: () {
                     playLocal();
                     print('no no no');
                   },
                   child: Container(
-                    height: 12,
-                    width: 25,
+                    height: 17,
+                    width: 27,
                     color: Colors.black,
                   ))),
+                   Positioned(
+           top: MediaQuery.of(context).size.height / 2.3,
+              left: MediaQuery.of(context).size.width / 2.2,
+              child: InkWell(
+                  onTap: () {
+                    playLocal();
+                    print('no no no');
+                  },
+                  child: Container(height: 40, width: 70, color: Colors.blue))),
           Positioned(
-              bottom: 190,
-              left: MediaQuery.of(context).size.width / 2.3,
+              bottom: MediaQuery.of(context).size.height / 3.5,
+              left: MediaQuery.of(context).size.width / 2.22,
               child: InkWell(
                   onTap: () {
                     playLocal();
                     print('no no no');
                   },
                   child: Container(height: 50, width: 75, color: Colors.red))),
-          Positioned(
-              bottom: 123,
-              left: MediaQuery.of(context).size.width / 2.3,
-              child: InkWell(
-                  onTap: () {
-                    playLocal();
-                    print('no no no');
-                  },
-                  child: Container(height: 55, width: 80))),
-        ],
+          ],
       ),
     );
   }

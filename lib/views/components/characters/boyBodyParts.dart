@@ -24,24 +24,28 @@ class _BoyState extends State<Boy> {
             ),
           ),
           Positioned(
-              bottom: 260,
-              left: MediaQuery.of(context).size.width / 2.2,
+              top: MediaQuery.of(context).size.height / 3,
+              left: MediaQuery.of(context).size.width / 2.21,
               child: InkWell(
                   onTap: () {
                     playLocal();
                     print('no no no');
                   },
-                  child: Container(height: 10, width: 24, color: Colors.black,))),
-            Positioned(
-              bottom: 123,
-              left: MediaQuery.of(context).size.width / 2.3,
+                  child: Container(
+                    height: 17,
+                    width: 27,
+                    color: Colors.black,
+                  ))),
+          Positioned(
+              bottom: MediaQuery.of(context).size.height / 3.3,
+              left: MediaQuery.of(context).size.width / 2.4,
               child: InkWell(
                   onTap: () {
                     playLocal();
                     print('no no no');
                   },
-                  child: Container(height: 55, width: 80, color: Colors.red,)),
-             ) ],
+                  child: Container(height: 50, width: 75, color: Colors.red))),
+        ],
       ),
     );
   }
