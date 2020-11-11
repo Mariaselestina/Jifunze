@@ -10,7 +10,7 @@ class BoyClothes extends StatefulWidget {
 class _BoyClothesState extends State<BoyClothes> {
   AudioPlayer audioPlayer = AudioPlayer(mode: PlayerMode.LOW_LATENCY);
   final double _shirtSize = 100;
-  final double _shortSize = 100;
+
   bool shirtaAccepted = false;
   bool shortaAccepted = false;
   @override
@@ -27,10 +27,8 @@ class _BoyClothesState extends State<BoyClothes> {
             ),
           ),
           Positioned(
-
-               top: MediaQuery.of(context).size.height / 2.9,
-                left: MediaQuery.of(context).size.width / 3.9,
-             
+              top: MediaQuery.of(context).size.height / 2.9,
+              left: MediaQuery.of(context).size.width / 3.9,
               child: DragTarget<String>(
                 onWillAccept: (value) => value == 'SHIRT',
                 onAccept: (value) {
@@ -49,13 +47,15 @@ class _BoyClothesState extends State<BoyClothes> {
                             fit: BoxFit.cover,
                           ),
                           height: 100,
-                          width: 95, color: Colors.pink,)
+                          width: 95,
+                          color: Colors.pink,
+                        )
                       : Container(height: 90, width: 90, color: Colors.black);
                 },
               )),
           Positioned(
-               top: MediaQuery.of(context).size.height / 1.8,
-                left: MediaQuery.of(context).size.width / 3.9,
+              top: MediaQuery.of(context).size.height / 1.8,
+              left: MediaQuery.of(context).size.width / 3.77,
               child: DragTarget<String>(
                 onWillAccept: (value) => value == 'SHORT',
                 onAccept: (value) {
@@ -70,15 +70,15 @@ class _BoyClothesState extends State<BoyClothes> {
                   return shortaAccepted
                       ? Container(
                           child: SvgPicture.asset(
-                            'assets/images/characters/short1.svg',
+                            'assets/images/characters/short.svg',
                             fit: BoxFit.cover,
                           ),
                           height: 80,
-                          width: 85,
+                          width: 75,
                           color: Colors.red)
                       : Container(
                           height: 80,
-                          width: 85,
+                          width: 75,
                           color: Colors.pink,
                         );
                 },
@@ -94,7 +94,8 @@ class _BoyClothesState extends State<BoyClothes> {
                         data: "SHIRT",
                         feedback: SvgPicture.asset(
                           'assets/images/characters/shirt1.svg',
-                          height: _shirtSize,fit: BoxFit.cover,
+                          height: _shirtSize,
+                          fit: BoxFit.cover,
                         ),
                         childWhenDragging: Container(
                           color: Colors.brown,
@@ -123,7 +124,8 @@ class _BoyClothesState extends State<BoyClothes> {
                                   color: Colors.white,
                                   child: SvgPicture.asset(
                                     'assets/images/characters/shirt1.svg',
-                                   height: _shirtSize, fit: BoxFit.cover,
+                                    height: _shirtSize,
+                                    fit: BoxFit.cover,
                                   ),
                                 ),
                               )),
@@ -133,8 +135,9 @@ class _BoyClothesState extends State<BoyClothes> {
                     child: Draggable<String>(
                         data: "SHORT",
                         feedback: SvgPicture.asset(
-                          'assets/images/characters/short1.svg',
-                          height: _shirtSize,fit: BoxFit.cover,
+                          'assets/images/characters/short.svg',
+                          height: _shirtSize,
+                          fit: BoxFit.cover,
                         ),
                         childWhenDragging: Container(
                           color: Colors.brown,
@@ -162,8 +165,9 @@ class _BoyClothesState extends State<BoyClothes> {
                                 child: Container(
                                   color: Colors.white,
                                   child: SvgPicture.asset(
-                                    'assets/images/characters/short1.svg',
-                                    fit: BoxFit.cover,height: _shirtSize,
+                                    'assets/images/characters/short.svg',
+                                    fit: BoxFit.cover,
+                                    height: _shirtSize,
                                   ),
                                 ),
                               )),

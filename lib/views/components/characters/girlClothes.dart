@@ -11,6 +11,10 @@ class _GirlClothesState extends State<GirlClothes> {
   AudioPlayer audioPlayer = AudioPlayer(mode: PlayerMode.LOW_LATENCY);
   bool _isPlaying = false;
 
+  final double _shirtSize = 100;
+
+  bool shirtaAccepted = false;
+  bool shortaAccepted = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,37 +31,153 @@ class _GirlClothesState extends State<GirlClothes> {
             ),
           ),
           Positioned(
-              top:MediaQuery.of(context).size.height / 3.3,
-              left: MediaQuery.of(context).size.width / 3.3,
-              child: InkWell(
-                  onTap: () {
-                    playLocal();
-                    print('no no no');
-                  },
-                  child: Container(
-                    height: 15,
-                    width: 25,
-                    color: Colors.black,
-                  ))),
-                   Positioned(
-           bottom: MediaQuery.of(context).size.width / 3,
-              left: MediaQuery.of(context).size.width / 3.7,
-              child: InkWell(
-                  onTap: () {
-                    playLocal();
-                    print('no no no');
-                  },
-                  child: Container(height: 40, width: 70, color: Colors.blue))),
+              top: MediaQuery.of(context).size.height / 2.9,
+              left: MediaQuery.of(context).size.width / 3.9,
+              child: DragTarget<String>(
+                onWillAccept: (value) => value == 'SHIRT',
+                onAccept: (value) {
+                  setState(() {
+                    shirtaAccepted = true;
+                  });
+                },
+                onLeave: (value) {
+                  //Alert the user their value ddint land
+                },
+                builder: (context, candidates, rejects) {
+                  return shirtaAccepted
+                      ? Container(
+                          child: SvgPicture.asset(
+                            'assets/images/characters/shirt2.svg',
+                            fit: BoxFit.cover,
+                          ),
+                          height: 100,
+                          width: 95,
+                          color: Colors.pink,
+                        )
+                      : Container(height: 90, width: 90, color: Colors.black);
+                },
+              )),
           Positioned(
-              bottom: MediaQuery.of(context).size.width / 4.7,
-              left: MediaQuery.of(context).size.width / 3.7,
-              child: InkWell(
-                  onTap: () {
-                    playLocal();
-                    print('no no no');
-                  },
-                  child: Container(height: 50, width: 75, color: Colors.red))),
-         
+              top: MediaQuery.of(context).size.height / 1.8,
+              left: MediaQuery.of(context).size.width / 3.77,
+              child: DragTarget<String>(
+                onWillAccept: (value) => value == 'SHORT',
+                onAccept: (value) {
+                  setState(() {
+                    shortaAccepted = true;
+                  });
+                },
+                onLeave: (value) {
+                  //Alert the user their value ddint land
+                },
+                builder: (context, candidates, rejects) {
+                  return shortaAccepted
+                      ? Container(
+                          child: SvgPicture.asset(
+                            'assets/images/characters/short2.svg',
+                            fit: BoxFit.cover,
+                          ),
+                          height: 80,
+                          width: 75,
+                          color: Colors.red)
+                      : Container(
+                          height: 80,
+                          width: 75,
+                          color: Colors.pink,
+                        );
+                },
+              )),
+          Positioned(
+              top: 10,
+              right: 10,
+              child: Column(
+                children: [
+                  Container(
+                    color: Colors.blue,
+                    child: Draggable<String>(
+                        data: "SHIRT",
+                        feedback: SvgPicture.asset(
+                          'assets/images/characters/shirt2.svg',
+                          height: _shirtSize,
+                          fit: BoxFit.cover,
+                        ),
+                        childWhenDragging: Container(
+                          color: Colors.brown,
+                          height: _shirtSize,
+                          child: Container(
+                            color: Colors.white,
+                            height: _shirtSize,
+                            width: _shirtSize,
+                          ),
+                        ),
+                        child: shirtaAccepted
+                            ? Container(
+                                color: Colors.brown,
+                                height: _shirtSize,
+                                child: Container(
+                                  color: Colors.white,
+                                  height: _shirtSize,
+                                  width: _shirtSize,
+                                ),
+                              )
+                            : Container(
+                                color: Colors.brown,
+                                height: _shirtSize,
+                                width: _shirtSize,
+                                child: Container(
+                                  color: Colors.white,
+                                  child: SvgPicture.asset(
+                                    'assets/images/characters/shirt2.svg',
+                                    height: _shirtSize,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              )),
+                  ),
+                  Container(
+                    color: Colors.blue,
+                    child: Draggable<String>(
+                        data: "SHORT",
+                        feedback: SvgPicture.asset(
+                          'assets/images/characters/short.svg',
+                          height: _shirtSize,
+                          fit: BoxFit.cover,
+                        ),
+                        childWhenDragging: Container(
+                          color: Colors.brown,
+                          height: _shirtSize,
+                          child: Container(
+                            color: Colors.white,
+                            height: _shirtSize,
+                            width: _shirtSize,
+                          ),
+                        ),
+                        child: shortaAccepted
+                            ? Container(
+                                color: Colors.brown,
+                                height: _shirtSize,
+                                child: Container(
+                                  color: Colors.white,
+                                  height: _shirtSize,
+                                  width: _shirtSize,
+                                ),
+                              )
+                            : Container(
+                                color: Colors.brown,
+                                height: _shirtSize,
+                                width: _shirtSize,
+                                child: Container(
+                                  color: Colors.white,
+                                  child: SvgPicture.asset(
+                                    'assets/images/characters/short.svg',
+                                    fit: BoxFit.cover,
+                                    height: _shirtSize,
+                                  ),
+                                ),
+                              )),
+                  ),
+                ],
+              )),
         ],
       ),
     );

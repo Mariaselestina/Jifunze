@@ -9,7 +9,6 @@ class Girl extends StatefulWidget {
 
 class _GirlState extends State<Girl> {
   AudioPlayer audioPlayer = AudioPlayer(mode: PlayerMode.LOW_LATENCY);
-  bool _isPlaying = false;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +30,7 @@ class _GirlState extends State<Girl> {
               child: InkWell(
                   onTap: () {
                     playLocal();
-                    print('no no no');
+                    
                   },
                   child: Container(
                     height: 17,
@@ -63,16 +62,8 @@ class _GirlState extends State<Girl> {
 
   playLocal() async {
     int result = 0;
-    setState(() {
-      _isPlaying = !_isPlaying;
-    });
-    if (!_isPlaying) {
-      print('posss');
-      audioPlayer.play('assets/audio/crdb_bank.wav', isLocal: true);
-    }
-    if (_isPlaying) {
-      audioPlayer.stop();
-    }
+     print('posss');
+     result =await audioPlayer.play("http://mobiad.qlicue.co.tz/storage/audios/ktIrQxNQrvIcAYPDs5MM9rNf08pfWZ3SJKf6QpMS.wav");
 
     print('---------------------------------------');
     print(result);
