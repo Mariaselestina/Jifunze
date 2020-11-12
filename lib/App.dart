@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jifunze/constants/routes.dart';
+
+
 import 'package:jifunze/views/pages/Authentication/authenticationPage.dart';
 import 'package:jifunze/views/pages/Authentication/signUpPage.dart';
 import 'package:jifunze/views/pages/Authentication/signinPage.dart';
@@ -10,7 +12,8 @@ import 'package:jifunze/views/pages/Game/level1/bodyPartsB.dart';
 
 import 'package:jifunze/views/pages/Game/level1/bodyPartsC.dart';
 import 'package:jifunze/views/pages/Game/level1/bodyPartsCC.dart';
-import 'package:jifunze/views/pages/Game/level2/PresentsB.dart';
+import 'package:jifunze/views/pages/Game/level2/presentsB.dart';
+import 'package:jifunze/views/pages/Game/level2/presentsC.dart';
 import 'package:jifunze/views/pages/Game/level3/environmentA.dart';
 
 import 'package:jifunze/views/pages/Game/level3/environmentC.dart';
@@ -39,7 +42,7 @@ class App extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: BodyPartsA(),
+      home: PresentsC(),
       routes: {
         signUpPage: (_) => SignUpPage(),
         signInPage: (_) => SignInPage(),
@@ -58,10 +61,10 @@ class App extends StatelessWidget {
         bodyPartsC: (_) => BodyPartsC(),
         bodyPartsCC: (_) => BodyPartsCC(),
         presentsA: (_) => PresentsA(),
-         presentsB: (_) => PresentsB(),
+        presentsB: (_) => PresentsB(),
+        presentsC: (_) => PresentsC(),
         environmentC: (_) => EnvironmentC(),
         environmentA: (_) => EnvironmentA(),
-
       },
     );
   }
