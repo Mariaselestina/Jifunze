@@ -11,38 +11,19 @@ class EnvironmentA extends StatelessWidget {
           Container(
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
-            child: SvgPicture.asset(
-              'assets/images/environment/envthreestreet.svg',
-              width: 200,
-              height: 100,
-              fit: BoxFit.fill,
-            ),
+            child: Image.asset('assets/images/environment/street1.jpg',
+                fit: BoxFit.fill),
           ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Stack(children: [
-              Row(
-                    children: [
-                      Expanded(child: Container(height: 4, color: Colors.blue)),
-                      SizedBox(
-                        width: 5,
-                      ),
-                      Expanded(child: Container(height: 4, color: Colors.grey)),
-                      SizedBox(
-                        width: 5,
-                      ),
-                      Expanded(child: Container(height: 4, color: Colors.grey)),
-                      SizedBox(
-                        width: 5,
-                      ),
-                      Expanded(child: Container(height: 4, color: Colors.grey))
-                    ],
-                  ),
-               
-              SizedBox(height:20),
-            ],),
+          Positioned(
+            bottom: MediaQuery.of(context).size.height / 1.3,
+            left: MediaQuery.of(context).size.width / 3,
+            child: SvgPicture.asset(
+              'assets/images/characters/girldressed.svg',
+              width: 40,
+              height: 90,
+              fit: BoxFit.cover,
+            ),
           )
-          
         ],
       ),
     );

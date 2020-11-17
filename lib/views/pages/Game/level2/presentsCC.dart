@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class PresentsC extends StatefulWidget {
+class PresentsCC extends StatefulWidget {
   @override
-  _PresentsCState createState() => _PresentsCState();
+  _PresentsCCState createState() => _PresentsCCState();
 }
 
-class _PresentsCState extends State<PresentsC> {
+class _PresentsCCState extends State<PresentsCC> {
   final double _shirtSize = 100;
 
   bool shadowstrangerAccepted = false;
-  bool tree1Accepted = false;
+  bool strangerAccepted = false;
   bool road1Accepted = false;
-  bool carAccepted = false;
+  bool treeAccepted = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +29,7 @@ class _PresentsCState extends State<PresentsC> {
               fit: BoxFit.fill,
             ),
           ),
- Positioned(
+          Positioned(
               top: MediaQuery.of(context).size.height / 2.5,
               left: MediaQuery.of(context).size.width / 8,
               child: DragTarget<String>(
@@ -63,25 +63,24 @@ class _PresentsCState extends State<PresentsC> {
                         );
                 },
               )),
-         
           Positioned(
               top: MediaQuery.of(context).size.height / 11,
               left: MediaQuery.of(context).size.width / 1.82,
               child: DragTarget<String>(
-                onWillAccept: (value) => value == 'TREE2',
+                onWillAccept: (value) => value == 'STRANGER',
                 onAccept: (value) {
                   setState(() {
-                    shadowstrangerAccepted = true;
+                    strangerAccepted = true;
                   });
                 },
                 onLeave: (value) {
                   //Alert the user their value ddint land
                 },
                 builder: (context, candidates, rejects) {
-                  return shadowstrangerAccepted
+                  return strangerAccepted
                       ? Container(
                           child: SvgPicture.asset(
-                            'assets/images/dragthings/tree.svg',
+                            'assets/images/dragthings/stranger.svg',
                             fit: BoxFit.fill,
                           ),
                           height: 150,
@@ -89,32 +88,33 @@ class _PresentsCState extends State<PresentsC> {
                           //color: Colors.blue,
                         )
                       : Container(
-                          height: 150, width: 120,
-                         child: SvgPicture.asset(
-                            'assets/images/dragthings/shadowtree.svg',
+                          height: 150,
+                          width: 120,
+                          child: SvgPicture.asset(
+                            'assets/images/dragthings/shadowstranger.svg',
                             fit: BoxFit.fill,
                           ),
                         );
                 },
               )),
           Positioned(
-              top: MediaQuery.of(context).size.height / 6,
+              top: MediaQuery.of(context).size.height / 11.5,
               left: MediaQuery.of(context).size.width / 4.6,
               child: DragTarget<String>(
-                onWillAccept: (value) => value == 'CAR',
+                onWillAccept: (value) => value == 'TREE',
                 onAccept: (value) {
                   setState(() {
-                    carAccepted = true;
+                    treeAccepted = true;
                   });
                 },
                 onLeave: (value) {
                   //Alert the user their value ddint land
                 },
                 builder: (context, candidates, rejects) {
-                  return carAccepted
+                  return treeAccepted
                       ? Container(
                           child: SvgPicture.asset(
-                            'assets/images/dragthings/car.svg',
+                            'assets/images/dragthings/tree.svg',
                             fit: BoxFit.fill,
                           ),
                           height: 150,
@@ -125,7 +125,7 @@ class _PresentsCState extends State<PresentsC> {
                           height: 150,
                           width: 170,
                           child: SvgPicture.asset(
-                            'assets/images/dragthings/shadowcar.svg',
+                            'assets/images/dragthings/shadowtree.svg',
                             fit: BoxFit.fill,
                           ),
                         );
@@ -139,9 +139,9 @@ class _PresentsCState extends State<PresentsC> {
                   Container(
                     //color: Colors.blue,
                     child: Draggable<String>(
-                        data: "TREE2",
+                        data: "STRANGER",
                         feedback: SvgPicture.asset(
-                          'assets/images/dragthings/tree.svg',
+                          'assets/images/dragthings/stranger.svg',
                           height: _shirtSize,
                           fit: BoxFit.fill,
                         ),
@@ -154,7 +154,7 @@ class _PresentsCState extends State<PresentsC> {
                             width: _shirtSize,
                           ),
                         ),
-                        child: shadowstrangerAccepted
+                        child: strangerAccepted
                             ? Container(
                                 //color: Colors.brown,
                                 height: _shirtSize,
@@ -171,9 +171,9 @@ class _PresentsCState extends State<PresentsC> {
                                 child: Container(
                                   //color: Colors.white,
                                   child: SvgPicture.asset(
-                                    'assets/images/dragthings/tree.svg',
+                                    'assets/images/dragthings/stranger.svg',
                                     height: _shirtSize,
-                                    fit: BoxFit.cover,
+                                    fit: BoxFit.fill,
                                   ),
                                 ),
                               )),
@@ -221,49 +221,46 @@ class _PresentsCState extends State<PresentsC> {
                                 ),
                               )),
                   ),
-                    Container(
-                      //color: Colors.blue,
-                      child: Draggable<String>(
-                          data: "CAR",
-                          feedback: SvgPicture.asset(
-                           'assets/images/dragthings/car.svg',
+                  Container(
+                    //color: Colors.blue,
+                    child: Draggable<String>(
+                        data: "TREE",
+                        feedback: SvgPicture.asset(
+                          'assets/images/dragthings/tree.svg',
+                          height: _shirtSize,
+                          fit: BoxFit.fill,
+                        ),
+                        childWhenDragging: Container(
+                          //color: Colors.brown,
+                          height: _shirtSize,
+                          child: Container(
+                            //color: Colors.white,
                             height: _shirtSize,
-                            width: 170,
-                            fit: BoxFit.fill,
                           ),
-                          childWhenDragging: Container(
-                            //color: Colors.brown,
-                            height: _shirtSize,
-                            child: Container(
-                              //color: Colors.white,
-                              height: _shirtSize,
-                              width: 200,
-                            ),
-                          ),
-                          child: carAccepted
-                              ? Container(
-                                  //color: Colors.brown,
+                        ),
+                        child: treeAccepted
+                            ? Container(
+                                //color: Colors.brown,
+                                height: _shirtSize,
+                                child: Container(
+                                  //color: Colors.white,
                                   height: _shirtSize,
-                                  child: Container(
-                                    //color: Colors.white,
+                                ),
+                              )
+                            : Container(
+                                //color: Colors.brown,
+                                height: _shirtSize,
+
+                                child: Container(
+                                  //color: Colors.white,
+                                  child: SvgPicture.asset(
+                                    'assets/images/dragthings/tree.svg',
+                                    fit: BoxFit.fill,
                                     height: _shirtSize,
-                                    width: 170,
                                   ),
-                                )
-                              : Container(
-                                  //color: Colors.brown,
-                                  height: _shirtSize,
-                                  width: 200,
-                                  child: Container(
-                                    //color: Colors.white,
-                                    child: SvgPicture.asset(
-                                      'assets/images/dragthings/car.svg',
-                                      fit: BoxFit.fill,
-                                      height: _shirtSize,
-                                    ),
-                                  ),
-                                )),
-                    ),
+                                ),
+                              )),
+                  ),
                 ],
               )),
         ],

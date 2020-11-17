@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class PresentsC extends StatefulWidget {
+class PresentsCCC extends StatefulWidget {
   @override
-  _PresentsCState createState() => _PresentsCState();
+  _PresentsCCCState createState() => _PresentsCCCState();
 }
 
-class _PresentsCState extends State<PresentsC> {
+class _PresentsCCCState extends State<PresentsCCC> {
   final double _shirtSize = 100;
 
   bool shadowstrangerAccepted = false;
@@ -114,18 +114,18 @@ class _PresentsCState extends State<PresentsC> {
                   return carAccepted
                       ? Container(
                           child: SvgPicture.asset(
-                            'assets/images/dragthings/car.svg',
+                            'assets/images/dragthings/icecreamkart.svg',
                             fit: BoxFit.fill,
                           ),
                           height: 150,
-                          width: 170,
+                          width: 140,
                           //color: Colors.black,
                         )
                       : Container(
                           height: 150,
-                          width: 170,
+                          width: 140,
                           child: SvgPicture.asset(
-                            'assets/images/dragthings/shadowcar.svg',
+                            'assets/images/dragthings/shadowicecreamkart.svg',
                             fit: BoxFit.fill,
                           ),
                         );
@@ -226,9 +226,9 @@ class _PresentsCState extends State<PresentsC> {
                       child: Draggable<String>(
                           data: "CAR",
                           feedback: SvgPicture.asset(
-                           'assets/images/dragthings/car.svg',
+                           'assets/images/dragthings/icecreamkart.svg',
                             height: _shirtSize,
-                            width: 170,
+                            width: 140,
                             fit: BoxFit.fill,
                           ),
                           childWhenDragging: Container(
@@ -237,7 +237,7 @@ class _PresentsCState extends State<PresentsC> {
                             child: Container(
                               //color: Colors.white,
                               height: _shirtSize,
-                              width: 200,
+                              width: 140,
                             ),
                           ),
                           child: carAccepted
@@ -247,17 +247,17 @@ class _PresentsCState extends State<PresentsC> {
                                   child: Container(
                                     //color: Colors.white,
                                     height: _shirtSize,
-                                    width: 170,
+                                    width: 140,
                                   ),
                                 )
                               : Container(
                                   //color: Colors.brown,
                                   height: _shirtSize,
-                                  width: 200,
+                                  width: 140,
                                   child: Container(
                                     //color: Colors.white,
                                     child: SvgPicture.asset(
-                                      'assets/images/dragthings/car.svg',
+                                      'assets/images/dragthings/icecreamkart.svg',
                                       fit: BoxFit.fill,
                                       height: _shirtSize,
                                     ),
