@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 
-class EnvironmentAA extends StatelessWidget {
+class EnvironmentB extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -10,7 +10,7 @@ class EnvironmentAA extends StatelessWidget {
           Container(
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
-            child: Image.asset('assets/images/environment/street1.jpg',
+            child: Image.asset('assets/images/environment/interior.jpg',
                 fit: BoxFit.fill),
           ),
            Positioned(

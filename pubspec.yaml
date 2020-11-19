@@ -34,6 +34,9 @@ dependencies:
   http: ^0.12.2
   provider: ^4.3.2+2
   flip_card: ^0.4.4
+  flutter_sequence_animation: ^3.0.0
+  assets_audio_player: ^2.0.13+1
+
    
 
 

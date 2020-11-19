@@ -18,6 +18,9 @@ import 'package:jifunze/views/pages/Game/level2/presentsCCC.dart';
 import 'package:jifunze/views/pages/Game/level3/environmentA.dart';
 import 'package:jifunze/views/pages/Game/level3/environmentAA.dart';
 import 'package:jifunze/views/pages/Game/level3/environmentAAA.dart';
+import 'package:jifunze/views/pages/Game/level3/environmentB.dart';
+import 'package:jifunze/views/pages/Game/level3/environmentBB.dart';
+import 'package:jifunze/views/pages/Game/level3/environmentBBB.dart';
 
 import 'package:jifunze/views/pages/Game/level3/environmentC.dart';
 
@@ -45,7 +48,7 @@ class App extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: EnvironmentAA(),
+      home: BodyPartsA(),
       routes: {
         signUpPage: (_) => SignUpPage(),
         signInPage: (_) => SignInPage(),
@@ -71,6 +74,9 @@ class App extends StatelessWidget {
         environmentA: (_) => EnvironmentA(),
         environmentAA: (_) => EnvironmentAA(),
         environmentAAA: (_) => EnvironmentAAA(),
+        environmentB: (_) => EnvironmentB(),
+        environmentBB: (_) => EnvironmentBB(),
+        environmentBBB: (_) => EnvironmentBBB(),
         environmentC: (_) => EnvironmentC(),
         
       },

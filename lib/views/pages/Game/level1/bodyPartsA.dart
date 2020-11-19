@@ -88,6 +88,7 @@ class _BodyPartsAState extends State<BodyPartsA> {
                       ),
                     ),
                   ),
+                  
                   Spacer(),
                   Container(
                     height: 40,

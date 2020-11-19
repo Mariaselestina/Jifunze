@@ -1,3 +1,5 @@
+
+
 const authenticationPage = "/authenticationPage";
 const signUpPage = "/signUpPage";
 const signInPage = "/signInPage";
@@ -26,5 +28,8 @@ const presentsCCC = "/presentsCCC";
 const environmentA = "/environmentA";
 const environmentAA = "/environmentAA";
 const environmentAAA = "/environmentAAA";
+const environmentB = "/environmentB";
+const environmentBB = "/environmentBB";
+const environmentBBB = "/environmentBBB";
 const environmentC = "/environmentC";
 const test = "/test";
