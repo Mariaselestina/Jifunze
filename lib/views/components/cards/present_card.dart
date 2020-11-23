@@ -10,9 +10,9 @@ class PresentCard extends StatelessWidget {
       children: [
         GridView.count(
           primary: false,
-          padding: const EdgeInsets.all(40),
-          crossAxisSpacing: 20,
-          mainAxisSpacing: 20,
+          padding: const EdgeInsets.all(30),
+          crossAxisSpacing: 15,
+          mainAxisSpacing: 15,
           crossAxisCount: 3,
           children: <Widget>[
             FlipCard(
@@ -105,8 +105,10 @@ class PresentCard extends StatelessWidget {
                 ),
               ),
             ),
+        
           ],
         )
+           
       ],
     ));
   }

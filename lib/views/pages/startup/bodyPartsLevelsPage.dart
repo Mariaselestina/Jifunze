@@ -20,29 +20,29 @@ class BodyPartsLevelsPage extends StatelessWidget {
           ),
         ),
         Positioned(
-              bottom: 260,
-              left: MediaQuery.of(context).size.width / 4.3,
+              bottom: 280,
+              left: MediaQuery.of(context).size.width / 6,
               child: InkWell(
                   onTap: () {
                   Navigator.pushNamed(context, bodyPartsA);
                   },
-                  child: Container(height: 65, width: 200))),
+                  child: Container(height: 80, width: 130, ))),
           Positioned(
               bottom: 183,
-              left: MediaQuery.of(context).size.width / 2.6,
+              left: MediaQuery.of(context).size.width / 2.8,
               child: InkWell(
                   onTap: () {
                Navigator.pushNamed(context, bodyPartsB);
                   },
-                  child: Container(height: 65, width: 200 ))),
+                  child: Container(height: 80, width: 130,))),
           Positioned(
-              bottom: 105,
-              left: MediaQuery.of(context).size.width / 1.8,
+              bottom: 120,
+              left: MediaQuery.of(context).size.width / 1.7,
               child: InkWell(
                   onTap: () {
                   Navigator.pushNamed(context, bodyPartsC);
                   },
-                  child: Container(height: 65, width: 200))),
+                  child: Container(height: 80, width: 130,))),
      
       ],
     ));

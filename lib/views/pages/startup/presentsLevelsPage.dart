@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:jifunze/constants/routes.dart';
+
 
 class PresentsLevelsPage extends StatelessWidget {
   @override
@@ -19,29 +21,29 @@ class PresentsLevelsPage extends StatelessWidget {
           ),
         ),
      Positioned(
-              bottom: 260,
-              left: MediaQuery.of(context).size.width / 4.3,
-              child: InkWell(
+               bottom: 280,
+              left: MediaQuery.of(context).size.width / 6,
+             child: InkWell(
                   onTap: () {
-                 // Navigator.pushNamed(context, bodyPartsA);
+                 Navigator.pushNamed(context, presentCard);
                   },
-                  child: Container(height: 65, width: 200, color: Colors.black))),
+                  child: Container(height: 80, width: 130, ))),
           Positioned(
               bottom: 183,
-              left: MediaQuery.of(context).size.width / 2.6,
-              child: InkWell(
+              left: MediaQuery.of(context).size.width / 2.8,
+               child: InkWell(
                   onTap: () {
-              // Navigator.pushNamed(context, bodyPartsB);
+              Navigator.pushNamed(context, presentsB);
                   },
-                  child: Container(height: 65, width: 200, color: Colors.red))),
+                  child: Container(height: 80, width: 130,))),
           Positioned(
-              bottom: 105,
-              left: MediaQuery.of(context).size.width / 1.8,
+              bottom: 120,
+              left: MediaQuery.of(context).size.width / 1.7,
               child: InkWell(
                   onTap: () {
-                 // Navigator.pushNamed(context, bodyPartsC);
+                 Navigator.pushNamed(context, presentsC);
                   },
-                  child: Container(height: 65, width: 200, color: Colors.blue))),
+                  child: Container(height: 80, width: 130, ))),
       ],
     )
       

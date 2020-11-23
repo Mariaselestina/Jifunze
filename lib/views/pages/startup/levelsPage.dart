@@ -25,15 +25,15 @@ class LevelsPage extends StatelessWidget {
                   onTap: () {
                   Navigator.pushNamed(context, bodyPartsLevelsPage);
                   },
-                  child: Container(height: 60, width: 60))),
+                  child: Container(height: 70, width: 70, ))),
           Positioned(
-              bottom: 225,
-              left: MediaQuery.of(context).size.width / 2.1,
+              bottom: 190,
+              left: MediaQuery.of(context).size.width / 2.3,
               child: InkWell(
                   onTap: () {
                Navigator.pushNamed(context, presentsLevelsPage);
                   },
-                  child: Container(height: 60, width: 60))),
+                  child: Container(height: 70, width: 70, ))),
           Positioned(
               bottom: 105,
               left: MediaQuery.of(context).size.width / 1.25,
@@ -41,7 +41,7 @@ class LevelsPage extends StatelessWidget {
                   onTap: () {
                    Navigator.pushNamed(context, environmentLevelsPage);
                   },
-                  child: Container(height: 60, width: 60))),
+                  child: Container(height: 70, width: 70, ))),
       ],
     ));
   }

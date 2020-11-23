@@ -1,6 +1,8 @@
-import 'package:audioplayers/audioplayers.dart';
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:jifunze/constants/routes.dart';
+
 
 class GirlClothes extends StatefulWidget {
   @override
@@ -8,9 +10,6 @@ class GirlClothes extends StatefulWidget {
 }
 
 class _GirlClothesState extends State<GirlClothes> {
-  AudioPlayer audioPlayer = AudioPlayer(mode: PlayerMode.LOW_LATENCY);
-  bool _isPlaying = false;
-
   final double _shirtSize = 100;
 
   bool blouse1Accepted = false;
@@ -33,10 +32,11 @@ class _GirlClothesState extends State<GirlClothes> {
           ),
           Positioned(
               top: MediaQuery.of(context).size.height / 2.9,
-              left: MediaQuery.of(context).size.width / 3.9,
+              left: MediaQuery.of(context).size.width / 4.1,
               child: DragTarget<String>(
                 onWillAccept: (value) => value == 'BLOUSE1',
                 onAccept: (value) {
+                  onPlayAudio();
                   setState(() {
                     blouse1Accepted = true;
                   });
@@ -49,20 +49,21 @@ class _GirlClothesState extends State<GirlClothes> {
                       ? Container(
                           child: SvgPicture.asset(
                             'assets/images/characters/blouse1.svg',
-                            fit: BoxFit.cover,
+                            fit: BoxFit.fill,
                           ),
                           height: 100,
-                          width: 95,
+                          width: 120,
                         )
-                      : Container(height: 90, width: 90);
+                      : Container(height: 90, width: 100);
                 },
               )),
           Positioned(
               top: MediaQuery.of(context).size.height / 2.9,
-              left: MediaQuery.of(context).size.width / 3.9,
+              left: MediaQuery.of(context).size.width / 4.1,
               child: DragTarget<String>(
                 onWillAccept: (value) => value == 'BLOUSE2',
                 onAccept: (value) {
+                  onPlayAudio();
                   setState(() {
                     blouse2Accepted = true;
                   });
@@ -75,20 +76,21 @@ class _GirlClothesState extends State<GirlClothes> {
                       ? Container(
                           child: SvgPicture.asset(
                             'assets/images/characters/blouse2.svg',
-                            fit: BoxFit.cover,
+                            fit: BoxFit.fill,
                           ),
                           height: 100,
-                          width: 95,
+                          width: 120,
                         )
                       : Container(height: 90, width: 90);
                 },
               )),
           Positioned(
               top: MediaQuery.of(context).size.height / 1.8,
-              left: MediaQuery.of(context).size.width / 4.6,
+              left: MediaQuery.of(context).size.width / 4.5,
               child: DragTarget<String>(
                 onWillAccept: (value) => value == 'SKIRT1',
                 onAccept: (value) {
+                  onPlayAudio();
                   setState(() {
                     skirt1Accepted = true;
                   });
@@ -104,7 +106,7 @@ class _GirlClothesState extends State<GirlClothes> {
                             fit: BoxFit.cover,
                           ),
                           height: 80,
-                          width: 150,
+                          width: 170,
                         )
                       : Container(
                           height: 80,
@@ -245,26 +247,28 @@ class _GirlClothesState extends State<GirlClothes> {
                   ),
                 ],
               )),
+          Positioned(
+            bottom: MediaQuery.of(context).size.height / 13,
+            right: MediaQuery.of(context).size.width / 9,
+            child: IconButton(
+              icon: Icon(
+                Icons.arrow_forward_ios,
+                color: Colors.white,
+              ),
+              onPressed: () {
+                Navigator.pushNamed(context, boyClothes);
+              },
+            ),
+          ),
         ],
       ),
     );
   }
 
-  playLocal() async {
-    int result = 0;
-    setState(() {
-      _isPlaying = !_isPlaying;
-    });
-    if (!_isPlaying) {
-      print('posss');
-      audioPlayer.play('assets/audio/crdb_bank.wav', isLocal: true);
-    }
-    if (_isPlaying) {
-      audioPlayer.stop();
-    }
-
-    print('---------------------------------------');
-    print(result);
-    print('++++++++++++++++++++++++++++++++++++++');
+  void onPlayAudio() async {
+    AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
+    assetsAudioPlayer.open(
+      Audio("assets/audio/applauses/no.mp3"),
+    );
   }
 }

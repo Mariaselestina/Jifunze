@@ -3,12 +3,12 @@ import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-class Boy extends StatefulWidget {
+class Boy2 extends StatefulWidget {
   @override
-  _BoyState createState() => _BoyState();
+  _Boy2State createState() => _Boy2State();
 }
 
-class _BoyState extends State<Boy> {
+class _Boy2State extends State<Boy2> {
   //AudioPlayer audioPlayer = AudioPlayer(mode: PlayerMode.LOW_LATENCY);
 
   @override
@@ -34,7 +34,7 @@ class _BoyState extends State<Boy> {
                   child: Container(
                     height: 17,
                     width: 30,
-                    //color: Colors.black,
+                    color: Colors.blue,
                   ))),
           Positioned(
               bottom: MediaQuery.of(context).size.height / 3.3,
@@ -43,8 +43,8 @@ class _BoyState extends State<Boy> {
                   onTap: () {
                     onPlayAudio();
                   },
-                  child: Container(height: 50, width: 90,
-                   //color: Colors.red
+                  child: Container(height: 50, width: 80,
+                   color: Colors.blue
                    ))),
         ],
       ),

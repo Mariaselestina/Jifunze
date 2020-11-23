@@ -1,4 +1,4 @@
-import 'package:audioplayers/audioplayers.dart';
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -8,10 +8,11 @@ class BoyClothes extends StatefulWidget {
 }
 
 class _BoyClothesState extends State<BoyClothes> {
-  AudioPlayer audioPlayer = AudioPlayer(mode: PlayerMode.LOW_LATENCY);
+  
   final double _shirtSize = 100;
 
-  bool shirtaAccepted = false;
+  bool shirt1Accepted = false;
+  bool shirt2Accepted = false;
   bool shortaAccepted = false;
   @override
   Widget build(BuildContext context) {
@@ -26,67 +27,14 @@ class _BoyClothesState extends State<BoyClothes> {
               fit: BoxFit.fill,
             ),
           ),
-          Positioned(
-              top: MediaQuery.of(context).size.height / 2.9,
-              left: MediaQuery.of(context).size.width / 3.9,
-              child: DragTarget<String>(
-                onWillAccept: (value) => value == 'SHIRT',
-                onAccept: (value) {
-                  setState(() {
-                    shirtaAccepted = true;
-                  });
-                },
-                onLeave: (value) {
-                  //Alert the user their value ddint land
-                },
-                builder: (context, candidates, rejects) {
-                  return shirtaAccepted
-                      ? Container(
-                          child: SvgPicture.asset(
-                            'assets/images/characters/shirt1.svg',
-                            fit: BoxFit.cover,
-                          ),
-                          height: 100,
-                          width: 95,
-                          color: Colors.pink,
-                        )
-                      : Container(height: 90, width: 90, color: Colors.black);
-                },
-              )),
-          Positioned(
-              top: MediaQuery.of(context).size.height / 2.9,
-              left: MediaQuery.of(context).size.width / 3.9,
-              child: DragTarget<String>(
-                onWillAccept: (value) => value == 'SHIRT',
-                onAccept: (value) {
-                  setState(() {
-                    shirtaAccepted = true;
-                  });
-                },
-                onLeave: (value) {
-                  //Alert the user their value ddint land
-                },
-                builder: (context, candidates, rejects) {
-                  return shirtaAccepted
-                      ? Container(
-                          child: SvgPicture.asset(
-                            'assets/images/characters/shirt2.svg',
-                            fit: BoxFit.cover,
-                          ),
-                          height: 100,
-                          width: 95,
-                          color: Colors.pink,
-                        )
-                      : Container(height: 90, width: 90, color: Colors.black);
-                },
-              )),
-          
-          Positioned(
+           
+            Positioned(
               top: MediaQuery.of(context).size.height / 1.8,
-              left: MediaQuery.of(context).size.width / 3.77,
+              left: MediaQuery.of(context).size.width / 3.9,
               child: DragTarget<String>(
                 onWillAccept: (value) => value == 'SHORT',
                 onAccept: (value) {
+                  onPlayAudio();
                   setState(() {
                     shortaAccepted = true;
                   });
@@ -99,27 +47,88 @@ class _BoyClothesState extends State<BoyClothes> {
                       ? Container(
                           child: SvgPicture.asset(
                             'assets/images/characters/short1.svg',
-                            fit: BoxFit.cover,
+                            fit: BoxFit.fill,
                           ),
-                          height: 80,
-                          width: 85,
-                          color: Colors.red)
+                          height: 100,
+                          width: 95,
+                          //color: Colors.red
+                          )
                       : Container(
-                          height: 80,
-                          width: 75,
+                          height: 90,
+                          width: 90,
                           color: Colors.pink,
                         );
                 },
               )),
+         
+          
+           Positioned(
+              top: MediaQuery.of(context).size.height / 2.9,
+              left: MediaQuery.of(context).size.width / 3.9,
+              child: DragTarget<String>(
+                onWillAccept: (value) => value == 'SHIRT1',
+                onAccept: (value) {
+                   onPlayAudio();
+                  setState(() {
+                    shirt1Accepted = true;
+                  });
+                },
+                onLeave: (value) {
+                  //Alert the user their value ddint land
+                },
+                builder: (context, candidates, rejects) {
+                  return shirt1Accepted
+                      ? Container(
+                          child: SvgPicture.asset(
+                            'assets/images/characters/shirt1.svg',
+                            fit: BoxFit.fill,
+                          ),
+                          height: 100,
+                          width: 95,
+                        )
+                      : Container(height: 90, width: 90);
+                },
+              )),
+        Positioned(
+              top: MediaQuery.of(context).size.height / 2.9,
+              left: MediaQuery.of(context).size.width / 4.1,
+              child: DragTarget<String>(
+                onWillAccept: (value) => value == 'SHIRT2',
+                onAccept: (value) {
+                  onPlayAudio();
+                  setState(() {
+                    shirt2Accepted = true;
+                  });
+                },
+                onLeave: (value) {
+                  //Alert the user their value ddint land
+                },
+                builder: (context, candidates, rejects) {
+                  return shirt2Accepted
+                      ? Container(
+                          child: SvgPicture.asset(
+                            'assets/images/characters/shirt2.svg',
+                            fit: BoxFit.fill,
+                          ),
+                          height: 100,
+                          width: 127,
+                          //color: Colors.pink,
+                        )
+                      : Container(height: 90, width: 90, 
+                      //color: Colors.black
+                      );
+                },
+              )),
+          
           Positioned(
-              top: 10,
+            top: 10,
               right: 10,
               child: Column(
                 children: [
                   Container(
                     color: Colors.blue,
                     child: Draggable<String>(
-                        data: "SHIRT",
+                        data: "SHIRT1",
                         feedback: SvgPicture.asset(
                           'assets/images/characters/shirt1.svg',
                           height: _shirtSize,
@@ -134,7 +143,7 @@ class _BoyClothesState extends State<BoyClothes> {
                             width: _shirtSize,
                           ),
                         ),
-                        child: shirtaAccepted
+                        child: shirt1Accepted
                             ? Container(
                                 color: Colors.brown,
                                 height: _shirtSize,
@@ -158,12 +167,12 @@ class _BoyClothesState extends State<BoyClothes> {
                                 ),
                               )),
                   ),
-                   Container(
+                  Container(
                     color: Colors.blue,
                     child: Draggable<String>(
-                        data: "SHIRT",
+                        data: "SHIRT2",
                         feedback: SvgPicture.asset(
-                          'assets/images/characters/shirt1.svg',
+                          'assets/images/characters/shirt2.svg',
                           height: _shirtSize,
                           fit: BoxFit.cover,
                         ),
@@ -176,7 +185,7 @@ class _BoyClothesState extends State<BoyClothes> {
                             width: _shirtSize,
                           ),
                         ),
-                        child: shirtaAccepted
+                        child: shirt2Accepted
                             ? Container(
                                 color: Colors.brown,
                                 height: _shirtSize,
@@ -208,7 +217,7 @@ class _BoyClothesState extends State<BoyClothes> {
                         feedback: SvgPicture.asset(
                           'assets/images/characters/short1.svg',
                           height: _shirtSize,
-                          fit: BoxFit.cover,
+                          fit: BoxFit.fill,
                         ),
                         childWhenDragging: Container(
                           color: Colors.brown,
@@ -250,8 +259,10 @@ class _BoyClothesState extends State<BoyClothes> {
     );
   }
 
-  playLocal() async {
-    await audioPlayer.play('assets/audio/crdb_bank.wav', isLocal: true);
-    //return(result);
+ void onPlayAudio() async {
+    AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
+    assetsAudioPlayer.open(
+      Audio("assets/audio/applauses/no.mp3"),
+    );
   }
 }

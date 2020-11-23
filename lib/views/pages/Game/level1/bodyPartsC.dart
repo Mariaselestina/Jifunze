@@ -1,58 +1,69 @@
+
+
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+
 import 'package:jifunze/constants/routes.dart';
 
-class BodyPartsC extends StatelessWidget {
+import 'package:jifunze/views/components/characters/boyparts.dart';
+
+import 'package:jifunze/views/components/characters/girlparts.dart';
+
+class BodyPartsC extends StatefulWidget {
+  @override
+  _BodyPartsCState createState() => _BodyPartsCState();
+}
+
+class _BodyPartsCState extends State<BodyPartsC> {
+  bool _isBoy2 = false;
   final double kHeight = 50.0;
   final double kWeight = 150.0;
   final double tSize = 15.0;
+      
 
   @override
   Widget build(BuildContext context) {
+    //final _height = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Stack(
-        children: [
-          Container(
-            height: MediaQuery.of(context).size.height,
-            width: MediaQuery.of(context).size.width,
-            child: SvgPicture.asset(
-              'assets/images/environment/env1chome.svg',
-              width: 200,
-              height: 100,
+        children: <Widget>[
+          _isBoy2 ? Boy2() : Girl2(),
+          Row(children: [
+            InkWell(
+              onTap: () {
+               
+                setState(() {
+                  _isBoy2 = false;
+                });
+              },
+              child: Container(
+                height: 60,
+                width: 90,
+              child: SvgPicture.asset(
+              'assets/images/characters/girl.svg',
               fit: BoxFit.fill,
             ),
-          ),
-          Align(
-            alignment: Alignment(0.42, -0.1),
-            child: Container(
-              width: 240,
-              height: 207,
-              color: Colors.blue,
-              child: Image.asset(
-                'assets/images/a.jpg',
-                fit: BoxFit.fill,
               ),
             ),
-          ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Stack(
-              children: [
-                Row(
-                  children: [
-                    Expanded(child: Container(height: 4, color: Colors.blue)),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    Expanded(child: Container(height: 4, color: Colors.grey)),
-                    SizedBox(
-                      width: 5,
-                    ),
-                  ],
-                ),
-                SizedBox(height: 5),
-               Padding(
+            InkWell(
+              onTap: () {
+              
+                setState(() {
+                  _isBoy2 = true;
+                });
+              },
+              child: Container(
+                height: 50,
+                width: 70,
+              child: SvgPicture.asset(
+              'assets/images/characters/boy.svg',
+              fit: BoxFit.fill,
+            ),
+              ),
+            ),
+          ]),
+          Padding(
             padding: const EdgeInsets.only(bottom: 20),
             child: Align(
               alignment: Alignment.bottomCenter,
@@ -67,7 +78,7 @@ class BodyPartsC extends StatelessWidget {
                           borderRadius: BorderRadius.circular(10.0),
                           side: BorderSide(color: Colors.red)),
                       onPressed: () {
-                        Navigator.pushNamed(context, bodyPartsCC);
+                        Navigator.pushNamed(context, levelsPage);
                       },
                       color: Colors.red,
                       child: Text(
@@ -79,6 +90,7 @@ class BodyPartsC extends StatelessWidget {
                       ),
                     ),
                   ),
+                  
                   Spacer(),
                   Container(
                     height: 40,
@@ -97,11 +109,10 @@ class BodyPartsC extends StatelessWidget {
               ),
             ),
           )
-              ],
-            ),
-          ),
         ],
       ),
     );
   }
+  
+   
 }

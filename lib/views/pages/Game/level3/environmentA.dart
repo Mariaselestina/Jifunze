@@ -11,7 +11,7 @@ class EnvironmentA extends StatelessWidget {
           Container(
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
-            child: Image.asset('assets/images/environment/street1.jpg',
+            child: Image.asset('assets/images/environment/envthree1.png',
                 fit: BoxFit.fill),
           ),
           Positioned(

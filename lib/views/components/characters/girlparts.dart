@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:assets_audio_player/assets_audio_player.dart';
 
-class Girl extends StatefulWidget {
+class Girl2 extends StatefulWidget {
   @override
-  _GirlState createState() => _GirlState();
+  _Girl2State createState() => _Girl2State();
 }
 
-class _GirlState extends State<Girl> {
+class _Girl2State extends State<Girl2> {
   //AudioPlayer audioPlayer = AudioPlayer(mode: PlayerMode.LOW_LATENCY);
 
   @override
@@ -37,7 +37,7 @@ class _GirlState extends State<Girl> {
                   child: Container(
                     height: 17,
                     width: 30,
-                    //color: Colors.black,
+                    color: Colors.pink,
                   ))),
                  Positioned(
            top: MediaQuery.of(context).size.height / 2.3,
@@ -47,8 +47,8 @@ class _GirlState extends State<Girl> {
                    onPlayAudio();
                    
                   },
-                  child: Container(height: 40, width: 80,
-                   //color: Colors.blue
+                  child: Container(height: 40, width: 70,
+                  color: Colors.pink
                    ))),
           Positioned(
               bottom: MediaQuery.of(context).size.height / 3.5,
@@ -58,8 +58,8 @@ class _GirlState extends State<Girl> {
                     onPlayAudio();
                    
                   },
-                  child: Container(height: 50, width: 92,
-                   //color: Colors.red
+                  child: Container(height: 50, width: 80,
+                   color: Colors.pink
                    ))),
          
          
