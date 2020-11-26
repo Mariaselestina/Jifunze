@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:jifunze/constants/routes.dart';
+import 'package:jifunze/provider/level_provider.dart';
+import 'package:provider/provider.dart';
 
 class PresentsCCC extends StatefulWidget {
   @override
@@ -17,6 +19,7 @@ class _PresentsCCCState extends State<PresentsCCC> {
   bool carAccepted = false;
   @override
   Widget build(BuildContext context) {
+    final _levelProvider = Provider.of<LevelProvider>(context);
     return Scaffold(
       body: Stack(
         children: [
@@ -30,7 +33,7 @@ class _PresentsCCCState extends State<PresentsCCC> {
               fit: BoxFit.fill,
             ),
           ),
- Positioned(
+          Positioned(
               top: MediaQuery.of(context).size.height / 2.5,
               left: MediaQuery.of(context).size.width / 8,
               child: DragTarget<String>(
@@ -64,7 +67,6 @@ class _PresentsCCCState extends State<PresentsCCC> {
                         );
                 },
               )),
-         
           Positioned(
               top: MediaQuery.of(context).size.height / 11,
               left: MediaQuery.of(context).size.width / 1.82,
@@ -90,8 +92,9 @@ class _PresentsCCCState extends State<PresentsCCC> {
                           //color: Colors.blue,
                         )
                       : Container(
-                          height: 150, width: 120,
-                         child: SvgPicture.asset(
+                          height: 150,
+                          width: 120,
+                          child: SvgPicture.asset(
                             'assets/images/dragthings/shadowtree.svg',
                             fit: BoxFit.fill,
                           ),
@@ -222,52 +225,52 @@ class _PresentsCCCState extends State<PresentsCCC> {
                                 ),
                               )),
                   ),
-                    Container(
-                      //color: Colors.blue,
-                      child: Draggable<String>(
-                          data: "CAR",
-                          feedback: SvgPicture.asset(
-                           'assets/images/dragthings/icecreamkart.svg',
+                  Container(
+                    //color: Colors.blue,
+                    child: Draggable<String>(
+                        data: "CAR",
+                        feedback: SvgPicture.asset(
+                          'assets/images/dragthings/icecreamkart.svg',
+                          height: _shirtSize,
+                          width: 140,
+                          fit: BoxFit.fill,
+                        ),
+                        childWhenDragging: Container(
+                          //color: Colors.brown,
+                          height: _shirtSize,
+                          child: Container(
+                            //color: Colors.white,
                             height: _shirtSize,
                             width: 140,
-                            fit: BoxFit.fill,
                           ),
-                          childWhenDragging: Container(
-                            //color: Colors.brown,
-                            height: _shirtSize,
-                            child: Container(
-                              //color: Colors.white,
-                              height: _shirtSize,
-                              width: 140,
-                            ),
-                          ),
-                          child: carAccepted
-                              ? Container(
-                                  //color: Colors.brown,
-                                  height: _shirtSize,
-                                  child: Container(
-                                    //color: Colors.white,
-                                    height: _shirtSize,
-                                    width: 140,
-                                  ),
-                                )
-                              : Container(
-                                  //color: Colors.brown,
+                        ),
+                        child: carAccepted
+                            ? Container(
+                                //color: Colors.brown,
+                                height: _shirtSize,
+                                child: Container(
+                                  //color: Colors.white,
                                   height: _shirtSize,
                                   width: 140,
-                                  child: Container(
-                                    //color: Colors.white,
-                                    child: SvgPicture.asset(
-                                      'assets/images/dragthings/icecreamkart.svg',
-                                      fit: BoxFit.fill,
-                                      height: _shirtSize,
-                                    ),
+                                ),
+                              )
+                            : Container(
+                                //color: Colors.brown,
+                                height: _shirtSize,
+                                width: 140,
+                                child: Container(
+                                  //color: Colors.white,
+                                  child: SvgPicture.asset(
+                                    'assets/images/dragthings/icecreamkart.svg',
+                                    fit: BoxFit.fill,
+                                    height: _shirtSize,
                                   ),
-                                )),
-                    ),
+                                ),
+                              )),
+                  ),
                 ],
               )),
-               Align(
+          Align(
             alignment: Alignment.topLeft,
             child: IconButton(
               icon: Icon(Icons.home, color: Colors.blue, size: 70),
@@ -276,13 +279,12 @@ class _PresentsCCCState extends State<PresentsCCC> {
               },
             ),
           ),
-         
           Positioned(
             bottom: MediaQuery.of(context).size.height / 16,
             right: MediaQuery.of(context).size.width / 1.1,
             child: IconButton(
               icon: Icon(
-                Icons.navigate_before_rounded,
+                Icons.arrow_back_ios,
                 color: Colors.red,
                 size: 70,
               ),
@@ -296,11 +298,12 @@ class _PresentsCCCState extends State<PresentsCCC> {
             right: MediaQuery.of(context).size.width / 14,
             child: IconButton(
               icon: Icon(
-                Icons.double_arrow_rounded,
+                Icons.arrow_forward_ios,
                 color: Colors.red,
                 size: 60,
               ),
               onPressed: () {
+                _levelProvider.toogleLevel = 3;
                 Navigator.pushNamed(context, levelsPage);
               },
             ),

@@ -75,7 +75,7 @@ class _BodyPartsAState extends State<BodyPartsA> {
             right: MediaQuery.of(context).size.width / 1.1,
             child: IconButton(
               icon: Icon(
-                Icons.navigate_before_rounded,
+                Icons.arrow_back_ios,
                 color: Colors.red,
                 size: 70,
               ),
@@ -89,7 +89,7 @@ class _BodyPartsAState extends State<BodyPartsA> {
             right: MediaQuery.of(context).size.width / 14,
             child: IconButton(
               icon: Icon(
-                Icons.double_arrow_rounded,
+               Icons.arrow_forward_ios,
                 color: Colors.red,
                 size: 60,
               ),

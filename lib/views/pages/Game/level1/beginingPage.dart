@@ -38,7 +38,7 @@ class BeginingPage extends StatelessWidget {
             
               icon: Icon(
                 
-                Icons.navigate_before_rounded,
+                Icons.arrow_forward_ios,
                 color: Colors.red,size: 70,
             
               ),
@@ -54,7 +54,7 @@ class BeginingPage extends StatelessWidget {
             
               icon: Icon(
                 
-                Icons.double_arrow_rounded,
+               Icons.arrow_forward_ios,
                 color: Colors.red,size: 60,
             
               ),

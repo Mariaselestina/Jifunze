@@ -81,7 +81,7 @@ class WelcomePage extends StatelessWidget {
             
               icon: Icon(
                 
-                Icons.double_arrow_rounded,
+               Icons.arrow_forward_ios,
                 color: Colors.white,size: 50,
             
               ),

@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:jifunze/constants/routes.dart';
+import 'package:jifunze/provider/level_provider.dart';
+import 'package:provider/provider.dart';
 
 class LevelsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final _levelProvider = Provider.of<LevelProvider>(context);
     return Scaffold(
         body: Stack(
       children: [
@@ -18,42 +21,72 @@ class LevelsPage extends StatelessWidget {
             fit: BoxFit.fill,
           ),
         ),
-           Positioned(
-            bottom: MediaQuery.of(context).size.height /3,
-            right: MediaQuery.of(context).size.width / 1.35,
-             child: Container(
-               height: 150,
-               width: 150,
-               child: Image.asset(
-                'assets/images/environment/butterfly2.gif',            
-                fit: BoxFit.cover, 
+        Positioned(
+          bottom: MediaQuery.of(context).size.height / 3,
+          right: MediaQuery.of(context).size.width / 1.35,
+          child: Container(
+            height: 150,
+            width: 150,
+            child: Image.asset(
+              'assets/images/environment/butterfly2.gif',
+              fit: BoxFit.cover,
             ),
-             ),
           ),
-         Positioned(
-              bottom: 285,
-              left: MediaQuery.of(context).size.width / 4,
-              child: InkWell(
-                  onTap: () {
+        ),
+        Positioned(
+            bottom: 285,
+            left: MediaQuery.of(context).size.width / 4,
+            child: InkWell(
+                onTap: () {
                   Navigator.pushNamed(context, bodyPartsLevelsPage);
-                  },
-                  child: Container(height: 70, width: 70, ))),
-          Positioned(
-              bottom: 190,
-              left: MediaQuery.of(context).size.width / 2.3,
-              child: InkWell(
-                  onTap: () {
-               Navigator.pushNamed(context, presentsLevelsPage);
-                  },
-                  child: Container(height: 70, width: 70, ))),
-          Positioned(
-              bottom: 105,
-              left: MediaQuery.of(context).size.width / 1.25,
-              child: InkWell(
-                  onTap: () {
-                   Navigator.pushNamed(context, environmentLevelsPage);
-                  },
-                  child: Container(height: 70, width: 70, ))),
+                },
+                child: Container(
+                  child: Center(child: Icon(Icons.lock_open, size: 40)),
+                  height: 70,
+                  width: 70,
+                ))),
+        Positioned(
+            bottom: 190,
+            left: MediaQuery.of(context).size.width / 2.3,
+            child: InkWell(
+                onTap: () {
+                  if (_levelProvider.availableLevels[1].isOpened)
+                    Navigator.pushNamed(context, presentsLevelsPage);
+                },
+                child: Container(
+                  child: Center(
+                      child: Icon(
+                          _levelProvider.availableLevels[1].isOpened
+                              ? Icons.lock_open
+                              : Icons.lock,
+                          size: 40)),
+                  color: _levelProvider.availableLevels[1].isOpened
+                      ? Colors.transparent
+                      : Colors.black12,
+                  height: 70,
+                  width: 70,
+                ))),
+        Positioned(
+            bottom: 105,
+            left: MediaQuery.of(context).size.width / 1.25,
+            child: InkWell(
+                onTap: () {
+                  if (_levelProvider.availableLevels[2].isOpened)
+                    Navigator.pushNamed(context, environmentLevelsPage);
+                },
+                child: Container(
+                  child: Center(
+                      child: Icon(
+                          _levelProvider.availableLevels[2].isOpened
+                              ? Icons.lock_open
+                              : Icons.lock,
+                          size: 40)),
+                  color: _levelProvider.availableLevels[1].isOpened
+                      ? Colors.transparent
+                      : Colors.black12,
+                  height: 70,
+                  width: 70,
+                ))),
       ],
     ));
   }

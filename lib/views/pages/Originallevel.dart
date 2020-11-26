@@ -22,10 +22,10 @@ class OriginalLevel extends StatelessWidget {
                         children: List.generate(
                             4,
                             (index) => LevelCard(
-                                  level: levelOneList[index],
+                                  level: mainLevelList[index],
                                   onPressed: () {
                                     Navigator.pushNamed(context, bodyPartsA);
-                                    print(levelOneList[index].id);
+                                    print(mainLevelList[index].id);
                                   },
                                 ))),
                   ),
