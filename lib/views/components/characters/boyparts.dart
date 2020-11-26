@@ -26,26 +26,30 @@ class _Boy2State extends State<Boy2> {
           ),
           Positioned(
               top: MediaQuery.of(context).size.height / 3,
-              left: MediaQuery.of(context).size.width / 2.21,
+              left: MediaQuery.of(context).size.width / 2.18,
               child: InkWell(
                   onTap: () {
                     onPlayAudio();
                   },
-                  child: Container(
-                    height: 17,
-                    width: 30,
-                    color: Colors.blue,
-                  ))),
+                  child: CircleAvatar(radius: 12),
+                  // child: Container(
+                  //   height: 17,
+                  //   width: 30,
+                  //   color: Colors.blue,
+                  // )
+                  )),
           Positioned(
-              bottom: MediaQuery.of(context).size.height / 3.3,
-              left: MediaQuery.of(context).size.width / 2.4,
+              bottom: MediaQuery.of(context).size.height / 3.8,
+              left: MediaQuery.of(context).size.width / 2.37,
               child: InkWell(
                   onTap: () {
                     onPlayAudio();
                   },
-                  child: Container(height: 50, width: 80,
-                   color: Colors.blue
-                   ))),
+                  child: CircleAvatar(radius: 37),
+                  // child: Container(height: 50, width: 80,
+                  //  color: Colors.blue
+                  //  )
+                   )),
         ],
       ),
     );

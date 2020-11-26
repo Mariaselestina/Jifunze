@@ -5,19 +5,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import 'package:jifunze/constants/routes.dart';
-import 'package:jifunze/views/components/characters/boyBodyParts.dart';
-import 'package:jifunze/views/components/characters/girlBodyParts.dart';
+
+import 'package:jifunze/views/components/characters/boyparts.dart';
+
+import 'package:jifunze/views/components/characters/girlparts.dart';
 
 class BodyPartsA extends StatefulWidget {
+  
   @override
   _BodyPartsAState createState() => _BodyPartsAState();
 }
 
 class _BodyPartsAState extends State<BodyPartsA> {
-  bool _isBoy = false;
-  final double kHeight = 50.0;
-  final double kWeight = 150.0;
-  final double tSize = 15.0;
+  bool _isBoy2 = false;
+  final double kHeight = 40.0;
+  final double kWeight = 65.0;
+  final double tSize = 11.0;
       
 
   @override
@@ -26,13 +29,13 @@ class _BodyPartsAState extends State<BodyPartsA> {
     return Scaffold(
       body: Stack(
         children: <Widget>[
-          _isBoy ? Boy() : Girl(),
+          _isBoy2 ? Boy2() : Girl2(),
           Row(children: [
             InkWell(
               onTap: () {
                
                 setState(() {
-                  _isBoy = false;
+                  _isBoy2 = false;
                 });
               },
               child: Container(
@@ -48,7 +51,7 @@ class _BodyPartsAState extends State<BodyPartsA> {
               onTap: () {
               
                 setState(() {
-                  _isBoy = true;
+                  _isBoy2 = true;
                 });
               },
               child: Container(
@@ -61,52 +64,52 @@ class _BodyPartsAState extends State<BodyPartsA> {
               ),
             ),
           ]),
-          Padding(
-            padding: const EdgeInsets.only(bottom: 20),
-            child: Align(
-              alignment: Alignment.bottomCenter,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Container(
-                    width: kWeight,
-                    height: kHeight,
-                    child: RaisedButton(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                          side: BorderSide(color: Colors.red)),
-                      onPressed: () {
-                        Navigator.pushNamed(context, levelsPage);
-                      },
-                      color: Colors.red,
-                      child: Text(
-                        "BACK",
-                        style: TextStyle(
-                          color: Colors.yellowAccent,
-                          fontSize: tSize,
-                        ),
-                      ),
-                    ),
-                  ),
-                  
-                  Spacer(),
-                  Container(
-                    height: 40,
-                    width: 40,
-                    child: IconButton(
-                      icon: Icon(
-                        Icons.arrow_forward_ios,
-                        color: Colors.white,
-                      ),
-                      onPressed: () {
-                        Navigator.pushNamed(context, bodyPartsB);
-                      },
-                    ),
-                  ),
-                ],
+         Align(
+          alignment: Alignment.bottomLeft,
+          child: Container(
+            width: kWeight,
+            height: kHeight,
+            child: RaisedButton(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                  side: BorderSide(color: Colors.yellow)),
+              onPressed: () {
+                Navigator.pushNamed(context, bodyPartsA);
+              },
+              color: Colors.red,
+              child: Text(
+                "BACK",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: tSize,
+                    fontWeight: FontWeight.bold),
               ),
             ),
-          )
+          ),
+        ),
+        Align(
+          alignment: Alignment.bottomRight,
+          child: Container(
+            width: kWeight,
+            height: kHeight,
+            child: RaisedButton(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                  side: BorderSide(color: Colors.yellow)),
+              onPressed: () {
+                Navigator.pushNamed(context, bodyPartsLevelsPage);
+              },
+              color: Colors.red,
+              child: Text(
+                "NEXT",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: tSize,
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
+          ),
+        ),
         ],
       ),
     );

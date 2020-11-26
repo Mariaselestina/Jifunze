@@ -21,7 +21,7 @@ class PresentsLevelsPage extends StatelessWidget {
           ),
         ),
      Positioned(
-               bottom: 280,
+                top:MediaQuery.of(context).size.height / 8,
               left: MediaQuery.of(context).size.width / 6,
              child: InkWell(
                   onTap: () {
@@ -29,16 +29,16 @@ class PresentsLevelsPage extends StatelessWidget {
                   },
                   child: Container(height: 80, width: 130, ))),
           Positioned(
-              bottom: 183,
-              left: MediaQuery.of(context).size.width / 2.8,
+              bottom:MediaQuery.of(context).size.height/ 2.2,
+              left: MediaQuery.of(context).size.width / 2.5,
                child: InkWell(
                   onTap: () {
               Navigator.pushNamed(context, presentsB);
                   },
                   child: Container(height: 80, width: 130,))),
           Positioned(
-              bottom: 120,
-              left: MediaQuery.of(context).size.width / 1.7,
+              bottom:MediaQuery.of(context).size.width / 6.7,
+              left: MediaQuery.of(context).size.width / 1.5,
               child: InkWell(
                   onTap: () {
                  Navigator.pushNamed(context, presentsC);

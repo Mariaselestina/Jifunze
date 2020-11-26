@@ -1,14 +1,8 @@
-
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-
-import 'package:jifunze/constants/routes.dart';
-
-import 'package:jifunze/views/components/characters/boyparts.dart';
-
-import 'package:jifunze/views/components/characters/girlparts.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:jifunze/views/components/characters/boyClothes.dart';
+import 'package:jifunze/views/components/characters/girlClothes.dart';
 
 class BodyPartsC extends StatefulWidget {
   @override
@@ -16,25 +10,19 @@ class BodyPartsC extends StatefulWidget {
 }
 
 class _BodyPartsCState extends State<BodyPartsC> {
-  bool _isBoy2 = false;
-  final double kHeight = 50.0;
-  final double kWeight = 150.0;
-  final double tSize = 15.0;
-      
-
+   bool _isBoyClothes = false;
   @override
   Widget build(BuildContext context) {
-    //final _height = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Stack(
-        children: <Widget>[
-          _isBoy2 ? Boy2() : Girl2(),
+        children: [          
+          _isBoyClothes ? BoyClothes() : GirlClothes(),
           Row(children: [
             InkWell(
               onTap: () {
                
                 setState(() {
-                  _isBoy2 = false;
+                  _isBoyClothes = false;
                 });
               },
               child: Container(
@@ -50,7 +38,7 @@ class _BodyPartsCState extends State<BodyPartsC> {
               onTap: () {
               
                 setState(() {
-                  _isBoy2 = true;
+                  _isBoyClothes = true;
                 });
               },
               child: Container(
@@ -63,56 +51,10 @@ class _BodyPartsCState extends State<BodyPartsC> {
               ),
             ),
           ]),
-          Padding(
-            padding: const EdgeInsets.only(bottom: 20),
-            child: Align(
-              alignment: Alignment.bottomCenter,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Container(
-                    width: kWeight,
-                    height: kHeight,
-                    child: RaisedButton(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                          side: BorderSide(color: Colors.red)),
-                      onPressed: () {
-                        Navigator.pushNamed(context, levelsPage);
-                      },
-                      color: Colors.red,
-                      child: Text(
-                        "BACK",
-                        style: TextStyle(
-                          color: Colors.yellowAccent,
-                          fontSize: tSize,
-                        ),
-                      ),
-                    ),
-                  ),
-                  
-                  Spacer(),
-                  Container(
-                    height: 40,
-                    width: 40,
-                    child: IconButton(
-                      icon: Icon(
-                        Icons.arrow_forward_ios,
-                        color: Colors.white,
-                      ),
-                      onPressed: () {
-                        Navigator.pushNamed(context, bodyPartsB);
-                      },
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          )
+         
         ],
       ),
+      
     );
   }
-  
-   
 }

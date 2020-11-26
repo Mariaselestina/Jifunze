@@ -23,7 +23,7 @@ class LevelsPage extends StatelessWidget {
               left: MediaQuery.of(context).size.width / 4,
               child: InkWell(
                   onTap: () {
-                  Navigator.pushNamed(context, bodyPartsLevelsPage);
+                  Navigator.pushNamed(context, beginingPage);
                   },
                   child: Container(height: 70, width: 70, ))),
           Positioned(

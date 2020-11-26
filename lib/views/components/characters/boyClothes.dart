@@ -49,14 +49,14 @@ class _BoyClothesState extends State<BoyClothes> {
                             'assets/images/characters/short1.svg',
                             fit: BoxFit.fill,
                           ),
-                          height: 100,
-                          width: 95,
+                          height: 90,
+                          width: 90,
                           //color: Colors.red
                           )
                       : Container(
                           height: 90,
                           width: 90,
-                          color: Colors.pink,
+                          //color: Colors.pink,
                         );
                 },
               )),
@@ -64,7 +64,7 @@ class _BoyClothesState extends State<BoyClothes> {
           
            Positioned(
               top: MediaQuery.of(context).size.height / 2.9,
-              left: MediaQuery.of(context).size.width / 3.9,
+              left: MediaQuery.of(context).size.width / 4.8,
               child: DragTarget<String>(
                 onWillAccept: (value) => value == 'SHIRT1',
                 onAccept: (value) {
@@ -84,14 +84,14 @@ class _BoyClothesState extends State<BoyClothes> {
                             fit: BoxFit.fill,
                           ),
                           height: 100,
-                          width: 95,
+                          width: 150,
                         )
-                      : Container(height: 90, width: 90);
+                      : Container(height: 100, width: 127);
                 },
               )),
         Positioned(
-              top: MediaQuery.of(context).size.height / 2.9,
-              left: MediaQuery.of(context).size.width / 4.1,
+              top: MediaQuery.of(context).size.height / 2.85,
+              left: MediaQuery.of(context).size.width / 4.15,
               child: DragTarget<String>(
                 onWillAccept: (value) => value == 'SHIRT2',
                 onAccept: (value) {
@@ -111,10 +111,10 @@ class _BoyClothesState extends State<BoyClothes> {
                             fit: BoxFit.fill,
                           ),
                           height: 100,
-                          width: 127,
+                          width: 118,
                           //color: Colors.pink,
                         )
-                      : Container(height: 90, width: 90, 
+                      : Container(height: 90, width: 118, 
                       //color: Colors.black
                       );
                 },

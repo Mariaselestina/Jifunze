@@ -13,6 +13,7 @@ const levelsPage = "/levelsPage";
 const bodyPartsLevelsPage = "/bodyPartsLevelsPage";
 const presentsLevelsPage = "/presentsLevelsPage";
 const environmentLevelsPage = "/environmentLevelsPage";
+const beginingPage = "/beginingPage";
 const bodyPartsA = "/bodyPartsA";
 const boyClothes = "/boyClothes";
 const bodyPartsB = "/bodyPartsB";

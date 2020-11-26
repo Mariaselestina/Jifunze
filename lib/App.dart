@@ -8,10 +8,11 @@ import 'package:jifunze/views/pages/Authentication/authenticationPage.dart';
 import 'package:jifunze/views/pages/Authentication/signUpPage.dart';
 import 'package:jifunze/views/pages/Authentication/signinPage.dart';
 import 'package:jifunze/views/pages/FamilyTree.dart';
+import 'package:jifunze/views/pages/Game/level1/beginingPage.dart';
 
-import 'package:jifunze/views/pages/Game/level1/bodyPartsA.dart';
 import 'package:jifunze/views/pages/Game/level1/bodyPartsB.dart';
 import 'package:jifunze/views/pages/Game/level1/bodyPartsC.dart';
+import 'package:jifunze/views/pages/Game/level1/bodyPartsA.dart';
 import 'package:jifunze/views/pages/Game/level3/environmentC.dart';
 
 
@@ -67,6 +68,7 @@ class App extends StatelessWidget {
         bodyPartsLevelsPage: (_) => BodyPartsLevelsPage(),
         presentsLevelsPage: (_) => PresentsLevelsPage(),
         environmentLevelsPage: (_) => EnvironmentLevelsPage(),
+        beginingPage: (_) => BeginingPage(),
         bodyPartsA: (_) => BodyPartsA(),
         boyClothes: (_) => BoyClothes(),
         bodyPartsB: (_) => BodyPartsB(),

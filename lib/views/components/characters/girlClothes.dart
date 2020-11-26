@@ -30,6 +30,37 @@ class _GirlClothesState extends State<GirlClothes> {
               fit: BoxFit.fill,
             ),
           ),
+           Positioned(
+              top: MediaQuery.of(context).size.height / 1.8,
+              left: MediaQuery.of(context).size.width / 4.6,
+              child: DragTarget<String>(
+                onWillAccept: (value) => value == 'SKIRT1',
+                onAccept: (value) {
+                  onPlayAudio();
+                  setState(() {
+                    skirt1Accepted = true;
+                  });
+                },
+                onLeave: (value) {
+                  //Alert the user their value ddint land
+                },
+                builder: (context, candidates, rejects) {
+                  return skirt1Accepted
+                      ? Container(
+                          child: SvgPicture.asset(
+                            'assets/images/characters/skirt1.svg',
+                            fit: BoxFit.cover,
+                          ),
+                          height: 80,
+                          width: 152,
+                        )
+                      : Container(
+                          height: 80,
+                          width: 150,
+                        );
+                },
+              )),
+          
           Positioned(
               top: MediaQuery.of(context).size.height / 2.9,
               left: MediaQuery.of(context).size.width / 4.1,
@@ -52,7 +83,7 @@ class _GirlClothesState extends State<GirlClothes> {
                             fit: BoxFit.fill,
                           ),
                           height: 100,
-                          width: 120,
+                          width: 110,
                         )
                       : Container(height: 90, width: 100);
                 },
@@ -66,6 +97,7 @@ class _GirlClothesState extends State<GirlClothes> {
                   onPlayAudio();
                   setState(() {
                     blouse2Accepted = true;
+                   
                   });
                 },
                 onLeave: (value) {
@@ -78,43 +110,13 @@ class _GirlClothesState extends State<GirlClothes> {
                             'assets/images/characters/blouse2.svg',
                             fit: BoxFit.fill,
                           ),
-                          height: 100,
-                          width: 120,
+                          height: 96,
+                          width: 110,
                         )
                       : Container(height: 90, width: 90);
                 },
               )),
-          Positioned(
-              top: MediaQuery.of(context).size.height / 1.8,
-              left: MediaQuery.of(context).size.width / 4.5,
-              child: DragTarget<String>(
-                onWillAccept: (value) => value == 'SKIRT1',
-                onAccept: (value) {
-                  onPlayAudio();
-                  setState(() {
-                    skirt1Accepted = true;
-                  });
-                },
-                onLeave: (value) {
-                  //Alert the user their value ddint land
-                },
-                builder: (context, candidates, rejects) {
-                  return skirt1Accepted
-                      ? Container(
-                          child: SvgPicture.asset(
-                            'assets/images/characters/skirt1.svg',
-                            fit: BoxFit.cover,
-                          ),
-                          height: 80,
-                          width: 170,
-                        )
-                      : Container(
-                          height: 80,
-                          width: 150,
-                        );
-                },
-              )),
-          Positioned(
+         Positioned(
               top: 10,
               right: 10,
               child: Column(

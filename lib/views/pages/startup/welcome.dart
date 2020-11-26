@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 import 'package:jifunze/constants/routes.dart';
 
 class WelcomePage extends StatelessWidget {
-  final double kHeight = 50.0;
-  final double kWeight = 150.0;
-  final double tSize = 15.0;
+  final double kHeight = 40.0;
+  final double kWeight = 65.0;
+  final double tSize = 11.0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,10 +15,10 @@ class WelcomePage extends StatelessWidget {
         Container(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
-          child: Image.asset(
-            'assets/images/environment/welcome.jpg',
-            fit: BoxFit.fill,
-          ),
+         child: SvgPicture.asset(
+              'assets/images/environment/welcome.svg',            
+              fit: BoxFit.cover,
+            ),
         ),
        
             // Positioned(
@@ -47,40 +48,34 @@ class WelcomePage extends StatelessWidget {
              
             // )
         
-        
-      ]),
-      bottomNavigationBar: BottomAppBar(
-        elevation: 0,
-        color: Colors.red,
-        child: Row(
-                    
-          children: <Widget>[
-Spacer(),
-          Container(
-            
-            width: kWeight,
-            height: kHeight,
-            child: RaisedButton(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                  side: BorderSide(color: Colors.yellow)),
-              onPressed: () {
-                Navigator.pushNamed(context, levelsPage);
-              },
-              color: Colors.red,
-              child: Text(
-                "NEXT",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: tSize,
-                  fontWeight: FontWeight.bold
+         Align(
+           alignment: Alignment.bottomRight,
+                    child: Container(
+              
+              width: kWeight,
+              height: kHeight,
+              child: RaisedButton(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                    side: BorderSide(color: Colors.yellow)),
+                onPressed: () {
+                  Navigator.pushNamed(context, levelsPage);
+                },
+                color: Colors.red,
+                child: Text(
+                  "NEXT",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: tSize,
+                    fontWeight: FontWeight.bold
+                  ),
                 ),
               ),
             ),
-          ),
-          
-        ]),
-      ),
+         ),
+        
+      ]),
+      
     );
   }
 }
