@@ -43,7 +43,28 @@ class BodyPartsLevelsPage extends StatelessWidget {
                   Navigator.pushNamed(context, bodyPartsC);
                   },
                   child: Container(height: 80, width: 130,))),
-     
+      Positioned(
+            bottom: MediaQuery.of(context).size.height /3.5,
+            right: MediaQuery.of(context).size.width / 1.35,
+             child: Container(
+               height: 150,
+               width: 150,
+               child: Image.asset(
+                'assets/images/environment/butterfly2.gif',            
+                fit: BoxFit.cover, 
+            ),
+             ),
+          ),
+      Align(
+          alignment: Alignment.topLeft,
+          child: IconButton(
+            icon: Icon(Icons.home, color: Colors.blue, size: 70),
+            onPressed: () {
+              Navigator.pushNamed(context, levelsPage);
+            },
+          ),
+        ),
+       
       ],
     ));
   }

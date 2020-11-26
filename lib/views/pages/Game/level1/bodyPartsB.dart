@@ -89,20 +89,29 @@ class _BodyPartsBState extends State<BodyPartsB> {
                     ),
                   ),
                   
-                  Spacer(),
-                  Container(
-                    height: 40,
-                    width: 40,
-                    child: IconButton(
-                      icon: Icon(
-                        Icons.arrow_forward_ios,
-                        color: Colors.white,
-                      ),
-                      onPressed: () {
-                        Navigator.pushNamed(context, bodyPartsC);
-                      },
-                    ),
-                  ),
+               Align(
+          alignment: Alignment.bottomRight,
+          child: Container(
+            width: kWeight,
+            height: kHeight,
+            child: RaisedButton(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                  side: BorderSide(color: Colors.yellow)),
+              onPressed: () {
+                Navigator.pushNamed(context, bodyPartsLevelsPage);
+              },
+              color: Colors.red,
+              child: Text(
+                "NEXT",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: tSize,
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
+          ),
+        ),
                 ],
               ),
             ),

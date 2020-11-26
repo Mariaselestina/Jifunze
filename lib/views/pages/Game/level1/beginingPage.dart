@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+
 
 import 'package:jifunze/constants/routes.dart';
 
@@ -25,58 +25,44 @@ class BeginingPage extends StatelessWidget {
         Align(
           alignment: Alignment.topLeft,
           child: IconButton(
-            icon: Icon(Icons.home, color: Colors.orangeAccent, size: 50),
+            icon: Icon(Icons.home, color: Colors.orangeAccent, size: 70),
             onPressed: () {
               Navigator.pushNamed(context, levelsPage);
             },
           ),
         ),
-        Align(
-          alignment: Alignment.bottomLeft,
-          child: Container(
-            width: kWeight,
-            height: kHeight,
-            child: RaisedButton(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                  side: BorderSide(color: Colors.yellow)),
-              onPressed: () {
-                Navigator.pushNamed(context, bodyPartsA);
-              },
-              color: Colors.red,
-              child: Text(
-                "BACK",
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: tSize,
-                    fontWeight: FontWeight.bold),
+       Positioned(
+            bottom: MediaQuery.of(context).size.height / 16,
+            right: MediaQuery.of(context).size.width / 1.1,
+            child: IconButton(
+            
+              icon: Icon(
+                
+                Icons.navigate_before_rounded,
+                color: Colors.red,size: 70,
+            
               ),
+              onPressed: () {
+                Navigator.pushNamed(context, levelsPage);
+              },
             ),
           ),
-        ),
-        Align(
-          alignment: Alignment.bottomRight,
-          child: Container(
-            width: kWeight,
-            height: kHeight,
-            child: RaisedButton(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                  side: BorderSide(color: Colors.yellow)),
-              onPressed: () {
-                Navigator.pushNamed(context, bodyPartsA);
-              },
-              color: Colors.red,
-              child: Text(
-                "NEXT",
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: tSize,
-                    fontWeight: FontWeight.bold),
+        Positioned(
+            bottom: MediaQuery.of(context).size.height / 16,
+            right: MediaQuery.of(context).size.width / 14,
+            child: IconButton(
+            
+              icon: Icon(
+                
+                Icons.double_arrow_rounded,
+                color: Colors.red,size: 60,
+            
               ),
+              onPressed: () {
+                Navigator.pushNamed(context, bodyPartsLevelsPage);
+              },
             ),
           ),
-        ),
       ]),
     );
   }

@@ -61,6 +61,7 @@ flutter:
     - assets/images/characters/
     - assets/images/dragthings/
     - assets/images/environment/
+    - assets/images/storyline/
     - assets/images/tiles/
     - assets/audio/applauses/
     - assets/audio/

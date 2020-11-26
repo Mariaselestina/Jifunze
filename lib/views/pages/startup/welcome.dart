@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+
 
 import 'package:jifunze/constants/routes.dart';
 
@@ -15,11 +15,12 @@ class WelcomePage extends StatelessWidget {
         Container(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
-         child: SvgPicture.asset(
-              'assets/images/environment/welcome.svg',            
+         child: Image.asset(
+              'assets/images/environment/welcome.PNG',            
               fit: BoxFit.cover,
             ),
         ),
+       
        
             // Positioned(
             //    top: MediaQuery.of(context).size.height / 3,
@@ -48,32 +49,47 @@ class WelcomePage extends StatelessWidget {
              
             // )
         
-         Align(
-           alignment: Alignment.bottomRight,
-                    child: Container(
+        //  Align(
+        //    alignment: Alignment.bottomRight,
+        //             child: Container(
               
-              width: kWeight,
-              height: kHeight,
-              child: RaisedButton(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0),
-                    side: BorderSide(color: Colors.yellow)),
-                onPressed: () {
-                  Navigator.pushNamed(context, levelsPage);
-                },
-                color: Colors.red,
-                child: Text(
-                  "NEXT",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: tSize,
-                    fontWeight: FontWeight.bold
-                  ),
-                ),
+        //       width: kWeight,
+        //       height: kHeight,
+        //       child: RaisedButton(
+        //         shape: RoundedRectangleBorder(
+        //             borderRadius: BorderRadius.circular(10.0),
+        //             side: BorderSide(color: Colors.yellow)),
+        //         onPressed: () {
+        //           Navigator.pushNamed(context, levelsPage);
+        //         },
+        //         color: Colors.white,
+        //         child: Text(
+        //           "NEXT",
+        //           style: TextStyle(
+        //             color: Colors.black,
+        //             fontSize: tSize,
+        //             fontWeight: FontWeight.bold
+        //           ),
+        //         ),
+        //       ),
+        //     ),
+        //  ),
+        Positioned(
+            bottom: MediaQuery.of(context).size.height / 13,
+            right: MediaQuery.of(context).size.width / 9,
+            child: IconButton(
+            
+              icon: Icon(
+                
+                Icons.double_arrow_rounded,
+                color: Colors.white,size: 50,
+            
               ),
+              onPressed: () {
+                Navigator.pushNamed(context, levelsPage);
+              },
             ),
-         ),
-        
+          ), 
       ]),
       
     );

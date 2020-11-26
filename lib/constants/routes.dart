@@ -18,6 +18,7 @@ const bodyPartsA = "/bodyPartsA";
 const boyClothes = "/boyClothes";
 const bodyPartsB = "/bodyPartsB";
 const bodyPartsC = "/bodyPartsC";
+const beginingPresents = "/beginingPresents";
 const presentCard = "/presentCard";
 const presentsA = "/presentsA";
 const presentsB = "/presentsB";

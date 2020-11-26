@@ -18,6 +18,18 @@ class LevelsPage extends StatelessWidget {
             fit: BoxFit.fill,
           ),
         ),
+           Positioned(
+            bottom: MediaQuery.of(context).size.height /3,
+            right: MediaQuery.of(context).size.width / 1.35,
+             child: Container(
+               height: 150,
+               width: 150,
+               child: Image.asset(
+                'assets/images/environment/butterfly2.gif',            
+                fit: BoxFit.cover, 
+            ),
+             ),
+          ),
          Positioned(
               bottom: 285,
               left: MediaQuery.of(context).size.width / 4,

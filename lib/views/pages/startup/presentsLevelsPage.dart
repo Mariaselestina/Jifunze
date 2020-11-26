@@ -25,7 +25,7 @@ class PresentsLevelsPage extends StatelessWidget {
               left: MediaQuery.of(context).size.width / 6,
              child: InkWell(
                   onTap: () {
-                 Navigator.pushNamed(context, presentCard);
+                 Navigator.pushNamed(context, beginingPresents);
                   },
                   child: Container(height: 80, width: 130, ))),
           Positioned(

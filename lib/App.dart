@@ -13,6 +13,7 @@ import 'package:jifunze/views/pages/Game/level1/beginingPage.dart';
 import 'package:jifunze/views/pages/Game/level1/bodyPartsB.dart';
 import 'package:jifunze/views/pages/Game/level1/bodyPartsC.dart';
 import 'package:jifunze/views/pages/Game/level1/bodyPartsA.dart';
+import 'package:jifunze/views/pages/Game/level2/beginingPresents.dart';
 import 'package:jifunze/views/pages/Game/level3/environmentC.dart';
 
 
@@ -73,6 +74,7 @@ class App extends StatelessWidget {
         boyClothes: (_) => BoyClothes(),
         bodyPartsB: (_) => BodyPartsB(),
         bodyPartsC: (_) => BodyPartsC(),
+        beginingPresents: (_) => BeginingPresents(),
         presentsA: (_) => PresentsA(),
         presentCard: (_) => PresentCard(),
         presentsB: (_) => PresentsB(),
