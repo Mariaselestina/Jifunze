@@ -59,7 +59,7 @@ class BeginingPage extends StatelessWidget {
             
               ),
               onPressed: () {
-                Navigator.pushNamed(context, bodyPartsLevelsPage);
+                Navigator.pushNamed(context, bodyPartsA);
               },
             ),
           ),

@@ -25,8 +25,9 @@ class _BodyPartsAState extends State<BodyPartsA> {
       body: Stack(
         children: <Widget>[
           _isBoy2 ? Boy2() : Girl2(),
-          Align(
-            alignment: Alignment.topCenter,
+          Positioned(
+            bottom: MediaQuery.of(context).size.height / 1.2,
+            left: MediaQuery.of(context).size.width / 1.35,
             child: Row(children: [
               InkWell(
                 onTap: () {
@@ -63,7 +64,7 @@ class _BodyPartsAState extends State<BodyPartsA> {
           Align(
             alignment: Alignment.topLeft,
             child: IconButton(
-              icon: Icon(Icons.home, color: Colors.orangeAccent, size: 70),
+              icon: Icon(Icons.home, color: Colors.blue, size: 70),
               onPressed: () {
                 Navigator.pushNamed(context, levelsPage);
               },
@@ -79,7 +80,7 @@ class _BodyPartsAState extends State<BodyPartsA> {
                 size: 70,
               ),
               onPressed: () {
-                Navigator.pushNamed(context, levelsPage);
+                Navigator.pop(context);
               },
             ),
           ),

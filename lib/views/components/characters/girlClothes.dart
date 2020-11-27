@@ -1,7 +1,7 @@
 import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:jifunze/constants/routes.dart';
+
 
 
 class GirlClothes extends StatefulWidget {
@@ -249,19 +249,7 @@ class _GirlClothesState extends State<GirlClothes> {
                   ),
                 ],
               )),
-          Positioned(
-            bottom: MediaQuery.of(context).size.height / 13,
-            right: MediaQuery.of(context).size.width / 9,
-            child: IconButton(
-              icon: Icon(
-                Icons.arrow_forward_ios,
-                color: Colors.white,
-              ),
-              onPressed: () {
-                Navigator.pushNamed(context, boyClothes);
-              },
-            ),
-          ),
+         
         ],
       ),
     );

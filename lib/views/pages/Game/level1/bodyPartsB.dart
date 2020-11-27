@@ -27,95 +27,87 @@ class _BodyPartsBState extends State<BodyPartsB> {
       body: Stack(
         children: <Widget>[
           _isBoy ? Boy() : Girl(),
-          Row(children: [
-            InkWell(
-              onTap: () {
-               
-                setState(() {
-                  _isBoy = false;
-                });
-              },
-              child: Container(
-                height: 60,
-                width: 90,
-              child: SvgPicture.asset(
-              'assets/images/characters/girl.svg',
-              fit: BoxFit.fill,
-            ),
+          Positioned(
+             bottom: MediaQuery.of(context).size.height / 1.2,
+            left: MediaQuery.of(context).size.width / 1.35,
+                      child: Row(children: [
+                       
+              InkWell(
+                onTap: () {
+                 
+                  setState(() {
+                    _isBoy = false;
+                  });
+                },
+                child: Container(
+                  height: 60,
+                  width: 90,
+                child: SvgPicture.asset(
+                'assets/images/characters/girl.svg',
+                fit: BoxFit.fill,
               ),
-            ),
-            InkWell(
-              onTap: () {
-              
-                setState(() {
-                  _isBoy = true;
-                });
-              },
-              child: Container(
-                height: 50,
-                width: 70,
-              child: SvgPicture.asset(
-              'assets/images/characters/boy.svg',
-              fit: BoxFit.fill,
-            ),
+                ),
               ),
+              InkWell(
+                onTap: () {
+                
+                  setState(() {
+                    _isBoy = true;
+                  });
+                },
+                child: Container(
+                  height: 50,
+                  width: 70,
+                child: SvgPicture.asset(
+                'assets/images/characters/boy.svg',
+                fit: BoxFit.fill,
+              ),
+                ),
+              ),
+                
+            
+            
+         
+            ]),
+          ),
+          Align(
+            alignment: Alignment.topLeft,
+            child: IconButton(
+              icon: Icon(Icons.home, color: Colors.blue, size: 70),
+              onPressed: () {
+                Navigator.pushNamed(context, levelsPage);
+              },
             ),
-          ]),
-          Padding(
-            padding: const EdgeInsets.only(bottom: 20),
-            child: Align(
-              alignment: Alignment.bottomCenter,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Container(
-                    width: kWeight,
-                    height: kHeight,
-                    child: RaisedButton(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                          side: BorderSide(color: Colors.red)),
-                      onPressed: () {
-                        Navigator.pushNamed(context, bodyPartsLevelsPage);
-                      },
-                      color: Colors.red,
-                      child: Text(
-                        "BACK",
-                        style: TextStyle(
-                          color: Colors.yellowAccent,
-                          fontSize: tSize,
-                        ),
-                      ),
-                    ),
-                  ),
-                  
-               Align(
-          alignment: Alignment.bottomRight,
-          child: Container(
-            width: kWeight,
-            height: kHeight,
-            child: RaisedButton(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                  side: BorderSide(color: Colors.yellow)),
+          ),
+         
+          Positioned(
+            bottom: MediaQuery.of(context).size.height / 16,
+            right: MediaQuery.of(context).size.width / 1.1,
+            child: IconButton(
+              icon: Icon(
+                Icons.navigate_before_rounded,
+                color: Colors.red,
+                size: 70,
+              ),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
+          ),
+          Positioned(
+            bottom: MediaQuery.of(context).size.height / 16,
+            right: MediaQuery.of(context).size.width / 14,
+            child: IconButton(
+              icon: Icon(
+                Icons.double_arrow_rounded,
+                color: Colors.red,
+                size: 60,
+              ),
               onPressed: () {
                 Navigator.pushNamed(context, bodyPartsLevelsPage);
               },
-              color: Colors.red,
-              child: Text(
-                "NEXT",
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: tSize,
-                    fontWeight: FontWeight.bold),
-              ),
             ),
           ),
-        ),
-                ],
-              ),
-            ),
-          )
         ],
       ),
     );

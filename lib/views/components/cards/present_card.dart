@@ -1,6 +1,7 @@
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:jifunze/constants/routes.dart';
 
 class PresentCard extends StatelessWidget {
   @override
@@ -107,7 +108,16 @@ class PresentCard extends StatelessWidget {
             ),
         
           ],
-        )
+        ),
+        Align(
+            alignment: Alignment.topLeft,
+            child: IconButton(
+              icon: Icon(Icons.home, color: Colors.blue, size: 70),
+              onPressed: () {
+                Navigator.pushNamed(context, presentsLevelsPage);
+              },
+            ),
+          ),
            
       ],
     ));

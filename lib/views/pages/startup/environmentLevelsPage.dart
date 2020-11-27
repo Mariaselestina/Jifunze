@@ -64,52 +64,7 @@ class EnvironmentLevelsPage extends StatelessWidget {
             },
           ),
         ),
-        Align(
-          alignment: Alignment.bottomLeft,
-          child: Container(
-            width: kWeight,
-            height: kHeight,
-            child: RaisedButton(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                  side: BorderSide(color: Colors.yellow)),
-              onPressed: () {
-                Navigator.pushNamed(context, bodyPartsA);
-              },
-              color: Colors.red,
-              child: Text(
-                "BACK",
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: tSize,
-                    fontWeight: FontWeight.bold),
-              ),
-            ),
-          ),
-        ),
-        Align(
-          alignment: Alignment.bottomRight,
-          child: Container(
-            width: kWeight,
-            height: kHeight,
-            child: RaisedButton(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                  side: BorderSide(color: Colors.yellow)),
-              onPressed: () {
-                Navigator.pushNamed(context, bodyPartsA);
-              },
-              color: Colors.red,
-              child: Text(
-                "NEXT",
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: tSize,
-                    fontWeight: FontWeight.bold),
-              ),
-            ),
-          ),
-        ),
+       
       ],
     ));
   }

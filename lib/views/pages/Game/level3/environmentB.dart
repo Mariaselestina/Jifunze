@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jifunze/constants/routes.dart';
 
 
 class EnvironmentB extends StatelessWidget {
@@ -22,7 +23,45 @@ class EnvironmentB extends StatelessWidget {
               height: 90,
               fit: BoxFit.fill,
             ),
-          )
+          ),
+           Align(
+            alignment: Alignment.topLeft,
+            child: IconButton(
+              icon: Icon(Icons.home, color: Colors.blue, size: 70),
+              onPressed: () {
+                Navigator.pushNamed(context, levelsPage);
+              },
+            ),
+          ),
+         
+          Positioned(
+            bottom: MediaQuery.of(context).size.height / 16,
+            right: MediaQuery.of(context).size.width / 1.1,
+            child: IconButton(
+              icon: Icon(
+                Icons.navigate_before_rounded,
+                color: Colors.red,
+                size: 70,
+              ),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
+          ),
+          Positioned(
+            bottom: MediaQuery.of(context).size.height / 16,
+            right: MediaQuery.of(context).size.width / 14,
+            child: IconButton(
+              icon: Icon(
+                Icons.double_arrow_rounded,
+                color: Colors.red,
+                size: 60,
+              ),
+              onPressed: () {
+                Navigator.pushNamed(context, environmentBB);
+              },
+            ),
+          ),
         ],
       ),
     );

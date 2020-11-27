@@ -24,7 +24,7 @@ class BodyPartsLevelsPage extends StatelessWidget {
               left: MediaQuery.of(context).size.width / 6,
               child: InkWell(
                   onTap: () {
-                  Navigator.pushNamed(context, bodyPartsA);
+                  Navigator.pushNamed(context, beginingPage);
                   },
                   child: Container(height: 80, width: 130, ))),
           Positioned(

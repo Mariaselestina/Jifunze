@@ -33,6 +33,7 @@ import 'package:jifunze/views/pages/Game/level3/environmentBBB.dart';
 
 import 'package:jifunze/views/pages/Game/level2/presentsA.dart';
 
+
 import 'package:jifunze/views/pages/homePage.dart';
 import 'package:jifunze/views/pages/startup/consentPage.dart';
 import 'package:jifunze/views/pages/startup/environmentLevelsPage.dart';
@@ -55,7 +56,7 @@ class App extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: WelcomePage(),
+      home: LevelsPage(),
       routes: {
         signUpPage: (_) => SignUpPage(),
         signInPage: (_) => SignInPage(),
