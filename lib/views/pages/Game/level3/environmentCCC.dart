@@ -1,9 +1,9 @@
+
+
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:jifunze/constants/routes.dart';
 
-class EnvironmentAAA extends StatelessWidget {
+class EnvironmentCCC extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -12,11 +12,19 @@ class EnvironmentAAA extends StatelessWidget {
           Container(
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
-            child: SvgPicture.asset(
-              'assets/images/environment/envtwoBhome.svg',
-              width: 200,
-              height: 100,
-              fit: BoxFit.fill,
+            child: Image.asset('assets/images/environment/envtwoBstreeetstory.png',
+                fit: BoxFit.fill),
+          ),
+          Align(
+            alignment: Alignment(0.42, -0.1),
+            child: Container(
+              width: 240,
+              height: 207,
+              color: Colors.blue,
+              child: Image.asset(
+                'assets/images/gifimages/carmoving.gif',
+                fit: BoxFit.fill,
+              ),
             ),
           ),
            Align(
@@ -53,7 +61,7 @@ class EnvironmentAAA extends StatelessWidget {
                 size: 60,
               ),
               onPressed: () {
-                Navigator.pushNamed(context, environmentLevelsPage);
+                Navigator.pushNamed(context, levelsPage);
               },
             ),
           ),

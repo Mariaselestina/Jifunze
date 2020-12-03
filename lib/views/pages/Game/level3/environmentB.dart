@@ -11,7 +11,7 @@ class EnvironmentB extends StatelessWidget {
           Container(
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
-            child: Image.asset('assets/images/environment/interiorthreeB.png',
+            child: Image.asset('assets/images/environment/street1.jpg',
                 fit: BoxFit.fill),
           ),
            Positioned(
@@ -58,7 +58,7 @@ class EnvironmentB extends StatelessWidget {
                 size: 60,
               ),
               onPressed: () {
-                Navigator.pushNamed(context, environmentBB);
+                Navigator.pushNamed(context, environmentC);
               },
             ),
           ),

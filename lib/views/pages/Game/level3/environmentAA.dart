@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:jifunze/constants/routes.dart';
 
 
@@ -17,11 +18,26 @@ class EnvironmentAA extends StatelessWidget {
            Positioned(
             top: MediaQuery.of(context).size.height / 2,
             left: MediaQuery.of(context).size.width / 1.2,
-            child:Image.asset('assets/images/characters/boydressed.png',
+            child:SvgPicture.asset('assets/images/characters/boydressed.svg',
                
-              width: 50,
-              height: 90,
+              width: 40,
+              height: 60,
               fit: BoxFit.fill,
+            ),
+          ),
+      Container(
+            height: MediaQuery.of(context).size.height,
+            width: 100,
+            color: Colors.white,
+            child: Align(
+                alignment: Alignment.center,
+            
+              child: SvgPicture.asset(
+                'assets/images/characters/boydressed.svg',
+                
+                width: 70,
+              height: 150,fit: BoxFit.fill,
+              ),
             ),
           ),
            Align(
@@ -41,7 +57,7 @@ class EnvironmentAA extends StatelessWidget {
               icon: Icon(
                 Icons.arrow_back_ios,
                 color: Colors.red,
-                size: 70,
+                size: 60,
               ),
               onPressed: () {
                 Navigator.pop(context);
@@ -58,7 +74,7 @@ class EnvironmentAA extends StatelessWidget {
                 size: 60,
               ),
               onPressed: () {
-                Navigator.pushNamed(context, environmentAAA);
+                Navigator.pushNamed(context, environmentB);
               },
             ),
           ),

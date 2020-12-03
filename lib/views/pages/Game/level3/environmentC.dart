@@ -25,7 +25,7 @@ class EnvironmentC extends StatelessWidget {
               height: 207,
               color: Colors.blue,
               child: Image.asset(
-                'assets/images/a.jpg',
+                'assets/images/gifimages/brushteeth.gif',
                 fit: BoxFit.fill,
               ),
             ),

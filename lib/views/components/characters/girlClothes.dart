@@ -1,6 +1,7 @@
 import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:jifunze/constants/routes.dart';
 
 
 
@@ -36,7 +37,7 @@ class _GirlClothesState extends State<GirlClothes> {
               child: DragTarget<String>(
                 onWillAccept: (value) => value == 'SKIRT1',
                 onAccept: (value) {
-                  onPlayAudio();
+                 onPlayAudioSkirt();
                   setState(() {
                     skirt1Accepted = true;
                   });
@@ -67,7 +68,7 @@ class _GirlClothesState extends State<GirlClothes> {
               child: DragTarget<String>(
                 onWillAccept: (value) => value == 'BLOUSE1',
                 onAccept: (value) {
-                  onPlayAudio();
+                 onPlayAudioBlouse1();
                   setState(() {
                     blouse1Accepted = true;
                   });
@@ -94,7 +95,7 @@ class _GirlClothesState extends State<GirlClothes> {
               child: DragTarget<String>(
                 onWillAccept: (value) => value == 'BLOUSE2',
                 onAccept: (value) {
-                  onPlayAudio();
+                  onPlayAudioBlouse2();
                   setState(() {
                     blouse2Accepted = true;
                    
@@ -249,16 +250,41 @@ class _GirlClothesState extends State<GirlClothes> {
                   ),
                 ],
               )),
-         
+            Positioned(
+            bottom: MediaQuery.of(context).size.height / 16,
+            right: MediaQuery.of(context).size.width / 14,
+            child: IconButton(
+              icon: Icon(
+               Icons.arrow_forward_ios,
+                color: Colors.red,
+                size: 60,
+              ),
+              onPressed: () {
+                Navigator.pushNamed(context, boyClothes);
+              },
+            ),
+          ),
         ],
       ),
     );
   }
 
-  void onPlayAudio() async {
+  void onPlayAudioBlouse1() async {
     AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
     assetsAudioPlayer.open(
-      Audio("assets/audio/applauses/no.mp3"),
+      Audio("assets/audio/story/verygood.mp3"),
+    );
+  }
+   void onPlayAudioBlouse2() async {
+    AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
+    assetsAudioPlayer.open(
+      Audio("assets/audio/story/verygood.mp3"),
+    );
+  }
+  void onPlayAudioSkirt() async {
+    AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
+    assetsAudioPlayer.open(
+      Audio("assets/audio/story/verygood.mp3"),
     );
   }
 }

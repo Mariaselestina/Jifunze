@@ -94,20 +94,7 @@ class _BodyPartsBState extends State<BodyPartsB> {
               },
             ),
           ),
-          Positioned(
-            bottom: MediaQuery.of(context).size.height / 16,
-            right: MediaQuery.of(context).size.width / 14,
-            child: IconButton(
-              icon: Icon(
-               Icons.arrow_forward_ios,
-                color: Colors.red,
-                size: 60,
-              ),
-              onPressed: () {
-                Navigator.pushNamed(context, bodyPartsLevelsPage);
-              },
-            ),
-          ),
+        
         ],
       ),
     );

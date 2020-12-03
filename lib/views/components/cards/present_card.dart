@@ -11,9 +11,9 @@ class PresentCard extends StatelessWidget {
       children: [
         GridView.count(
           primary: false,
-          padding: const EdgeInsets.all(30),
-          crossAxisSpacing: 15,
-          mainAxisSpacing: 15,
+          padding: const EdgeInsets.all(25),
+          crossAxisSpacing: 20,
+          mainAxisSpacing: 5,
           crossAxisCount: 3,
           children: <Widget>[
             FlipCard(
@@ -105,8 +105,9 @@ class PresentCard extends StatelessWidget {
                   fit: BoxFit.fill,
                 ),
               ),
+              
             ),
-        
+       
           ],
         ),
         Align(
@@ -114,11 +115,38 @@ class PresentCard extends StatelessWidget {
             child: IconButton(
               icon: Icon(Icons.home, color: Colors.blue, size: 70),
               onPressed: () {
-                Navigator.pushNamed(context, presentsLevelsPage);
+                Navigator.pushNamed(context, levelsPage);
               },
             ),
           ),
-           
+           Positioned(
+            bottom: MediaQuery.of(context).size.height / 16,
+            right: MediaQuery.of(context).size.width / 1.07,
+            child: IconButton(
+              icon: Icon(
+                Icons.arrow_back_ios,
+                color: Colors.red,
+                size: 40,
+              ),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
+          ),
+           Positioned(
+            bottom: MediaQuery.of(context).size.height / 16,
+            left: MediaQuery.of(context).size.width / 1.07,
+            child: IconButton(
+              icon: Icon(
+               Icons.arrow_forward_ios,
+                color: Colors.red,
+                size: 40,
+              ),
+              onPressed: () {
+                Navigator.pushNamed(context, presentsA);
+              },
+            ),
+          ),    
       ],
     ));
   }

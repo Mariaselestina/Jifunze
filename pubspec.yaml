@@ -36,6 +36,7 @@ dependencies:
   flip_card: ^0.4.4
   flutter_sequence_animation: ^3.0.0
   assets_audio_player: ^2.0.13+1
+  video_player: ^1.0.1
 
    
 
@@ -62,9 +63,10 @@ flutter:
     - assets/images/dragthings/
     - assets/images/environment/
     - assets/images/storyline/
-    - assets/images/tiles/
-    - assets/audio/applauses/
-    - assets/audio/
+    - assets/images/gifimages/
+    - assets/images/tiles/    
+    - assets/audio/story/
+    - assets/video/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

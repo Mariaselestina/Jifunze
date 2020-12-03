@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jifunze/constants/routes.dart';
+import 'package:flutter_svg/svg.dart';
 
 
 class EnvironmentBBB extends StatelessWidget {
@@ -11,16 +12,60 @@ class EnvironmentBBB extends StatelessWidget {
           Container(
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
-            child: Image.asset('assets/images/environment/street1.jpg',
+            child: Image.asset('assets/images/environment/interiorthreeB.png',
                 fit: BoxFit.fill),
+          ),
+          Positioned(
+            left: MediaQuery.of(context).size.width / 1.17,
+            child: Container(
+              
+            height: MediaQuery.of(context).size.height,
+            width: 100,
+            color: Colors.white,
+            child: Align(
+                alignment: Alignment.center,
+            
+              child:Image.asset('assets/images/characters/stranger.png',
+                
+                width: 50,
+              height: 150,fit: BoxFit.fill,
+              ),
+            ),
+          ),
           ),
            Positioned(
             top: MediaQuery.of(context).size.height / 2,
-            left: MediaQuery.of(context).size.width / 1.2,
-            child:Image.asset('assets/images/characters/boydressed.png',
+            left: MediaQuery.of(context).size.width / 2.8,
+      child: SvgPicture.asset(
+                'assets/images/characters/boydressed.svg',
+               
+              width: 70,
+              height: 110,
+              fit: BoxFit.fill,
+            ),
+          ),
+          Positioned(
+            bottom: MediaQuery.of(context).size.height /2.7,
+            right: MediaQuery.of(context).size.width / 1.11,
+            child: InkWell(
+                          child: Image.asset(
+                'assets/images/characters/girldressed.png',
+                width: 40,
+                height: 100,
+                fit: BoxFit.cover,
+              ),
+              onTap: () {
+                 
+                  },
+            ),
+          ),
+            Positioned(
+            top: MediaQuery.of(context).size.height / 2.4,
+            right: MediaQuery.of(context).size.width / 1.2,
+            child:Image.asset('assets/images/characters/stranger.png',
                
               width: 50,
-              height: 90,
+              height: 120,
               fit: BoxFit.fill,
             ),
           ),
@@ -41,7 +86,7 @@ class EnvironmentBBB extends StatelessWidget {
               icon: Icon(
                 Icons.arrow_back_ios,
                 color: Colors.red,
-                size: 70,
+                size: 60,
               ),
               onPressed: () {
                 Navigator.pop(context);
@@ -58,7 +103,7 @@ class EnvironmentBBB extends StatelessWidget {
                 size: 60,
               ),
               onPressed: () {
-                Navigator.pushNamed(context, environmentLevelsPage);
+                Navigator.pushNamed(context, environmentC);
               },
             ),
           ),

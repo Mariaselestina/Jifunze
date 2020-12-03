@@ -2,6 +2,7 @@ import 'package:assets_audio_player/assets_audio_player.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:jifunze/constants/routes.dart';
 
 class Boy extends StatefulWidget {
   @override
@@ -29,7 +30,7 @@ class _BoyState extends State<Boy> {
               left: MediaQuery.of(context).size.width / 2.21,
               child: InkWell(
                   onTap: () {
-                    onPlayAudio();
+                    onPlayAudio1();
                   },
                   child: Container(
                     height: 17,
@@ -46,6 +47,20 @@ class _BoyState extends State<Boy> {
                   child: Container(height: 50, width: 90,
                    //color: Colors.red
                    ))),
+                     Positioned(
+            bottom: MediaQuery.of(context).size.height / 16,
+            right: MediaQuery.of(context).size.width / 14,
+            child: IconButton(
+              icon: Icon(
+               Icons.arrow_forward_ios,
+                color: Colors.red,
+                size: 60,
+              ),
+              onPressed: () {
+                Navigator.pushNamed(context, bodyPartsC);
+              },
+            ),
+          ),
         ],
       ),
     );
@@ -54,7 +69,13 @@ class _BoyState extends State<Boy> {
   void onPlayAudio() async {
     AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
     assetsAudioPlayer.open(
-      Audio("assets/audio/applauses/hapana.mp3"),
+      Audio("assets/audio/story/nonono.mp3"),
+    );
+  }
+    void onPlayAudio1() async {
+    AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
+    assetsAudioPlayer.open(
+      Audio("assets/audio/story/noprivatepart.mp3"),
     );
   }
 }

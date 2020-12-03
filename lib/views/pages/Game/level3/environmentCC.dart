@@ -22,7 +22,7 @@ class EnvironmentCC extends StatelessWidget {
               height: 207,
               color: Colors.blue,
               child: Image.asset(
-                'assets/images/a.jpg',
+                'assets/images/images/washinghands.gif',
                 fit: BoxFit.fill,
               ),
             ),
@@ -61,7 +61,7 @@ class EnvironmentCC extends StatelessWidget {
                 size: 60,
               ),
               onPressed: () {
-                Navigator.pushNamed(context, levelsPage);
+                Navigator.pushNamed(context, environmentCCC);
               },
             ),
           ),

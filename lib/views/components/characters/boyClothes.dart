@@ -34,9 +34,10 @@ class _BoyClothesState extends State<BoyClothes> {
               child: DragTarget<String>(
                 onWillAccept: (value) => value == 'SHORT',
                 onAccept: (value) {
-                  onPlayAudio();
+                onPlayAudioShort();
                   setState(() {
                     shortaAccepted = true;
+                    
                   });
                 },
                 onLeave: (value) {
@@ -68,7 +69,7 @@ class _BoyClothesState extends State<BoyClothes> {
               child: DragTarget<String>(
                 onWillAccept: (value) => value == 'SHIRT1',
                 onAccept: (value) {
-                   onPlayAudio();
+                   onPlayAudioShirt1();
                   setState(() {
                     shirt1Accepted = true;
                   });
@@ -95,7 +96,7 @@ class _BoyClothesState extends State<BoyClothes> {
               child: DragTarget<String>(
                 onWillAccept: (value) => value == 'SHIRT2',
                 onAccept: (value) {
-                  onPlayAudio();
+                onPlayAudioShirt2();
                   setState(() {
                     shirt2Accepted = true;
                   });
@@ -259,10 +260,22 @@ class _BoyClothesState extends State<BoyClothes> {
     );
   }
 
- void onPlayAudio() async {
+  void onPlayAudioShirt1() async {
     AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
     assetsAudioPlayer.open(
-      Audio("assets/audio/applauses/no.mp3"),
+      Audio("assets/audio/story/verygood.mp3"),
+    );
+  }
+   void onPlayAudioShirt2() async {
+    AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
+    assetsAudioPlayer.open(
+      Audio("assets/audio/story/verygood.mp3"),
+    );
+  }
+  void onPlayAudioShort() async {
+    AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
+    assetsAudioPlayer.open(
+      Audio("assets/audio/story/verygood.mp3"),
     );
   }
 }

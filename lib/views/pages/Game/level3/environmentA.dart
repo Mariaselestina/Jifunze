@@ -3,7 +3,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:jifunze/constants/routes.dart';
 
-
 class EnvironmentA extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -16,17 +15,37 @@ class EnvironmentA extends StatelessWidget {
             child: Image.asset('assets/images/environment/envthree1.png',
                 fit: BoxFit.fill),
           ),
-          Positioned(
-            bottom: MediaQuery.of(context).size.height / 1.3,
-            left: MediaQuery.of(context).size.width / 3,
-            child: SvgPicture.asset(
-              'assets/images/characters/girldressed.svg',
-              width: 40,
-              height: 90,
-              fit: BoxFit.cover,
+          Container(
+            height: MediaQuery.of(context).size.height,
+            width: 100,
+            color: Colors.white,
+            child: Align(
+                alignment: Alignment.center,
+            
+              child: SvgPicture.asset(
+                'assets/images/characters/girldressed.svg',
+                
+                width: 70,
+              height: 150,fit: BoxFit.fill,
+              ),
             ),
           ),
-           Align(
+          Positioned(
+            bottom: MediaQuery.of(context).size.height / 1.2,
+            left: MediaQuery.of(context).size.width / 3,
+            child: InkWell(
+                          child: SvgPicture.asset(
+                'assets/images/characters/girldressed.svg',
+                width: 30,
+                height: 70,
+                fit: BoxFit.cover,
+              ),
+              onTap: () {
+                 
+                  },
+            ),
+          ),
+          Align(
             alignment: Alignment.topLeft,
             child: IconButton(
               icon: Icon(Icons.home, color: Colors.blue, size: 70),
@@ -35,7 +54,6 @@ class EnvironmentA extends StatelessWidget {
               },
             ),
           ),
-         
           Positioned(
             bottom: MediaQuery.of(context).size.height / 16,
             right: MediaQuery.of(context).size.width / 1.1,
@@ -43,7 +61,7 @@ class EnvironmentA extends StatelessWidget {
               icon: Icon(
                 Icons.arrow_back_ios,
                 color: Colors.red,
-                size: 70,
+                size: 60,
               ),
               onPressed: () {
                 Navigator.pop(context);
@@ -55,7 +73,7 @@ class EnvironmentA extends StatelessWidget {
             right: MediaQuery.of(context).size.width / 14,
             child: IconButton(
               icon: Icon(
-               Icons.arrow_forward_ios,
+                Icons.arrow_forward_ios,
                 color: Colors.red,
                 size: 60,
               ),
