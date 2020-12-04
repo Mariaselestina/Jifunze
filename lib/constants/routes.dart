@@ -29,6 +29,7 @@ const presentsB = "/presentsB";
 const presentsC = "/presentsC";
 const presentsCC = "/presentsCC";
 const presentsCCC = "/presentsCCC";
+const beginingenvironment = "/beginingenvironment";
 const environmentA = "/environmentA";
 const environmentAA = "/environmentAA";
 

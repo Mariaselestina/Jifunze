@@ -11,11 +11,12 @@ class GirlClothes extends StatefulWidget {
 }
 
 class _GirlClothesState extends State<GirlClothes> {
-  final double _shirtSize = 100;
+  final double _shirtSize = 70;
 
   bool blouse1Accepted = false;
   bool blouse2Accepted = false;
   bool skirt1Accepted = false;
+   bool skirt2Accepted = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,6 +63,38 @@ class _GirlClothesState extends State<GirlClothes> {
                 },
               )),
           
+           Positioned(
+              top: MediaQuery.of(context).size.height / 1.8,
+              left: MediaQuery.of(context).size.width / 5.1,
+              child: DragTarget<String>(
+                onWillAccept: (value) => value == 'SKIRT2',
+                onAccept: (value) {
+                 onPlayAudioSkirt();
+                  setState(() {
+                    skirt2Accepted = true;
+                  });
+                },
+                onLeave: (value) {
+                  //Alert the user their value ddint land
+                },
+                builder: (context, candidates, rejects) {
+                  return skirt2Accepted
+                      ? Container(
+                          child: SvgPicture.asset(
+                            'assets/images/characters/skirt2.svg',
+                            fit: BoxFit.cover,
+                          ),
+                          height: 80,
+                          width: 170,
+                        )
+                      : Container(
+                          height: 80,
+                          width: 150,
+                        );
+                },
+              )),
+          
+         
           Positioned(
               top: MediaQuery.of(context).size.height / 2.9,
               left: MediaQuery.of(context).size.width / 4.1,
@@ -248,6 +281,49 @@ class _GirlClothesState extends State<GirlClothes> {
                                 ),
                               )),
                   ),
+                   Container(
+                    color: Colors.blue,
+                    child: Draggable<String>(
+                        data: "SKIRT2",
+                        feedback: SvgPicture.asset(
+                          'assets/images/characters/skirt2.svg',
+                          height: _shirtSize,
+                          fit: BoxFit.fill,
+                        ),
+                        childWhenDragging: Container(
+                          color: Colors.brown,
+                          height: _shirtSize,
+                          child: Container(
+                            color: Colors.white,
+                            height: _shirtSize,
+                            width: _shirtSize,
+                          ),
+                        ),
+                        child: skirt2Accepted
+                            ? Container(
+                                color: Colors.brown,
+                                height: _shirtSize,
+                                child: Container(
+                                  color: Colors.white,
+                                  height: _shirtSize,
+                                  width: _shirtSize,
+                                ),
+                              )
+                            : Container(
+                                color: Colors.brown,
+                                height: _shirtSize,
+                                width: _shirtSize,
+                                child: Container(
+                                  color: Colors.white,
+                                  child: SvgPicture.asset(
+                                    'assets/images/characters/skirt2.svg',
+                                    fit: BoxFit.fill,
+                                    height: _shirtSize,
+                                  ),
+                                ),
+                              )),
+                  ),
+              
                 ],
               )),
             Positioned(

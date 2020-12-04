@@ -1,6 +1,8 @@
 
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:jifunze/constants/routes.dart';
+
 
 
 import 'package:video_player/video_player.dart';
@@ -91,8 +93,8 @@ class _BeginingPageState extends State<BeginingPage> {
               size: 60,
             ),
             onPressed: () {
-              Navigator.pushNamed(context, bodyPartsA);
-              //onPlayAudio1();
+              Navigator.pushNamed(context, bodyPartsB);
+              onPlayAudio2();
               
              
             },
@@ -100,21 +102,25 @@ class _BeginingPageState extends State<BeginingPage> {
         ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        elevation: 1,
-        
-          onPressed: (){
-            setState((){
-              if(_videoPlayerController.value.isPlaying) {
-                _videoPlayerController.pause();
+      floatingActionButton: Align(
+        alignment: Alignment(0, 0.9),
+              child: FloatingActionButton(
+          elevation: 1,
+          
+          
+            onPressed: (){
+              setState((){
+                if(_videoPlayerController.value.isPlaying) {
+                  _videoPlayerController.pause();
 
-              }else{
-                _videoPlayerController.play();
-              }
-            });
-          }, 
-          child: Icon(_videoPlayerController.value.isPlaying ? Icons.pause : Icons.play_arrow),
-        ),
+                }else{
+                  _videoPlayerController.play();
+                }
+              });
+            }, 
+            child: Icon(_videoPlayerController.value.isPlaying ? Icons.pause : Icons.play_arrow),
+          ),
+      ),
       //   Container(
       //     height: MediaQuery.of(context).size.height,
       //     width: MediaQuery.of(context).size.width,
@@ -127,20 +133,7 @@ class _BeginingPageState extends State<BeginingPage> {
       //     //   fit: BoxFit.fill,
       //     // ),
       //   ),
-      //   Positioned(
-      //     top: MediaQuery.of(context).size.height / 1.4,
-      //     right: MediaQuery.of(context).size.width / 1.4,
-      //     child: IconButton(
-      //       icon: Icon(
-      //         Icons.play_arrow_rounded,
-      //         color: Colors.red,
-      //         size: 60,
-      //       ),
-      //       onPressed: () {
-      //         onPlayAudio();
-      //       },
-      //     ),
-      //   ),
+   
       //   Positioned(
       //     bottom: MediaQuery.of(context).size.height / 1.6,
       //     right: MediaQuery.of(context).size.width / 1.7,
@@ -155,7 +148,13 @@ class _BeginingPageState extends State<BeginingPage> {
       //   ),
       
       
-      // ]),
+      
      );
+  }
+  void onPlayAudio2() async {
+    AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
+    assetsAudioPlayer.open(
+      Audio("assets/audio/story/showsafeparts.mp3"),
+    );
   }
 }

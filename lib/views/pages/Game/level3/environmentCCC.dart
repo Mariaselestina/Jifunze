@@ -12,21 +12,53 @@ class EnvironmentCCC extends StatelessWidget {
           Container(
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
-            child: Image.asset('assets/images/environment/envtwoBstreeetstory.png',
+            child: Image.asset('assets/images/environment/envthree4.png',
                 fit: BoxFit.fill),
           ),
-          Align(
-            alignment: Alignment(0.42, -0.1),
-            child: Container(
-              width: 240,
-              height: 207,
-              color: Colors.blue,
-              child: Image.asset(
-                'assets/images/gifimages/carmoving.gif',
-                fit: BoxFit.fill,
-              ),
-            ),
-          ),
+         Positioned(
+            bottom: MediaQuery.of(context).size.height / 16,
+            right: MediaQuery.of(context).size.width / 1.29,
+                    child: InkWell(
+                                          child: Container(
+             height:250, width:100,
+             // color:Colors.black
+           ),
+           onTap: (){},
+                    ),
+         ),
+            Positioned(
+            bottom: MediaQuery.of(context).size.height / 16,
+            right: MediaQuery.of(context).size.width / 1.9,
+                    child: InkWell(
+                                          child: Container(
+             height:250, width:100,
+             // color:Colors.blue
+           ),
+           onTap: (){},
+                    ),
+         ),
+         Positioned(
+            bottom: MediaQuery.of(context).size.height / 16,
+            right: MediaQuery.of(context).size.width / 2.9,
+                    child: InkWell(
+                                          child: Container(
+             height:250, width:100, 
+             //color:Colors.blue
+           ),
+           onTap: (){},
+                    ),
+         ),
+         Positioned(
+            bottom: MediaQuery.of(context).size.height / 16,
+            right: MediaQuery.of(context).size.width / 8,
+                    child: InkWell(
+                                          child: Container(
+             height:250, width:100,
+             // color:Colors.blue
+           ),
+           onTap: (){},
+                    ),
+         ),
            Align(
             alignment: Alignment.topLeft,
             child: IconButton(

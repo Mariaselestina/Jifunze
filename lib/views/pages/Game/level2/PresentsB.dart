@@ -1,3 +1,4 @@
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:jifunze/constants/routes.dart';
 
@@ -89,6 +90,7 @@ class PresentsB extends StatelessWidget {
                 size: 60,
               ),
               onPressed: () {
+                onPlayAudio2();
                 Navigator.pushNamed(context, presentsC);
               },
             ),
@@ -97,5 +99,11 @@ class PresentsB extends StatelessWidget {
       ),
     );
   }
+  void onPlayAudio2() async {
+    AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
+    assetsAudioPlayer.open(
+      Audio("assets/audio/story/moveshape.mp3"),
+    );
+  } 
 }
 

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:jifunze/constants/routes.dart';
 import 'package:jifunze/views/components/cards/present_card.dart';
-import 'package:jifunze/views/components/characters/boyBodyParts.dart';
+
 import 'package:jifunze/views/components/characters/boyClothes.dart';
-import 'package:jifunze/views/components/characters/boyparts.dart';
+
 
 
 import 'package:jifunze/views/pages/Authentication/authenticationPage.dart';
@@ -14,8 +14,9 @@ import 'package:jifunze/views/pages/Game/level1/beginingPage.dart';
 import 'package:jifunze/views/pages/Game/level1/bodyPartsD.dart';
 import 'package:jifunze/views/pages/Game/level1/bodyPartsB.dart';
 import 'package:jifunze/views/pages/Game/level1/bodyPartsC.dart';
-import 'package:jifunze/views/pages/Game/level1/bodyPartsA.dart';
+
 import 'package:jifunze/views/pages/Game/level2/beginingPresents.dart';
+import 'package:jifunze/views/pages/Game/level3/beginingenvironment.dart';
 import 'package:jifunze/views/pages/Game/level3/environmentC.dart';
 
 
@@ -73,10 +74,9 @@ class App extends StatelessWidget {
      
    
         beginingPage: (_) => BeginingPage(),
-        bodyPartsA: (_) => BodyPartsA(),
+       
         boyClothes: (_) => BoyClothes(),
-        boy: (_) => Boy(),
-        boy2: (_) => Boy2(),
+        
         bodyPartsB: (_) => BodyPartsB(),
         bodyPartsC: (_) => BodyPartsC(),
         bodyPartsD: (_) => BodyPartsD(),
@@ -87,6 +87,7 @@ class App extends StatelessWidget {
         presentsC: (_) => PresentsC(),
         presentsCC: (_) => PresentsCC(),
         presentsCCC: (_) => PresentsCCC(),
+        beginingenvironment: (_) => Beginingenvironment(),
         environmentA: (_) => EnvironmentA(),
         environmentAA: (_) => EnvironmentAA(),
        

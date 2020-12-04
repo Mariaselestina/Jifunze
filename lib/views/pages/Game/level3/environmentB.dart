@@ -11,19 +11,10 @@ class EnvironmentB extends StatelessWidget {
           Container(
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
-            child: Image.asset('assets/images/environment/street1.jpg',
+            child: Image.asset('assets/images/environment/interiorthreeC.png',
                 fit: BoxFit.fill),
           ),
-           Positioned(
-            top: MediaQuery.of(context).size.height / 2,
-            left: MediaQuery.of(context).size.width / 1.2,
-            child:Image.asset('assets/images/characters/boydressed.png',
-               
-              width: 50,
-              height: 90,
-              fit: BoxFit.fill,
-            ),
-          ),
+          
            Align(
             alignment: Alignment.topLeft,
             child: IconButton(
@@ -58,7 +49,7 @@ class EnvironmentB extends StatelessWidget {
                 size: 60,
               ),
               onPressed: () {
-                Navigator.pushNamed(context, environmentC);
+                Navigator.pushNamed(context, environmentBB);
               },
             ),
           ),

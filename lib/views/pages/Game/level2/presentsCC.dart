@@ -85,14 +85,14 @@ class _PresentsCCState extends State<PresentsCC> {
                             fit: BoxFit.fill,
                           ),
                           height: 150,
-                          width: 135,
+                          width: 100,
                           //color: Colors.blue,
                         )
                       : Container(
                           height: 150,
-                          width: 120,
+                          width: 90,
                           child: SvgPicture.asset(
-                            'assets/images/dragthings/shadowstranger.svg',
+                            'assets/images/dragthings/strangershadow.svg',
                             fit: BoxFit.fill,
                           ),
                         );
@@ -142,7 +142,7 @@ class _PresentsCCState extends State<PresentsCC> {
                     child: Draggable<String>(
                         data: "STRANGER",
                         feedback: SvgPicture.asset(
-                          'assets/images/dragthings/stranger.svg',
+                          'assets/images/dragthings/man.svg',
                           height: _shirtSize,
                           fit: BoxFit.fill,
                         ),
@@ -161,19 +161,19 @@ class _PresentsCCState extends State<PresentsCC> {
                                 height: _shirtSize,
                                 child: Container(
                                   //color: Colors.white,
-                                  height: _shirtSize,
-                                  width: _shirtSize,
+                                  height: 120,
+                                  width: 90,
                                 ),
                               )
                             : Container(
                                 //color: Colors.brown,
-                                height: _shirtSize,
-                                width: _shirtSize,
+                                height: 120,
+                                width: 90,
                                 child: Container(
                                   //color: Colors.white,
                                   child: SvgPicture.asset(
-                                    'assets/images/dragthings/stranger.svg',
-                                    height: _shirtSize,
+                                    'assets/images/dragthings/man.svg',
+                                    height: 120,
                                     fit: BoxFit.fill,
                                   ),
                                 ),

@@ -53,7 +53,7 @@ class LevelsPage extends StatelessWidget {
                 onTap: () {
                 
                   Navigator.pushNamed(context, beginingPage);
-                   onPlayAudio1();
+                   //onPlayAudio1();
               
                 },
                 child: Container(
@@ -88,7 +88,7 @@ class LevelsPage extends StatelessWidget {
             child: InkWell(
                 onTap: () {
                   if (_levelProvider.availableLevels[2].isOpened)
-                    Navigator.pushNamed(context, environmentA);
+                    Navigator.pushNamed(context, beginingenvironment);
                 },
                 child: Container(
                   child: Center(

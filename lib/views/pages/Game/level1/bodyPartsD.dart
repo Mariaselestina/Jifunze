@@ -1,5 +1,5 @@
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
-
 
 import 'package:jifunze/constants/routes.dart';
 
@@ -14,12 +14,55 @@ class BodyPartsD extends StatelessWidget {
             width: MediaQuery.of(context).size.width,
             child: Image.asset(
               'assets/images/environment/envtwoBhome.png',
-              width: 200,
-              height: 100,
               fit: BoxFit.fill,
             ),
           ),
-           Align(
+          Align(
+            alignment: Alignment(-0.31, 0.5),
+            child: Container(
+              width: 105,
+              height: 130,
+              color: Colors.blue,
+              child: Image.asset(
+                'assets/images/gifimages/washinghands.gif',
+                fit: BoxFit.fill,
+              ),
+            ),
+          ),
+          Align(
+            alignment: Alignment(0.25, 0.5),
+            child: InkWell(
+                child: Container(
+                  width: 50,
+                  height: 50,
+                  color: Colors.blue,
+                  child: Image.asset(
+                    'assets/images/gifimages/hand.gif',
+                    fit: BoxFit.fill,
+                  ),
+                ),
+                onTap: () {
+                  onPlayAudio3();
+                }),
+          ),
+          Align(
+            alignment: Alignment(0.52, 0.5),
+            child: InkWell(
+              child: Container(
+                width: 50,
+                height: 50,
+                color: Colors.blue,
+                child: Image.asset(
+                  'assets/images/gifimages/hand.gif',
+                  fit: BoxFit.fill,
+                ),
+              ),
+              onTap: () {
+                onPlayAudio2();
+              },
+            ),
+          ),
+          Align(
             alignment: Alignment.topLeft,
             child: IconButton(
               icon: Icon(Icons.home, color: Colors.blue, size: 70),
@@ -28,7 +71,6 @@ class BodyPartsD extends StatelessWidget {
               },
             ),
           ),
-         
           Positioned(
             bottom: MediaQuery.of(context).size.height / 16,
             right: MediaQuery.of(context).size.width / 1.1,
@@ -48,7 +90,7 @@ class BodyPartsD extends StatelessWidget {
             right: MediaQuery.of(context).size.width / 14,
             child: IconButton(
               icon: Icon(
-               Icons.arrow_forward_ios,
+                Icons.arrow_forward_ios,
                 color: Colors.red,
                 size: 60,
               ),
@@ -59,6 +101,20 @@ class BodyPartsD extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  void onPlayAudio2() async {
+    AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
+    assetsAudioPlayer.open(
+      Audio("assets/audio/story/ibraathome.mp3"),
+    );
+  }
+
+  void onPlayAudio3() async {
+    AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
+    assetsAudioPlayer.open(
+      Audio("assets/audio/story/ellyatschool.mp3"),
     );
   }
 }
