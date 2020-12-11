@@ -25,7 +25,7 @@ class LevelsPage extends StatelessWidget {
             Align(
           alignment: Alignment.topRight,
           child: IconButton(
-            icon: Icon(Icons.info_outline_rounded, color: Colors.black, size: 50),
+            icon: Icon(Icons.info_outline, color: Colors.black, size: 50),
             onPressed: () {
               Navigator.pushNamed(context, levelsPage);
             },
