@@ -22,6 +22,15 @@ class LevelsPage extends StatelessWidget {
             fit: BoxFit.fill,
           ),
         ),
+            Align(
+          alignment: Alignment.topRight,
+          child: IconButton(
+            icon: Icon(Icons.info_outline_rounded, color: Colors.black, size: 50),
+            onPressed: () {
+              Navigator.pushNamed(context, levelsPage);
+            },
+          ),
+        ),
         Positioned(
           bottom: MediaQuery.of(context).size.height / 3,
           right: MediaQuery.of(context).size.width / 1.35,
