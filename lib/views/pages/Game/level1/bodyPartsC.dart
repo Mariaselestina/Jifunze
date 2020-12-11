@@ -73,7 +73,7 @@ class _BodyPartsCState extends State<BodyPartsC> {
               icon: Icon(
                 Icons.arrow_back_ios,
                 color: Colors.red,
-                size: 70,
+                size: 60,
               ),
               onPressed: () {
                 Navigator.pop(context);
@@ -91,7 +91,7 @@ class _BodyPartsCState extends State<BodyPartsC> {
               ),
               onPressed: () {
                 _levelProvider.toogleLevel = 2;
-                Navigator.pushNamed(context, levelsPage);
+                Navigator.pushNamed(context, bodyPartsD);
               },
             ),
           ),

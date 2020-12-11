@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jifunze/constants/routes.dart';
+import 'package:flutter_svg/svg.dart';
 
 
 class EnvironmentBB extends StatelessWidget {
@@ -11,13 +12,53 @@ class EnvironmentBB extends StatelessWidget {
           Container(
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
-            child: Image.asset('assets/images/environment/street1.jpg',
+            child: Image.asset('assets/images/environment/interiorthreeB.png',
                 fit: BoxFit.fill),
+          ),
+            Container(
+            height: MediaQuery.of(context).size.height,
+            width: 100,
+            color: Colors.white,
+            child: Align(
+                alignment: Alignment.center,
+            
+              child: SvgPicture.asset(
+                'assets/images/characters/boydressed.svg',
+                
+                width: 70,
+              height: 150,fit: BoxFit.fill,
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: MediaQuery.of(context).size.height /4.1,
+            left: MediaQuery.of(context).size.width / 3,
+            child: InkWell(
+                          child: SvgPicture.asset(
+                'assets/images/characters/girldressed.svg',
+                width: 30,
+                height: 70,
+                fit: BoxFit.cover,
+              ),
+              onTap: () {
+                 
+                  },
+            ),
+          ),
+          Positioned(
+            top: MediaQuery.of(context).size.height / 3,
+            left: MediaQuery.of(context).size.width / 1.12,
+            child:Image.asset('assets/images/characters/stranger.png',
+               
+              width: 50,
+              height: 120,
+              fit: BoxFit.fill,
+            ),
           ),
            Positioned(
             top: MediaQuery.of(context).size.height / 2,
             left: MediaQuery.of(context).size.width / 1.2,
-            child:Image.asset('assets/images/characters/boydressed.png',
+      child:SvgPicture.asset('assets/images/characters/boydressed.svg',
                
               width: 50,
               height: 90,

@@ -15,40 +15,33 @@ class EnvironmentC extends StatelessWidget {
           Container(
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
-             child: Image.asset('assets/images/environment/env1chome.png',
+             child: Image.asset('assets/images/environment/envthreec.png',
                 fit: BoxFit.fill),
           ),
           Align(
-            alignment: Alignment(0.42, -0.1),
+            alignment: Alignment(0.44, 1.3),
             child: Container(
               width: 240,
               height: 207,
               color: Colors.blue,
               child: Image.asset(
-                'assets/images/a.jpg',
+                'assets/images/gifimages/carmoving.gif',
                 fit: BoxFit.fill,
               ),
             ),
           ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Stack(
-              children: [
-                Row(
-                  children: [
-                    Expanded(child: Container(height: 4, color: Colors.blue)),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    Expanded(child: Container(height: 4, color: Colors.grey)),
-                    SizedBox(
-                      width: 5,
-                    ),
-                  ],
-                ),
-               ],
+            Positioned(
+          bottom: MediaQuery.of(context).size.height / 1.3,
+          right: MediaQuery.of(context).size.width / 1.7,
+          child: Container(
+            height: 100,
+            width: 90,
+            child: Image.asset(
+              'assets/images/gifimages/butterfly.gif',
+              fit: BoxFit.cover,
             ),
           ),
+        ),
            Align(
             alignment: Alignment.topLeft,
             child: IconButton(

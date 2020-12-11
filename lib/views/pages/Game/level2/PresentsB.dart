@@ -1,3 +1,4 @@
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:jifunze/constants/routes.dart';
 
@@ -8,14 +9,53 @@ class PresentsB extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.lightBlue,
       body: Stack(
         children: [
-          Container(
-            height: MediaQuery.of(context).size.height,
-            width: MediaQuery.of(context).size.width,
-            child: Image.asset('assets/images/environment/envtwoBhome.png',
-                fit: BoxFit.fill),
+          Positioned(
+              bottom: MediaQuery.of(context).size.height / 3,
+          right: MediaQuery.of(context).size.width / 1.9,
+                      child: Container(
+              height: 210,
+              width: 300,
+              child: Image.asset('assets/images/environment/envtwoBhome.png',
+                  fit: BoxFit.cover),
+            ),
           ),
+           Positioned(
+          bottom: MediaQuery.of(context).size.height / 3,
+          right: MediaQuery.of(context).size.width / 1.5,
+          child: Container(
+            height: 60,
+            width: 60,
+            child: Image.asset(
+              'assets/images/gifimages/gift.gif',
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
+         Positioned(
+              bottom: MediaQuery.of(context).size.height / 3,
+          left: MediaQuery.of(context).size.width / 1.9,
+                      child: Container(
+              height: 210,
+              width: 300,
+              child: Image.asset('assets/images/environment/envtwoBstreet.png',
+                  fit: BoxFit.fill),
+            ),
+          ),
+           Positioned(
+          bottom: MediaQuery.of(context).size.height / 3,
+          left: MediaQuery.of(context).size.width / 1.1,
+          child: Container(
+            height: 60,
+            width: 60,
+            child: Image.asset(
+              'assets/images/gifimages/gift.gif',
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
     Align(
             alignment: Alignment.topLeft,
             child: IconButton(
@@ -50,7 +90,8 @@ class PresentsB extends StatelessWidget {
                 size: 60,
               ),
               onPressed: () {
-                Navigator.pushNamed(context, presentsLevelsPage);
+                onPlayAudio2();
+                Navigator.pushNamed(context, presentsC);
               },
             ),
           ),
@@ -58,5 +99,11 @@ class PresentsB extends StatelessWidget {
       ),
     );
   }
+  void onPlayAudio2() async {
+    AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
+    assetsAudioPlayer.open(
+      Audio("assets/audio/story/moveshape.mp3"),
+    );
+  } 
 }
 

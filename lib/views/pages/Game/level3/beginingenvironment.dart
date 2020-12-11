@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+
 import 'package:jifunze/constants/routes.dart';
 
-class EnvironmentAAA extends StatelessWidget {
+class Beginingenvironment extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -12,14 +11,10 @@ class EnvironmentAAA extends StatelessWidget {
           Container(
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
-            child: SvgPicture.asset(
-              'assets/images/environment/envtwoBhome.svg',
-              width: 200,
-              height: 100,
-              fit: BoxFit.fill,
-            ),
+            child: Image.asset('assets/images/environment/pangala.png',
+                fit: BoxFit.fill),
           ),
-           Align(
+          Align(
             alignment: Alignment.topLeft,
             child: IconButton(
               icon: Icon(Icons.home, color: Colors.blue, size: 70),
@@ -28,7 +23,6 @@ class EnvironmentAAA extends StatelessWidget {
               },
             ),
           ),
-         
           Positioned(
             bottom: MediaQuery.of(context).size.height / 16,
             right: MediaQuery.of(context).size.width / 1.1,
@@ -36,7 +30,7 @@ class EnvironmentAAA extends StatelessWidget {
               icon: Icon(
                 Icons.arrow_back_ios,
                 color: Colors.red,
-                size: 70,
+                size: 60,
               ),
               onPressed: () {
                 Navigator.pop(context);
@@ -48,12 +42,12 @@ class EnvironmentAAA extends StatelessWidget {
             right: MediaQuery.of(context).size.width / 14,
             child: IconButton(
               icon: Icon(
-               Icons.arrow_forward_ios,
+                Icons.arrow_forward_ios,
                 color: Colors.red,
                 size: 60,
               ),
               onPressed: () {
-                Navigator.pushNamed(context, environmentLevelsPage);
+                Navigator.pushNamed(context, environmentA);
               },
             ),
           ),

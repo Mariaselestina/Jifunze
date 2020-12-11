@@ -23,6 +23,14 @@ class BeginingPresents extends StatelessWidget {
           //   fit: BoxFit.fill,
           // ),
         ),
+        Container(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          child: Image.asset(
+            'assets/images/gifimages/confetti.gif',
+            fit: BoxFit.cover,
+          ),
+        ),
         Positioned(
           bottom: MediaQuery.of(context).size.height / 8,
           left: MediaQuery.of(context).size.width / 1.3,

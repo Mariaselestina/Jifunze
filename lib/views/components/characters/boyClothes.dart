@@ -9,11 +9,12 @@ class BoyClothes extends StatefulWidget {
 
 class _BoyClothesState extends State<BoyClothes> {
   
-  final double _shirtSize = 100;
+  final double _shirtSize = 70;
 
   bool shirt1Accepted = false;
   bool shirt2Accepted = false;
   bool shortaAccepted = false;
+  bool short1Accepted = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,16 +28,49 @@ class _BoyClothesState extends State<BoyClothes> {
               fit: BoxFit.fill,
             ),
           ),
-           
+            Positioned(
+              top: MediaQuery.of(context).size.height / 1.8,
+              left: MediaQuery.of(context).size.width / 3.8,
+              child: DragTarget<String>(
+                onWillAccept: (value) => value == 'TROUSER',
+                onAccept: (value) {
+                onPlayAudioShort();
+                  setState(() {
+                    short1Accepted = true;
+                    
+                  });
+                },
+                onLeave: (value) {
+                  //Alert the user their value ddint land
+                },
+                builder: (context, candidates, rejects) {
+                  return short1Accepted
+                      ? Container(
+                          child: SvgPicture.asset(
+                            'assets/images/characters/trouser.svg',
+                            fit: BoxFit.fill,
+                          ),
+                          height: 140,
+                          width: 90,
+                          //color: Colors.red
+                          )
+                      : Container(
+                          height: 90,
+                          width: 90,
+                          //color: Colors.pink,
+                        );
+                },
+              )),
             Positioned(
               top: MediaQuery.of(context).size.height / 1.8,
               left: MediaQuery.of(context).size.width / 3.9,
               child: DragTarget<String>(
                 onWillAccept: (value) => value == 'SHORT',
                 onAccept: (value) {
-                  onPlayAudio();
+                onPlayAudioShort();
                   setState(() {
                     shortaAccepted = true;
+                    
                   });
                 },
                 onLeave: (value) {
@@ -68,7 +102,7 @@ class _BoyClothesState extends State<BoyClothes> {
               child: DragTarget<String>(
                 onWillAccept: (value) => value == 'SHIRT1',
                 onAccept: (value) {
-                   onPlayAudio();
+                   onPlayAudioShirt1();
                   setState(() {
                     shirt1Accepted = true;
                   });
@@ -95,7 +129,7 @@ class _BoyClothesState extends State<BoyClothes> {
               child: DragTarget<String>(
                 onWillAccept: (value) => value == 'SHIRT2',
                 onAccept: (value) {
-                  onPlayAudio();
+                onPlayAudioShirt2();
                   setState(() {
                     shirt2Accepted = true;
                   });
@@ -252,6 +286,49 @@ class _BoyClothesState extends State<BoyClothes> {
                                 ),
                               )),
                   ),
+                      
+                  Container(
+                    color: Colors.blue,
+                    child: Draggable<String>(
+                        data: "TROUSER",
+                        feedback: SvgPicture.asset(
+                          'assets/images/characters/trouser.svg',
+                          height: _shirtSize,
+                          fit: BoxFit.cover,
+                        ),
+                        childWhenDragging: Container(
+                          color: Colors.brown,
+                          height: _shirtSize,
+                          child: Container(
+                            color: Colors.white,
+                            height: _shirtSize,
+                            width: _shirtSize,
+                          ),
+                        ),
+                        child: short1Accepted
+                            ? Container(
+                                color: Colors.brown,
+                                height: _shirtSize,
+                                child: Container(
+                                  color: Colors.white,
+                                  height: _shirtSize,
+                                  width: _shirtSize,
+                                ),
+                              )
+                            : Container(
+                                color: Colors.brown,
+                                height: _shirtSize,
+                                width: _shirtSize,
+                                child: Container(
+                                  color: Colors.white,
+                                  child: SvgPicture.asset(
+                                    'assets/images/characters/trouser.svg',
+                                    fit: BoxFit.cover,
+                                    height: _shirtSize,
+                                  ),
+                                ),
+                              )),
+                  ),
                 ],
               )),
         ],
@@ -259,10 +336,22 @@ class _BoyClothesState extends State<BoyClothes> {
     );
   }
 
- void onPlayAudio() async {
+  void onPlayAudioShirt1() async {
     AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
     assetsAudioPlayer.open(
-      Audio("assets/audio/applauses/no.mp3"),
+      Audio("assets/audio/story/verygood.mp3"),
+    );
+  }
+   void onPlayAudioShirt2() async {
+    AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
+    assetsAudioPlayer.open(
+      Audio("assets/audio/story/verygood.mp3"),
+    );
+  }
+  void onPlayAudioShort() async {
+    AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
+    assetsAudioPlayer.open(
+      Audio("assets/audio/story/verygood.mp3"),
     );
   }
 }

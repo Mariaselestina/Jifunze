@@ -1,6 +1,7 @@
 import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:jifunze/constants/routes.dart';
 
 
 
@@ -10,11 +11,12 @@ class GirlClothes extends StatefulWidget {
 }
 
 class _GirlClothesState extends State<GirlClothes> {
-  final double _shirtSize = 100;
+  final double _shirtSize = 70;
 
   bool blouse1Accepted = false;
   bool blouse2Accepted = false;
   bool skirt1Accepted = false;
+   bool skirt2Accepted = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +38,7 @@ class _GirlClothesState extends State<GirlClothes> {
               child: DragTarget<String>(
                 onWillAccept: (value) => value == 'SKIRT1',
                 onAccept: (value) {
-                  onPlayAudio();
+                 onPlayAudioSkirt();
                   setState(() {
                     skirt1Accepted = true;
                   });
@@ -61,13 +63,45 @@ class _GirlClothesState extends State<GirlClothes> {
                 },
               )),
           
+           Positioned(
+              top: MediaQuery.of(context).size.height / 1.8,
+              left: MediaQuery.of(context).size.width / 5.1,
+              child: DragTarget<String>(
+                onWillAccept: (value) => value == 'SKIRT2',
+                onAccept: (value) {
+                 onPlayAudioSkirt();
+                  setState(() {
+                    skirt2Accepted = true;
+                  });
+                },
+                onLeave: (value) {
+                  //Alert the user their value ddint land
+                },
+                builder: (context, candidates, rejects) {
+                  return skirt2Accepted
+                      ? Container(
+                          child: SvgPicture.asset(
+                            'assets/images/characters/skirt2.svg',
+                            fit: BoxFit.cover,
+                          ),
+                          height: 80,
+                          width: 170,
+                        )
+                      : Container(
+                          height: 80,
+                          width: 150,
+                        );
+                },
+              )),
+          
+         
           Positioned(
               top: MediaQuery.of(context).size.height / 2.9,
               left: MediaQuery.of(context).size.width / 4.1,
               child: DragTarget<String>(
                 onWillAccept: (value) => value == 'BLOUSE1',
                 onAccept: (value) {
-                  onPlayAudio();
+                 onPlayAudioBlouse1();
                   setState(() {
                     blouse1Accepted = true;
                   });
@@ -94,7 +128,7 @@ class _GirlClothesState extends State<GirlClothes> {
               child: DragTarget<String>(
                 onWillAccept: (value) => value == 'BLOUSE2',
                 onAccept: (value) {
-                  onPlayAudio();
+                  onPlayAudioBlouse2();
                   setState(() {
                     blouse2Accepted = true;
                    
@@ -247,18 +281,86 @@ class _GirlClothesState extends State<GirlClothes> {
                                 ),
                               )),
                   ),
+                   Container(
+                    color: Colors.blue,
+                    child: Draggable<String>(
+                        data: "SKIRT2",
+                        feedback: SvgPicture.asset(
+                          'assets/images/characters/skirt2.svg',
+                          height: _shirtSize,
+                          fit: BoxFit.fill,
+                        ),
+                        childWhenDragging: Container(
+                          color: Colors.brown,
+                          height: _shirtSize,
+                          child: Container(
+                            color: Colors.white,
+                            height: _shirtSize,
+                            width: _shirtSize,
+                          ),
+                        ),
+                        child: skirt2Accepted
+                            ? Container(
+                                color: Colors.brown,
+                                height: _shirtSize,
+                                child: Container(
+                                  color: Colors.white,
+                                  height: _shirtSize,
+                                  width: _shirtSize,
+                                ),
+                              )
+                            : Container(
+                                color: Colors.brown,
+                                height: _shirtSize,
+                                width: _shirtSize,
+                                child: Container(
+                                  color: Colors.white,
+                                  child: SvgPicture.asset(
+                                    'assets/images/characters/skirt2.svg',
+                                    fit: BoxFit.fill,
+                                    height: _shirtSize,
+                                  ),
+                                ),
+                              )),
+                  ),
+              
                 ],
               )),
-         
+            Positioned(
+            bottom: MediaQuery.of(context).size.height / 16,
+            right: MediaQuery.of(context).size.width / 14,
+            child: IconButton(
+              icon: Icon(
+               Icons.arrow_forward_ios,
+                color: Colors.red,
+                size: 60,
+              ),
+              onPressed: () {
+                Navigator.pushNamed(context, boyClothes);
+              },
+            ),
+          ),
         ],
       ),
     );
   }
 
-  void onPlayAudio() async {
+  void onPlayAudioBlouse1() async {
     AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
     assetsAudioPlayer.open(
-      Audio("assets/audio/applauses/no.mp3"),
+      Audio("assets/audio/story/verygood.mp3"),
+    );
+  }
+   void onPlayAudioBlouse2() async {
+    AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
+    assetsAudioPlayer.open(
+      Audio("assets/audio/story/verygood.mp3"),
+    );
+  }
+  void onPlayAudioSkirt() async {
+    AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
+    assetsAudioPlayer.open(
+      Audio("assets/audio/story/verygood.mp3"),
     );
   }
 }

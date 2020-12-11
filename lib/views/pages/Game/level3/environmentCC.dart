@@ -12,21 +12,10 @@ class EnvironmentCC extends StatelessWidget {
           Container(
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
-            child: Image.asset('assets/images/environment/env1cschool.png',
+            child: Image.asset('assets/images/environment/envthree3.png',
                 fit: BoxFit.fill),
           ),
-          Align(
-            alignment: Alignment(0.42, -0.1),
-            child: Container(
-              width: 240,
-              height: 207,
-              color: Colors.blue,
-              child: Image.asset(
-                'assets/images/a.jpg',
-                fit: BoxFit.fill,
-              ),
-            ),
-          ),
+         
            Align(
             alignment: Alignment.topLeft,
             child: IconButton(
@@ -61,7 +50,7 @@ class EnvironmentCC extends StatelessWidget {
                 size: 60,
               ),
               onPressed: () {
-                Navigator.pushNamed(context, levelsPage);
+                Navigator.pushNamed(context, environmentCCC);
               },
             ),
           ),

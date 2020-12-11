@@ -1,3 +1,4 @@
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:jifunze/constants/routes.dart';
@@ -28,8 +29,20 @@ class LevelsPage extends StatelessWidget {
             height: 150,
             width: 150,
             child: Image.asset(
-              'assets/images/environment/butterfly2.gif',
+              'assets/images/gifimages/butterfly2.gif',
               fit: BoxFit.cover,
+            ),
+          ),
+        ),
+          Positioned(
+          bottom: MediaQuery.of(context).size.height / 1.8,
+          left: MediaQuery.of(context).size.width / 1.2,
+          child: Container(
+            height: 90,
+            width: 100,
+            child: Image.asset(
+              'assets/images/gifimages/goat.gif',
+              fit: BoxFit.fill,
             ),
           ),
         ),
@@ -38,7 +51,10 @@ class LevelsPage extends StatelessWidget {
             left: MediaQuery.of(context).size.width / 4,
             child: InkWell(
                 onTap: () {
-                  Navigator.pushNamed(context, bodyPartsLevelsPage);
+                
+                  Navigator.pushNamed(context, beginingPage);
+                   //onPlayAudio1();
+              
                 },
                 child: Container(
                   child: Center(child: Icon(Icons.lock_open, size: 40)),
@@ -51,7 +67,7 @@ class LevelsPage extends StatelessWidget {
             child: InkWell(
                 onTap: () {
                   if (_levelProvider.availableLevels[1].isOpened)
-                    Navigator.pushNamed(context, presentsLevelsPage);
+                    Navigator.pushNamed(context, beginingPresents);
                 },
                 child: Container(
                   child: Center(
@@ -72,7 +88,7 @@ class LevelsPage extends StatelessWidget {
             child: InkWell(
                 onTap: () {
                   if (_levelProvider.availableLevels[2].isOpened)
-                    Navigator.pushNamed(context, environmentLevelsPage);
+                    Navigator.pushNamed(context, beginingenvironment);
                 },
                 child: Container(
                   child: Center(
@@ -89,5 +105,11 @@ class LevelsPage extends StatelessWidget {
                 ))),
       ],
     ));
+  }
+  void onPlayAudio1() async {
+    AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
+    assetsAudioPlayer.open(
+      Audio("assets/audio/story/background.mp3"),
+    );
   }
 }

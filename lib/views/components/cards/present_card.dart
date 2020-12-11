@@ -1,4 +1,5 @@
 
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:jifunze/constants/routes.dart';
@@ -46,11 +47,17 @@ class PresentCard extends StatelessWidget {
           child: IconButton(
             icon: Icon(Icons.home, color: Colors.blue, size: 70),
             onPressed: () {
-              Navigator.pushNamed(context, presentsLevelsPage);
+            //  Navigator.pushNamed(context, presentsLevelsPage);
             },
           ),
         ),
       ],
     ));
+  }
+  void onPlayAudio2() async {
+    AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
+    assetsAudioPlayer.open(
+      Audio("assets/audio/story/ellyshop.mp3"),
+    );
   }
 }

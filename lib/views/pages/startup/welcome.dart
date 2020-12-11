@@ -1,3 +1,4 @@
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 
 
@@ -7,6 +8,7 @@ class WelcomePage extends StatelessWidget {
   final double kHeight = 40.0;
   final double kWeight = 65.0;
   final double tSize = 11.0;
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -87,11 +89,18 @@ class WelcomePage extends StatelessWidget {
               ),
               onPressed: () {
                 Navigator.pushNamed(context, levelsPage);
+                onPlayAudio1();
               },
             ),
           ), 
       ]),
       
+    );
+  }
+     void onPlayAudio1() async {
+    AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
+    assetsAudioPlayer.open(
+      Audio("assets/audio/story/background.mp3"),
     );
   }
 }
