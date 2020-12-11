@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flip_card/flip_card.dart';
+
 
 import 'package:jifunze/constants/routes.dart';
+import 'package:jifunze/views/components/cards/flip_card.dart';
 
 class BeginingPresents extends StatelessWidget {
   final double kHeight = 40.0;
@@ -43,6 +44,7 @@ class BeginingPresents extends StatelessWidget {
                 fit: BoxFit.fill,
               ),
             ),
+           
           ),
         ),
         Positioned(
@@ -66,45 +68,46 @@ class BeginingPresents extends StatelessWidget {
                 fit: BoxFit.fill,
               ),
             ),
+            
           ),
         ),
-     Align(
-            alignment: Alignment.topLeft,
-            child: IconButton(
-              icon: Icon(Icons.home, color: Colors.blue, size: 70),
-              onPressed: () {
-                Navigator.pushNamed(context, levelsPage);
-              },
-            ),
+        Align(
+          alignment: Alignment.topLeft,
+          child: IconButton(
+            icon: Icon(Icons.home, color: Colors.blue, size: 70),
+            onPressed: () {
+              Navigator.pushNamed(context, levelsPage);
+            },
           ),
-          Positioned(
-            bottom: MediaQuery.of(context).size.height / 16,
-            right: MediaQuery.of(context).size.width / 1.1,
-            child: IconButton(
-              icon: Icon(
-                Icons.arrow_back_ios,
-                color: Colors.red,
-                size: 70,
-              ),
-              onPressed: () {
-                Navigator.pop(context);
-              },
+        ),
+        Positioned(
+          bottom: MediaQuery.of(context).size.height / 16,
+          right: MediaQuery.of(context).size.width / 1.1,
+          child: IconButton(
+            icon: Icon(
+              Icons.arrow_back_ios,
+              color: Colors.red,
+              size: 70,
             ),
+            onPressed: () {
+              Navigator.pop(context);
+            },
           ),
-          Positioned(
-            bottom: MediaQuery.of(context).size.height / 16,
-            right: MediaQuery.of(context).size.width / 14,
-            child: IconButton(
-              icon: Icon(
-               Icons.arrow_forward_ios,
-                color: Colors.red,
-                size: 60,
-              ),
-              onPressed: () {
-                Navigator.pushNamed(context, presentCard);
-              },
+        ),
+        Positioned(
+          bottom: MediaQuery.of(context).size.height / 16,
+          right: MediaQuery.of(context).size.width / 14,
+          child: IconButton(
+            icon: Icon(
+              Icons.arrow_forward_ios,
+              color: Colors.red,
+              size: 60,
             ),
+            onPressed: () {
+              Navigator.pushNamed(context, presentCard);
+            },
           ),
+        ),
       ]),
     );
   }
