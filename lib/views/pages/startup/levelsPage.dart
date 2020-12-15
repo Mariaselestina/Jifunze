@@ -1,11 +1,15 @@
+import 'dart:math';
+
 import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:jifunze/constants/routes.dart';
 import 'package:jifunze/provider/level_provider.dart';
+import 'package:jifunze/views/components/dialog/custom_dialog_box.dart';
 import 'package:provider/provider.dart';
 
 class LevelsPage extends StatelessWidget {
+  var rng = new Random();
   @override
   Widget build(BuildContext context) {
     final _levelProvider = Provider.of<LevelProvider>(context);
@@ -22,12 +26,22 @@ class LevelsPage extends StatelessWidget {
             fit: BoxFit.fill,
           ),
         ),
-            Align(
+        Align(
           alignment: Alignment.topRight,
           child: IconButton(
             icon: Icon(Icons.info_outline, color: Colors.black, size: 50),
             onPressed: () {
-              Navigator.pushNamed(context, levelsPage);
+              showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return CustomDialogBox(
+                      title: "Are you a parent?",
+                      descriptions: "Please answer the question below!",
+                      text: "Yes",
+                      number1: rng.nextInt(100),
+                      number2: rng.nextInt(100),
+                    );
+                  });
             },
           ),
         ),
@@ -43,7 +57,7 @@ class LevelsPage extends StatelessWidget {
             ),
           ),
         ),
-          Positioned(
+        Positioned(
           bottom: MediaQuery.of(context).size.height / 1.8,
           left: MediaQuery.of(context).size.width / 1.2,
           child: Container(
@@ -60,10 +74,8 @@ class LevelsPage extends StatelessWidget {
             left: MediaQuery.of(context).size.width / 4,
             child: InkWell(
                 onTap: () {
-                
                   Navigator.pushNamed(context, beginingPage);
-                   //onPlayAudio1();
-              
+                  //onPlayAudio1();
                 },
                 child: Container(
                   child: Center(child: Icon(Icons.lock_open, size: 40)),
@@ -115,6 +127,7 @@ class LevelsPage extends StatelessWidget {
       ],
     ));
   }
+
   void onPlayAudio1() async {
     AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
     assetsAudioPlayer.open(
