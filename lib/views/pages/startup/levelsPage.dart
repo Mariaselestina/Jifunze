@@ -8,8 +8,20 @@ import 'package:jifunze/provider/level_provider.dart';
 import 'package:jifunze/views/components/dialog/custom_dialog_box.dart';
 import 'package:provider/provider.dart';
 
-class LevelsPage extends StatelessWidget {
+class LevelsPage extends StatefulWidget {
+  @override
+  _LevelsPageState createState() => _LevelsPageState();
+}
+
+class _LevelsPageState extends State<LevelsPage> {
   var rng = new Random();
+  AssetsAudioPlayer _assetsAudioPlayer = AssetsAudioPlayer();
+  @override
+  void initState() {
+    onPlayAudio1();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     final _levelProvider = Provider.of<LevelProvider>(context);
@@ -75,7 +87,7 @@ class LevelsPage extends StatelessWidget {
             child: InkWell(
                 onTap: () {
                   Navigator.pushNamed(context, beginingPage);
-                  //onPlayAudio1();
+                  _assetsAudioPlayer.stop();
                 },
                 child: Container(
                   child: Center(child: Icon(Icons.lock_open, size: 40)),
@@ -89,6 +101,7 @@ class LevelsPage extends StatelessWidget {
                 onTap: () {
                   if (_levelProvider.availableLevels[1].isOpened)
                     Navigator.pushNamed(context, beginingPresents);
+                  _assetsAudioPlayer.stop();
                 },
                 child: Container(
                   child: Center(
@@ -110,6 +123,7 @@ class LevelsPage extends StatelessWidget {
                 onTap: () {
                   if (_levelProvider.availableLevels[2].isOpened)
                     Navigator.pushNamed(context, beginingenvironment);
+                  _assetsAudioPlayer.stop();
                 },
                 child: Container(
                   child: Center(
@@ -129,8 +143,7 @@ class LevelsPage extends StatelessWidget {
   }
 
   void onPlayAudio1() async {
-    AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
-    assetsAudioPlayer.open(
+    _assetsAudioPlayer.open(
       Audio("assets/audio/story/background.mp3"),
     );
   }

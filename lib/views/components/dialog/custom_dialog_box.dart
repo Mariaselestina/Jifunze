@@ -25,9 +25,14 @@ class CustomDialogBox extends StatefulWidget {
 }
 
 class _CustomDialogBoxState extends State<CustomDialogBox> {
+
+
   FocusNode _answerFocusNode = FocusNode();
   TextEditingController _answerTextEditingController = TextEditingController();
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
+
+
   @override
   Widget build(BuildContext context) {
     return Dialog(
