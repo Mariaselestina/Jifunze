@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:jifunze/constants/routes.dart';
 
-
-
 class GirlClothes extends StatefulWidget {
   @override
   _GirlClothesState createState() => _GirlClothesState();
@@ -16,7 +14,7 @@ class _GirlClothesState extends State<GirlClothes> {
   bool blouse1Accepted = false;
   bool blouse2Accepted = false;
   bool skirt1Accepted = false;
-   bool skirt2Accepted = false;
+  bool skirt2Accepted = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,15 +30,16 @@ class _GirlClothesState extends State<GirlClothes> {
               fit: BoxFit.fill,
             ),
           ),
-           Positioned(
+          Positioned(
               top: MediaQuery.of(context).size.height / 1.8,
               left: MediaQuery.of(context).size.width / 4.6,
               child: DragTarget<String>(
                 onWillAccept: (value) => value == 'SKIRT1',
                 onAccept: (value) {
-                 onPlayAudioSkirt();
+                  onPlayAudioSkirt();
                   setState(() {
                     skirt1Accepted = true;
+                    skirt2Accepted = false;
                   });
                 },
                 onLeave: (value) {
@@ -62,16 +61,16 @@ class _GirlClothesState extends State<GirlClothes> {
                         );
                 },
               )),
-          
-           Positioned(
+          Positioned(
               top: MediaQuery.of(context).size.height / 1.8,
               left: MediaQuery.of(context).size.width / 5.1,
               child: DragTarget<String>(
                 onWillAccept: (value) => value == 'SKIRT2',
                 onAccept: (value) {
-                 onPlayAudioSkirt();
+                  onPlayAudioSkirt();
                   setState(() {
                     skirt2Accepted = true;
+                    skirt1Accepted = false;
                   });
                 },
                 onLeave: (value) {
@@ -93,17 +92,16 @@ class _GirlClothesState extends State<GirlClothes> {
                         );
                 },
               )),
-          
-         
           Positioned(
               top: MediaQuery.of(context).size.height / 2.9,
               left: MediaQuery.of(context).size.width / 4.1,
               child: DragTarget<String>(
                 onWillAccept: (value) => value == 'BLOUSE1',
                 onAccept: (value) {
-                 onPlayAudioBlouse1();
+                  onPlayAudioBlouse1();
                   setState(() {
                     blouse1Accepted = true;
+                    blouse2Accepted = false;
                   });
                 },
                 onLeave: (value) {
@@ -131,7 +129,7 @@ class _GirlClothesState extends State<GirlClothes> {
                   onPlayAudioBlouse2();
                   setState(() {
                     blouse2Accepted = true;
-                   
+                    blouse1Accepted = false;
                   });
                 },
                 onLeave: (value) {
@@ -150,7 +148,7 @@ class _GirlClothesState extends State<GirlClothes> {
                       : Container(height: 90, width: 90);
                 },
               )),
-         Positioned(
+          Positioned(
               top: 10,
               right: 10,
               child: Column(
@@ -281,7 +279,7 @@ class _GirlClothesState extends State<GirlClothes> {
                                 ),
                               )),
                   ),
-                   Container(
+                  Container(
                     color: Colors.blue,
                     child: Draggable<String>(
                         data: "SKIRT2",
@@ -323,15 +321,14 @@ class _GirlClothesState extends State<GirlClothes> {
                                 ),
                               )),
                   ),
-              
                 ],
               )),
-            Positioned(
+          Positioned(
             bottom: MediaQuery.of(context).size.height / 16,
             right: MediaQuery.of(context).size.width / 14,
             child: IconButton(
               icon: Icon(
-               Icons.arrow_forward_ios,
+                Icons.arrow_forward_ios,
                 color: Colors.red,
                 size: 60,
               ),
@@ -351,12 +348,14 @@ class _GirlClothesState extends State<GirlClothes> {
       Audio("assets/audio/story/verygood.mp3"),
     );
   }
-   void onPlayAudioBlouse2() async {
+
+  void onPlayAudioBlouse2() async {
     AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
     assetsAudioPlayer.open(
       Audio("assets/audio/story/verygood.mp3"),
     );
   }
+
   void onPlayAudioSkirt() async {
     AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
     assetsAudioPlayer.open(

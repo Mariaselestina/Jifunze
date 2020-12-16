@@ -13,7 +13,7 @@ class _BoyClothesState extends State<BoyClothes> {
 
   bool shirt1Accepted = false;
   bool shirt2Accepted = false;
-  bool shortaAccepted = false;
+  bool short2Accepted = false;
   bool short1Accepted = false;
   @override
   Widget build(BuildContext context) {
@@ -37,6 +37,8 @@ class _BoyClothesState extends State<BoyClothes> {
                 onPlayAudioShort();
                   setState(() {
                     short1Accepted = true;
+                    short2Accepted =false;
+
                     
                   });
                 },
@@ -69,7 +71,8 @@ class _BoyClothesState extends State<BoyClothes> {
                 onAccept: (value) {
                 onPlayAudioShort();
                   setState(() {
-                    shortaAccepted = true;
+                    short2Accepted = true;
+                    short1Accepted =false;
                     
                   });
                 },
@@ -77,7 +80,7 @@ class _BoyClothesState extends State<BoyClothes> {
                   //Alert the user their value ddint land
                 },
                 builder: (context, candidates, rejects) {
-                  return shortaAccepted
+                  return short2Accepted
                       ? Container(
                           child: SvgPicture.asset(
                             'assets/images/characters/short1.svg',
@@ -105,6 +108,7 @@ class _BoyClothesState extends State<BoyClothes> {
                    onPlayAudioShirt1();
                   setState(() {
                     shirt1Accepted = true;
+                    shirt2Accepted =false;
                   });
                 },
                 onLeave: (value) {
@@ -132,6 +136,7 @@ class _BoyClothesState extends State<BoyClothes> {
                 onPlayAudioShirt2();
                   setState(() {
                     shirt2Accepted = true;
+                    shirt1Accepted = false;
                   });
                 },
                 onLeave: (value) {
@@ -262,7 +267,7 @@ class _BoyClothesState extends State<BoyClothes> {
                             width: _shirtSize,
                           ),
                         ),
-                        child: shortaAccepted
+                        child: short2Accepted
                             ? Container(
                                 color: Colors.brown,
                                 height: _shirtSize,
