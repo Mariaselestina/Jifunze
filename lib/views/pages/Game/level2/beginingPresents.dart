@@ -1,8 +1,7 @@
+
 import 'package:flutter/material.dart';
 
-
 import 'package:jifunze/constants/routes.dart';
-import 'package:jifunze/views/components/cards/flip_card.dart';
 
 class BeginingPresents extends StatelessWidget {
   final double kHeight = 40.0;
@@ -31,55 +30,8 @@ class BeginingPresents extends StatelessWidget {
             fit: BoxFit.cover,
           ),
         ),
-        Positioned(
-          bottom: MediaQuery.of(context).size.height / 8,
-          left: MediaQuery.of(context).size.width / 1.3,
-          child: FlipCard(
-            direction: FlipDirection.HORIZONTAL, // default
-            front: Container(
-              height: 100,
-              width: 100,
-              child: Image.asset(
-                'assets/images/storyline/present.png',
-                fit: BoxFit.fill,
-              ),
-            ),
-            back: Container(
-              height: 100,
-              width: 100,
-              child: Image.asset(
-                'assets/images/storyline/present2.png',
-                fit: BoxFit.fill,
-              ),
-            ),
-           
-          ),
-        ),
-        Positioned(
-          bottom: MediaQuery.of(context).size.height / 8,
-          left: MediaQuery.of(context).size.width / 1.6,
-          child: FlipCard(
-            direction: FlipDirection.HORIZONTAL, // default
-            front: Container(
-              height: 50,
-              width: 60,
-              child: Image.asset(
-                'assets/images/storyline/present3.png',
-                fit: BoxFit.fill,
-              ),
-            ),
-            back: Container(
-              height: 50,
-              width: 60,
-              child: Image.asset(
-                'assets/images/storyline/car.png',
-                fit: BoxFit.fill,
-              ),
-            ),
-            
-          ),
-        ),
-        Align(
+       
+      Align(
           alignment: Alignment.topLeft,
           child: IconButton(
             icon: Icon(Icons.home, color: Colors.blue, size: 70),
@@ -112,7 +64,7 @@ class BeginingPresents extends StatelessWidget {
               size: 60,
             ),
             onPressed: () {
-              Navigator.pushNamed(context, presentCard);
+              Navigator.pushNamed(context, presentHomePage);
             },
           ),
         ),

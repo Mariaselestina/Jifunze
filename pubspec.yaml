@@ -37,6 +37,7 @@ dependencies:
   assets_audio_player: ^2.0.13+1
   video_player: ^1.0.1
   url_launcher: any
+  flip_card: ^0.4.4
 
    
 
@@ -68,6 +69,7 @@ flutter:
     - assets/audio/story/
     - assets/video/
     - assets/icons/
+    - assets/animalspics/.
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
