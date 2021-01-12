@@ -1,3 +1,4 @@
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -11,10 +12,10 @@ class PresentsC extends StatefulWidget {
 class _PresentsCState extends State<PresentsC> {
   final double _shirtSize = 100;
 
-  bool shadowstrangerAccepted = false;
   bool tree1Accepted = false;
   bool road1Accepted = false;
   bool carAccepted = false;
+  AssetsAudioPlayer _assetsAudioPlayer = AssetsAudioPlayer();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +31,7 @@ class _PresentsCState extends State<PresentsC> {
               fit: BoxFit.fill,
             ),
           ),
- Positioned(
+          Positioned(
               top: MediaQuery.of(context).size.height / 2.5,
               left: MediaQuery.of(context).size.width / 8,
               child: DragTarget<String>(
@@ -39,6 +40,8 @@ class _PresentsCState extends State<PresentsC> {
                   setState(() {
                     road1Accepted = true;
                   });
+
+                  playAudio();
                 },
                 onLeave: (value) {
                   //Alert the user their value ddint land
@@ -64,7 +67,6 @@ class _PresentsCState extends State<PresentsC> {
                         );
                 },
               )),
-         
           Positioned(
               top: MediaQuery.of(context).size.height / 11,
               left: MediaQuery.of(context).size.width / 1.82,
@@ -72,14 +74,15 @@ class _PresentsCState extends State<PresentsC> {
                 onWillAccept: (value) => value == 'TREE2',
                 onAccept: (value) {
                   setState(() {
-                    shadowstrangerAccepted = true;
+                    tree1Accepted = true;
                   });
+                  playAudio();
                 },
                 onLeave: (value) {
                   //Alert the user their value ddint land
                 },
                 builder: (context, candidates, rejects) {
-                  return shadowstrangerAccepted
+                  return tree1Accepted
                       ? Container(
                           child: SvgPicture.asset(
                             'assets/images/dragthings/tree.svg',
@@ -90,8 +93,9 @@ class _PresentsCState extends State<PresentsC> {
                           //color: Colors.blue,
                         )
                       : Container(
-                          height: 150, width: 120,
-                         child: SvgPicture.asset(
+                          height: 150,
+                          width: 120,
+                          child: SvgPicture.asset(
                             'assets/images/dragthings/shadowtree.svg',
                             fit: BoxFit.fill,
                           ),
@@ -107,6 +111,7 @@ class _PresentsCState extends State<PresentsC> {
                   setState(() {
                     carAccepted = true;
                   });
+                  playAudio();
                 },
                 onLeave: (value) {
                   //Alert the user their value ddint land
@@ -155,7 +160,7 @@ class _PresentsCState extends State<PresentsC> {
                             width: _shirtSize,
                           ),
                         ),
-                        child: shadowstrangerAccepted
+                        child: tree1Accepted
                             ? Container(
                                 //color: Colors.brown,
                                 height: _shirtSize,
@@ -222,52 +227,52 @@ class _PresentsCState extends State<PresentsC> {
                                 ),
                               )),
                   ),
-                    Container(
-                      //color: Colors.blue,
-                      child: Draggable<String>(
-                          data: "CAR",
-                          feedback: SvgPicture.asset(
-                           'assets/images/dragthings/car.svg',
+                  Container(
+                    //color: Colors.blue,
+                    child: Draggable<String>(
+                        data: "CAR",
+                        feedback: SvgPicture.asset(
+                          'assets/images/dragthings/car.svg',
+                          height: _shirtSize,
+                          width: 170,
+                          fit: BoxFit.fill,
+                        ),
+                        childWhenDragging: Container(
+                          //color: Colors.brown,
+                          height: _shirtSize,
+                          child: Container(
+                            //color: Colors.white,
                             height: _shirtSize,
-                            width: 170,
-                            fit: BoxFit.fill,
+                            width: 200,
                           ),
-                          childWhenDragging: Container(
-                            //color: Colors.brown,
-                            height: _shirtSize,
-                            child: Container(
-                              //color: Colors.white,
-                              height: _shirtSize,
-                              width: 200,
-                            ),
-                          ),
-                          child: carAccepted
-                              ? Container(
-                                  //color: Colors.brown,
+                        ),
+                        child: carAccepted
+                            ? Container(
+                                //color: Colors.brown,
+                                height: _shirtSize,
+                                child: Container(
+                                  //color: Colors.white,
                                   height: _shirtSize,
-                                  child: Container(
-                                    //color: Colors.white,
+                                  width: 170,
+                                ),
+                              )
+                            : Container(
+                                //color: Colors.brown,
+                                height: _shirtSize,
+                                width: 200,
+                                child: Container(
+                                  //color: Colors.white,
+                                  child: SvgPicture.asset(
+                                    'assets/images/dragthings/car.svg',
+                                    fit: BoxFit.fill,
                                     height: _shirtSize,
-                                    width: 170,
                                   ),
-                                )
-                              : Container(
-                                  //color: Colors.brown,
-                                  height: _shirtSize,
-                                  width: 200,
-                                  child: Container(
-                                    //color: Colors.white,
-                                    child: SvgPicture.asset(
-                                      'assets/images/dragthings/car.svg',
-                                      fit: BoxFit.fill,
-                                      height: _shirtSize,
-                                    ),
-                                  ),
-                                )),
-                    ),
+                                ),
+                              )),
+                  ),
                 ],
               )),
-        Align(
+          Align(
             alignment: Alignment.topLeft,
             child: IconButton(
               icon: Icon(Icons.home, color: Colors.blue, size: 70),
@@ -276,7 +281,6 @@ class _PresentsCState extends State<PresentsC> {
               },
             ),
           ),
-         
           Positioned(
             bottom: MediaQuery.of(context).size.height / 16,
             right: MediaQuery.of(context).size.width / 1.1,
@@ -296,18 +300,32 @@ class _PresentsCState extends State<PresentsC> {
             right: MediaQuery.of(context).size.width / 14,
             child: IconButton(
               icon: Icon(
-               Icons.arrow_forward_ios,
+                Icons.arrow_forward_ios,
                 color: Colors.red,
                 size: 60,
               ),
               onPressed: () {
-                Navigator.pushNamed(context, presentsCC
-                );
+                Navigator.pushNamed(context, presentsCC);
               },
             ),
           ),
         ],
       ),
     );
+  }
+
+  void playAudio() async {
+
+    print('tree1Accepted: ' + tree1Accepted.toString());
+        print('road1Accepted: ' + road1Accepted.toString());
+
+    print('carAccepted: ' + carAccepted.toString());
+
+    if (tree1Accepted && road1Accepted && carAccepted) {
+      print('hi');
+      _assetsAudioPlayer.open(
+        Audio("assets/audio/story/verygood.mp3"),
+      );
+    }
   }
 }

@@ -1,9 +1,22 @@
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:jifunze/constants/routes.dart';
 
-class EnvironmentA extends StatelessWidget {
+class EnvironmentA extends StatefulWidget {
+  @override
+  _EnvironmentAState createState() => _EnvironmentAState();
+}
+
+class _EnvironmentAState extends State<EnvironmentA> {
+  AssetsAudioPlayer _assetsAudioPlayer = AssetsAudioPlayer();
+
+  @override
+  void initState() {
+    onPlayAudio1();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -84,6 +97,17 @@ class EnvironmentA extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+    void onPlayAudio1() async {
+    _assetsAudioPlayer.open(
+      Audio("assets/audio/story/findelly.mp3"),
+    );
+  }
+    void onPlayAudio2() async {
+    _assetsAudioPlayer.open(
+      Audio("assets/audio/story/nearbush.mp3"),
     );
   }
 }

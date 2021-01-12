@@ -25,13 +25,9 @@ class CustomDialogBox extends StatefulWidget {
 }
 
 class _CustomDialogBoxState extends State<CustomDialogBox> {
-
-
   FocusNode _answerFocusNode = FocusNode();
   TextEditingController _answerTextEditingController = TextEditingController();
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -145,7 +141,10 @@ class _CustomDialogBoxState extends State<CustomDialogBox> {
                                 if (widget.number1 + widget.number2 ==
                                     int.parse(
                                         _answerTextEditingController.text)) {
-                                  _launchURL();
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (_) => _AvailableLinks()));
                                 } else {
                                   Scaffold.of(context).showSnackBar(SnackBar(
                                     content: Text("Sending Message"),
@@ -181,9 +180,51 @@ class _CustomDialogBoxState extends State<CustomDialogBox> {
       ],
     );
   }
+}
 
-  _launchURL() async {
-    const url = 'https://flutter.dev';
+class _AvailableLinks extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Available Links'),
+      ),
+      body: ListView(children: <Widget>[
+        Card(
+          child: ListTile(
+            leading: Icon(Icons.link),
+            title: Text('Child Sexual Abuse Resources'),
+            onTap: () {
+              _launchURL(
+                  'https://www.nsvrc.org/preventing-child-sexual-abuse-resources');
+            },
+          ),
+        ),
+           Card(
+          child: ListTile(
+            leading: Icon(Icons.link),
+            title: Text('Child Sexual Abuse Prevention'),
+            onTap: () {
+              _launchURL(
+                  'https://www.nsvrc.org/preventing-child-sexual-abuse-resources');
+            },
+          ),
+        ),
+         Card(
+          child: ListTile(
+            leading: Icon(Icons.link),
+            title: Text('Child Sexual Abuse Prevention'),
+            onTap: () {
+              _launchURL(
+                  'https://www.nsvrc.org/preventing-child-sexual-abuse-resources');
+            },
+          ),
+        )
+      ]),
+    );
+  }
+
+  _launchURL(String url) async {
     if (await canLaunch(url)) {
       await launch(url);
     } else {

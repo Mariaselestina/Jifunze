@@ -3,7 +3,13 @@ import 'package:jifunze/constants/routes.dart';
 import 'package:flutter_svg/svg.dart';
 
 
-class EnvironmentBB extends StatelessWidget {
+class EnvironmentBB extends StatefulWidget {
+  @override
+  _EnvironmentBBState createState() => _EnvironmentBBState();
+}
+
+class _EnvironmentBBState extends State<EnvironmentBB> {
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(

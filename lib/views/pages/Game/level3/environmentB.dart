@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:jifunze/constants/routes.dart';
 
 
-class EnvironmentB extends StatelessWidget {
+class EnvironmentB extends StatefulWidget {
+  @override
+  _EnvironmentBState createState() => _EnvironmentBState();
+}
+
+class _EnvironmentBState extends State<EnvironmentB> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

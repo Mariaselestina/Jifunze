@@ -1,8 +1,21 @@
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:jifunze/constants/routes.dart';
 
 
-class PresentsA extends StatelessWidget {
+class PresentsA extends StatefulWidget {
+  @override
+  _PresentsAState createState() => _PresentsAState();
+}
+
+class _PresentsAState extends State<PresentsA> {
+   AssetsAudioPlayer _assetsAudioPlayer = AssetsAudioPlayer();
+
+   @override
+  void initState() {
+   onPlayAudio1();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +48,7 @@ class PresentsA extends StatelessWidget {
               icon: Icon(
                 Icons.arrow_back_ios,
                 color: Colors.red,
-                size: 70,
+                size: 60,
               ),
               onPressed: () {
                 Navigator.pop(context);
@@ -52,12 +65,18 @@ class PresentsA extends StatelessWidget {
                 size: 60,
               ),
               onPressed: () {
-                Navigator.pushNamed(context, presentsB);
+                Navigator.pushNamed(context, presentsC);
+                _assetsAudioPlayer.stop();
               },
             ),
           ), 
         ],
       ),
+    );
+  }
+   void onPlayAudio1() async {
+    _assetsAudioPlayer.open(
+      Audio("assets/audio/story/ellyshop.mp3"),
     );
   }
 }

@@ -1,9 +1,22 @@
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:jifunze/constants/routes.dart';
 
 
-class EnvironmentAA extends StatelessWidget {
+class EnvironmentAA extends StatefulWidget {
+  @override
+  _EnvironmentAAState createState() => _EnvironmentAAState();
+}
+
+class _EnvironmentAAState extends State<EnvironmentAA> {
+  AssetsAudioPlayer _assetsAudioPlayer = AssetsAudioPlayer();
+
+@override
+  void initState() {
+   onPlayAudio1();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -80,6 +93,11 @@ class EnvironmentAA extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+   void onPlayAudio1() async {
+    _assetsAudioPlayer.open(
+      Audio("assets/audio/story/findibra.mp3"),
     );
   }
 }

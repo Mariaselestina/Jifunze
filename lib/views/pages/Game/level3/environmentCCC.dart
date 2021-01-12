@@ -1,9 +1,13 @@
 
 
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:jifunze/constants/routes.dart';
 
 class EnvironmentCCC extends StatelessWidget {
+  
+ 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,9 +25,11 @@ class EnvironmentCCC extends StatelessWidget {
                     child: InkWell(
                                           child: Container(
              height:250, width:100,
-             // color:Colors.black
+             //color:Colors.black
            ),
-           onTap: (){},
+           onTap: (){
+             onPlayAudio1();
+           },
                     ),
          ),
             Positioned(
@@ -101,4 +107,11 @@ class EnvironmentCCC extends StatelessWidget {
       ),
     );
   }
+ void onPlayAudio1() async {
+    AssetsAudioPlayer _assetsAudioPlayer = AssetsAudioPlayer();
+    _assetsAudioPlayer.open(
+      Audio("assets/audio/story/reporteacher.mp3"),
+    );
+  }
+
 }

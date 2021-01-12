@@ -4,7 +4,19 @@ import 'package:flutter_svg/svg.dart';
 
 import 'package:jifunze/constants/routes.dart';
 
-class BodyPartsB extends StatelessWidget {
+class BodyPartsB extends StatefulWidget {
+  @override
+  _BodyPartsBState createState() => _BodyPartsBState();
+}
+
+class _BodyPartsBState extends State<BodyPartsB> {
+  AssetsAudioPlayer _assetsAudioPlayer = AssetsAudioPlayer();
+  @override
+  void initState() {
+    onPlayAudio0();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     //final _height = MediaQuery.of(context).size.height;
@@ -24,26 +36,24 @@ class BodyPartsB extends StatelessWidget {
               left: MediaQuery.of(context).size.width / 1.84,
               child: InkWell(
                   onTap: () {
-                    
                     onPlayAudio2();
                   },
                   child: Container(
                     height: 350,
                     width: 120,
-                   // color: Colors.green,
+                    // color: Colors.green,
                   ))),
-                   Positioned(
+          Positioned(
               top: MediaQuery.of(context).size.height / 7,
               left: MediaQuery.of(context).size.width / 4.4,
               child: InkWell(
                   onTap: () {
-                    
                     onPlayAudio2();
                   },
                   child: Container(
                     height: 350,
                     width: 130,
-                   // color: Colors.green,
+                    // color: Colors.green,
                   ))),
           Positioned(
               top: MediaQuery.of(context).size.height / 3.4,
@@ -58,7 +68,7 @@ class BodyPartsB extends StatelessWidget {
                     width: 35,
                     //color: Colors.black,
                   ))),
-            Positioned(
+          Positioned(
               top: MediaQuery.of(context).size.height / 3.6,
               left: MediaQuery.of(context).size.width / 3.35,
               child: InkWell(
@@ -77,10 +87,10 @@ class BodyPartsB extends StatelessWidget {
                   onTap: () {
                     onPlayAudio();
                   },
-                  child: Container(height: 50, width: 80,
-                   //color: Colors.red
-                   ))),
-                   
+                  child: Container(
+                    height: 50, width: 80,
+                    //color: Colors.red
+                  ))),
           Positioned(
               top: MediaQuery.of(context).size.height / 2.6,
               left: MediaQuery.of(context).size.width / 1.74,
@@ -88,8 +98,9 @@ class BodyPartsB extends StatelessWidget {
                   onTap: () {
                     onPlayAudio();
                   },
-                  child: Container(height: 50, width: 70, 
-                  //color: Colors.blue
+                  child: Container(
+                    height: 50, width: 70,
+                    //color: Colors.blue
                   ))),
           Positioned(
               bottom: MediaQuery.of(context).size.height / 3.2,
@@ -98,8 +109,9 @@ class BodyPartsB extends StatelessWidget {
                   onTap: () {
                     onPlayAudio1();
                   },
-                  child: Container(height: 60, width: 85, 
-                  //color: Colors.red
+                  child: Container(
+                    height: 60, width: 85,
+                    //color: Colors.red
                   ))),
           Align(
             alignment: Alignment.topLeft,
@@ -134,13 +146,20 @@ class BodyPartsB extends StatelessWidget {
                 size: 60,
               ),
               onPressed: () {
-                onPlayAudio3();
                 Navigator.pushNamed(context, bodyPartsC);
+              _assetsAudioPlayer.stop();
               },
             ),
           ),
         ],
       ),
+    );
+  }
+
+  void onPlayAudio0() async {
+    AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
+    assetsAudioPlayer.open(
+      Audio("assets/audio/story/showsafeparts.mp3"),
     );
   }
 
@@ -157,16 +176,13 @@ class BodyPartsB extends StatelessWidget {
       Audio("assets/audio/story/noprivatepart.mp3"),
     );
   }
+
   void onPlayAudio2() async {
     AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
     assetsAudioPlayer.open(
       Audio("assets/audio/story/verygood.mp3"),
     );
   }
-   void onPlayAudio3() async {
-    AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
-    assetsAudioPlayer.open(
-      Audio("assets/audio/story/dragtocoverelly.mp3"),
-    );
-  }
+
+
 }

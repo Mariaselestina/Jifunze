@@ -1,3 +1,4 @@
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -14,6 +15,13 @@ class BodyPartsC extends StatefulWidget {
 
 class _BodyPartsCState extends State<BodyPartsC> {
   bool _isBoyClothes = false;
+   AssetsAudioPlayer _assetsAudioPlayer = AssetsAudioPlayer();
+   
+   @override
+  void initState() {
+      onPlayAudio0();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     final _levelProvider = Provider.of<LevelProvider>(context);
@@ -24,7 +32,7 @@ class _BodyPartsCState extends State<BodyPartsC> {
           Positioned(
             bottom: MediaQuery.of(context).size.height / 1.2,
             left: MediaQuery.of(context).size.width / 1.8,
-            child: Row(children: [
+            child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
               InkWell(
                 onTap: () {
                   setState(() {
@@ -36,7 +44,7 @@ class _BodyPartsCState extends State<BodyPartsC> {
                   width: 90,
                   child: SvgPicture.asset(
                     'assets/images/characters/girl.svg',
-                    fit: BoxFit.fill,
+                    fit: BoxFit.cover,
                   ),
                 ),
               ),
@@ -56,6 +64,18 @@ class _BodyPartsCState extends State<BodyPartsC> {
                 ),
               ),
             ]),
+          ),
+          Align(
+            alignment: Alignment(0.52, -0.8),
+            child: Container(
+              width: 50,
+              height: 50,
+              //color: Colors.blue,
+              child: Image.asset(
+                'assets/images/gifimages/hand.gif',
+                fit: BoxFit.fill,
+              ),
+            ),
           ),
           Align(
             alignment: Alignment.topLeft,
@@ -92,6 +112,7 @@ class _BodyPartsCState extends State<BodyPartsC> {
               onPressed: () {
                 _levelProvider.toogleLevel = 2;
                 Navigator.pushNamed(context, bodyPartsD);
+                _assetsAudioPlayer.stop();
               },
             ),
           ),
@@ -99,4 +120,17 @@ class _BodyPartsCState extends State<BodyPartsC> {
       ),
     );
   }
+  void onPlayAudio0() async {
+    AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
+    assetsAudioPlayer.open(
+      Audio("assets/audio/story/dragtocoverelly.mp3"),
+    );
+  }
+   void onPlayAudio1() async {
+    AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
+    assetsAudioPlayer.open(
+      Audio("assets/audio/story/dragtocoverelly.mp3"),
+    );
+  }
+  
 }

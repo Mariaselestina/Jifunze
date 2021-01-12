@@ -35,7 +35,7 @@ class BodyPartsD extends StatelessWidget {
                 child: Container(
                   width: 50,
                   height: 50,
-                  color: Colors.blue,
+                  //color: Colors.blue,
                   child: Image.asset(
                     'assets/images/gifimages/hand.gif',
                     fit: BoxFit.fill,
@@ -51,7 +51,7 @@ class BodyPartsD extends StatelessWidget {
               child: Container(
                 width: 50,
                 height: 50,
-                color: Colors.blue,
+                //color: Colors.blue,
                 child: Image.asset(
                   'assets/images/gifimages/hand.gif',
                   fit: BoxFit.fill,
@@ -107,7 +107,7 @@ class BodyPartsD extends StatelessWidget {
   void onPlayAudio2() async {
     AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
     assetsAudioPlayer.open(
-      Audio("assets/audio/story/ibraathome.mp3"),
+      Audio("assets/audio/story/ibrahome.mp3"),
     );
   }
 

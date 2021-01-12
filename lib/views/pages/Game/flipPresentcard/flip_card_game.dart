@@ -136,7 +136,7 @@ class _FlipCardGameState extends State<FlipCardGame> {
                             ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(4.0),
+                      padding: const EdgeInsets.only(left: 200, right: 80),
                       child: GridView.builder(
                         shrinkWrap: true,
                         physics: NeverScrollableScrollPhysics(),

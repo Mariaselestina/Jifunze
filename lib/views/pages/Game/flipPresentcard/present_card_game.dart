@@ -1,6 +1,7 @@
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 import 'dart:async';
 
@@ -136,12 +137,26 @@ class _PresentCardGameState extends State<PresentCardGame> {
                             ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(4.0),
+                      padding: _level == Level.Easy
+                          ? EdgeInsets.only(
+                              left: 100.0,
+                              right: 100,
+                            )
+                          :  (_level == Level.Medium
+                          ?  EdgeInsets.only(
+                              left: 140.0,
+                              right: 140,
+                            ):EdgeInsets.only(
+                              left: 40.0,
+                              right: 40,
+                            )),
                       child: GridView.builder(
                         shrinkWrap: true,
                         physics: NeverScrollableScrollPhysics(),
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 3,
+                          crossAxisCount: _level == Level.Easy
+                              ? 3
+                              : (_level == Level.Medium ? 4 : 6),
                         ),
                         itemBuilder: (context, index) => _start
                             ? FlipCard(
@@ -218,8 +233,8 @@ class _PresentCardGameState extends State<PresentCardGame> {
                                   margin: EdgeInsets.all(4.0),
                                   child: Padding(
                                     padding: const EdgeInsets.all(8.0),
-                                    child: Image.asset(
-                                      "assets/animalspics/quest.png",
+                                    child: SvgPicture.asset(
+                                      "assets/animalspics/quest.svg",
                                     ),
                                   ),
                                 ),

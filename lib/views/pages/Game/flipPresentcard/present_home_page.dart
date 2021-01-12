@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:jifunze/constants/routes.dart';
 import 'package:jifunze/model/presents.dart';
 
 import 'present_card_game.dart';
-
 
 class PresentHomePage extends StatefulWidget {
   @override
@@ -12,90 +12,135 @@ class PresentHomePage extends StatefulWidget {
 class _PresentHomePageState extends State<PresentHomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar( title: Text('Welcome To Presents Game'),),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: ListView.builder(
-          itemCount: _list.length,
-          itemBuilder: (context, index) {
-            return GestureDetector(
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (BuildContext context) => _list[index].goto,
-                    ));
-              },
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Stack(
-                  children: [
-                    Container(
-                      height: 100,
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                          color: _list[index].primarycolor,
-                          borderRadius: BorderRadius.circular(30),
-                          boxShadow: [
-                            BoxShadow(
-                                blurRadius: 4,
-                                color: Colors.black45,
-                                spreadRadius: 0.5,
-                                offset: Offset(3, 4))
-                          ]),
-                    ),
-                    Container(
-                      height: 90,
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                          color: _list[index].secomdarycolor,
-                          borderRadius: BorderRadius.circular(30),
-                          boxShadow: [
-                            BoxShadow(
-                                blurRadius: 4,
-                                color: Colors.black12,
-                                spreadRadius: 0.3,
-                                offset: Offset(
-                                  5,
-                                  3,
-                                ))
-                          ]),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Center(
-                              child: Text(
-                            _list[index].name,
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 30,
-                                fontWeight: FontWeight.bold,
-                                shadows: [
-                                  Shadow(
-                                    color: Colors.black26,
-                                    blurRadius: 2,
-                                    offset: Offset(1, 2),
+    return SafeArea(
+      child: Scaffold(
+        //appBar: AppBar(
+        //title: Text('Welcome To Presents Game'),
+        //),
+        body: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: [
+              ListView.builder(
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                itemCount: _list.length,
+                itemBuilder: (context, index) {
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (BuildContext context) =>
+                                _list[index].goto,
+                          ));
+                    },
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Stack(
+                          children: [
+                            Container(
+                              height: 60,
+                              width: 300,
+                              decoration: BoxDecoration(
+                                  color: _list[index].primarycolor,
+                                  borderRadius: BorderRadius.circular(30),
+                                  boxShadow: [
+                                    BoxShadow(
+                                        blurRadius: 4,
+                                        color: Colors.black45,
+                                        spreadRadius: 0.5,
+                                        offset: Offset(3, 4))
+                                  ]),
+                            ),
+                            Container(
+                              height: 60,
+                              width: 300,
+                              decoration: BoxDecoration(
+                                  color: _list[index].secomdarycolor,
+                                  borderRadius: BorderRadius.circular(30),
+                                  boxShadow: [
+                                    BoxShadow(
+                                        blurRadius: 4,
+                                        color: Colors.black12,
+                                        spreadRadius: 0.3,
+                                        offset: Offset(
+                                          5,
+                                          3,
+                                        ))
+                                  ]),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Center(
+                                      child: Text(
+                                    _list[index].name,
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 30,
+                                        fontWeight: FontWeight.bold,
+                                        shadows: [
+                                          Shadow(
+                                            color: Colors.black26,
+                                            blurRadius: 2,
+                                            offset: Offset(1, 2),
+                                          ),
+                                          Shadow(
+                                              color: Colors.green,
+                                              blurRadius: 2,
+                                              offset: Offset(0.5, 2))
+                                        ]),
+                                  )),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children:
+                                        genratestar(_list[index].noOfstar),
                                   ),
-                                  Shadow(
-                                      color: Colors.green,
-                                      blurRadius: 2,
-                                      offset: Offset(0.5, 2))
-                                ]),
-                          )),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: genratestar(_list[index].noOfstar),
-                          )
-                        ],
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                  ],
-                ),
+                  );
+                },
               ),
-            );
-          },
+              Spacer(),
+              BottomAppBar(
+                elevation: 0,
+                color: Colors.transparent,
+                child: Row(children: <Widget>[
+                  IconButton(
+                    icon: Icon(
+                      Icons.arrow_back_ios,
+                      color: Colors.red,
+                      size: 50,
+                    ),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+                  Spacer(),
+                  IconButton(
+                    icon: Icon(
+                      Icons.arrow_forward_ios,
+                      color: Colors.red,
+                      size: 50,
+                    ),
+                    onPressed: () {
+                      Navigator.pushNamed(context, presentsA);
+                    },
+                  ),
+                ]),
+              ),
+              SizedBox(height:20)
+            ],
+          ),
         ),
       ),
     );

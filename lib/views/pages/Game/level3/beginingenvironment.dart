@@ -1,8 +1,21 @@
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 
 import 'package:jifunze/constants/routes.dart';
 
-class Beginingenvironment extends StatelessWidget {
+class Beginingenvironment extends StatefulWidget {
+  @override
+  _BeginingenvironmentState createState() => _BeginingenvironmentState();
+}
+
+class _BeginingenvironmentState extends State<Beginingenvironment> {
+ AssetsAudioPlayer _assetsAudioPlayer = AssetsAudioPlayer();
+
+ @override
+  void initState() {
+   onPlayAudio1();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,11 +61,17 @@ class Beginingenvironment extends StatelessWidget {
               ),
               onPressed: () {
                 Navigator.pushNamed(context, environmentA);
+                 _assetsAudioPlayer.stop();
               },
             ),
           ),
         ],
       ),
+    );
+  }
+   void onPlayAudio1() async {
+    _assetsAudioPlayer.open(
+      Audio("assets/audio/story/standingatchurch.mp3"),
     );
   }
 }

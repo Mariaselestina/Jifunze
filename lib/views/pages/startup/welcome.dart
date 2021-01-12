@@ -1,4 +1,4 @@
-import 'package:assets_audio_player/assets_audio_player.dart';
+
 import 'package:flutter/material.dart';
 
 import 'package:jifunze/constants/routes.dart';
@@ -92,10 +92,5 @@ class WelcomePage extends StatelessWidget {
     );
   }
 
-  void onPlayAudio1() async {
-    AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
-    assetsAudioPlayer.open(
-      Audio("assets/audio/story/background.mp3"),
-    );
-  }
+  
 }

@@ -1,12 +1,26 @@
 
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 
 import 'package:jifunze/constants/routes.dart';
 
-class BeginingPresents extends StatelessWidget {
+class BeginingPresents extends StatefulWidget {
+  @override
+  _BeginingPresentsState createState() => _BeginingPresentsState();
+}
+
+class _BeginingPresentsState extends State<BeginingPresents> {
   final double kHeight = 40.0;
+
   final double kWeight = 65.0;
+
   final double tSize = 11.0;
+AssetsAudioPlayer _assetsAudioPlayer = AssetsAudioPlayer();
+@override
+  void initState() {
+     onPlayAudio1();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,10 +79,16 @@ class BeginingPresents extends StatelessWidget {
             ),
             onPressed: () {
               Navigator.pushNamed(context, presentHomePage);
+              _assetsAudioPlayer.stop();
             },
           ),
         ),
       ]),
+    );
+  }
+   void onPlayAudio1() async {
+    _assetsAudioPlayer.open(
+      Audio("assets/audio/story/matchpresents.mp3"),
     );
   }
 }

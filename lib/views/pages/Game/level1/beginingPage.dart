@@ -1,5 +1,4 @@
 
-import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:jifunze/constants/routes.dart';
 
@@ -94,7 +93,7 @@ class _BeginingPageState extends State<BeginingPage> {
             ),
             onPressed: () {
               Navigator.pushNamed(context, bodyPartsB);
-              onPlayAudio2();
+                       
               
              
             },
@@ -151,10 +150,5 @@ class _BeginingPageState extends State<BeginingPage> {
       
      );
   }
-  void onPlayAudio2() async {
-    AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
-    assetsAudioPlayer.open(
-      Audio("assets/audio/story/showsafeparts.mp3"),
-    );
-  }
+  
 }
