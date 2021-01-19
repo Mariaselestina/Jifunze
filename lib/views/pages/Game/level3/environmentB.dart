@@ -1,3 +1,4 @@
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:jifunze/constants/routes.dart';
 
@@ -8,6 +9,12 @@ class EnvironmentB extends StatefulWidget {
 }
 
 class _EnvironmentBState extends State<EnvironmentB> {
+   AssetsAudioPlayer _assetsAudioPlayer = AssetsAudioPlayer();
+   @override
+  void initState() {
+   onPlayAudio1();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,11 +62,17 @@ class _EnvironmentBState extends State<EnvironmentB> {
               ),
               onPressed: () {
                 Navigator.pushNamed(context, environmentBB);
+                _assetsAudioPlayer.stop();
               },
             ),
           ),
         ],
       ),
+    );
+  }
+    void onPlayAudio1() async {
+   _assetsAudioPlayer.open(
+      Audio("assets/audio/story/parentsroom.mp3"),
     );
   }
 }

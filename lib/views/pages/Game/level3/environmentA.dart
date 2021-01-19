@@ -54,6 +54,7 @@ class _EnvironmentAState extends State<EnvironmentA> {
                 fit: BoxFit.cover,
               ),
               onTap: () {
+                onPlayAudio2();
                  
                   },
             ),
@@ -92,6 +93,7 @@ class _EnvironmentAState extends State<EnvironmentA> {
               ),
               onPressed: () {
                 Navigator.pushNamed(context, environmentAA);
+                _assetsAudioPlayer.stop();
               },
             ),
           ),

@@ -1,3 +1,4 @@
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -11,10 +12,11 @@ class PresentsCC extends StatefulWidget {
 class _PresentsCCState extends State<PresentsCC> {
   final double _shirtSize = 100;
 
-  bool shadowstrangerAccepted = false;
+  // bool shadowstrangerAccepted = false;
   bool strangerAccepted = false;
   bool road1Accepted = false;
   bool treeAccepted = false;
+  AssetsAudioPlayer _assetsAudioPlayer = AssetsAudioPlayer();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,6 +41,7 @@ class _PresentsCCState extends State<PresentsCC> {
                   setState(() {
                     road1Accepted = true;
                   });
+                  playAudio();
                 },
                 onLeave: (value) {
                   //Alert the user their value ddint land
@@ -73,6 +76,7 @@ class _PresentsCCState extends State<PresentsCC> {
                   setState(() {
                     strangerAccepted = true;
                   });
+                  playAudio();
                 },
                 onLeave: (value) {
                   //Alert the user their value ddint land
@@ -107,6 +111,8 @@ class _PresentsCCState extends State<PresentsCC> {
                   setState(() {
                     treeAccepted = true;
                   });
+
+                  playAudio();
                 },
                 onLeave: (value) {
                   //Alert the user their value ddint land
@@ -264,7 +270,7 @@ class _PresentsCCState extends State<PresentsCC> {
                   ),
                 ],
               )),
- Align(
+          Align(
             alignment: Alignment.topLeft,
             child: IconButton(
               icon: Icon(Icons.home, color: Colors.blue, size: 70),
@@ -273,7 +279,6 @@ class _PresentsCCState extends State<PresentsCC> {
               },
             ),
           ),
-         
           Positioned(
             bottom: MediaQuery.of(context).size.height / 16,
             right: MediaQuery.of(context).size.width / 1.1,
@@ -293,18 +298,32 @@ class _PresentsCCState extends State<PresentsCC> {
             right: MediaQuery.of(context).size.width / 14,
             child: IconButton(
               icon: Icon(
-               Icons.arrow_forward_ios,
+                Icons.arrow_forward_ios,
                 color: Colors.red,
                 size: 60,
               ),
               onPressed: () {
                 Navigator.pushNamed(context, presentsCCC);
+                 _assetsAudioPlayer.stop();
               },
             ),
           ),
-
         ],
       ),
     );
+  }
+
+  void playAudio() async {
+    print('treeAccepted: ' + treeAccepted.toString());
+    print('road1Accepted: ' + road1Accepted.toString());
+
+    print('strangerAccepted: ' + strangerAccepted.toString());
+
+    if (treeAccepted && road1Accepted && strangerAccepted) {
+      print('hi');
+      _assetsAudioPlayer.open(
+        Audio("assets/audio/story/strangersontheway.mp3"),
+      );
+    }
   }
 }

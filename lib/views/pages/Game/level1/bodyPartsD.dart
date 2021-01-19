@@ -3,7 +3,14 @@ import 'package:flutter/material.dart';
 
 import 'package:jifunze/constants/routes.dart';
 
-class BodyPartsD extends StatelessWidget {
+class BodyPartsD extends StatefulWidget {
+  @override
+  _BodyPartsDState createState() => _BodyPartsDState();
+}
+
+class _BodyPartsDState extends State<BodyPartsD> {
+  AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -95,7 +102,41 @@ class BodyPartsD extends StatelessWidget {
                 size: 60,
               ),
               onPressed: () {
-                Navigator.pushNamed(context, levelsPage);
+                
+                //Navigator.pushNamed(context, levelsPage);
+                showDialog(
+                  context: context,
+                  builder: (_) => AlertDialog(
+                    title: Row(
+                       mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("Congratulations!",),
+                      ],
+                    ),
+                    backgroundColor: Colors.white,
+                    content: Container(
+                      width: 40,
+                      height: 85,
+                      //color: Colors.blue,
+                      child: Row(
+                         mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset(
+                            'assets/icons/star.png',
+                            //height: 50,
+                            fit: BoxFit.fill,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+
+                  barrierColor: Colors.transparent,
+
+                  //barrierDismissible: true,
+                );
+                assetsAudioPlayer.stop();
+                onPlayAudio4();
               },
             ),
           ),
@@ -105,16 +146,20 @@ class BodyPartsD extends StatelessWidget {
   }
 
   void onPlayAudio2() async {
-    AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
     assetsAudioPlayer.open(
       Audio("assets/audio/story/ibrahome.mp3"),
     );
   }
 
   void onPlayAudio3() async {
-    AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
-    assetsAudioPlayer.open(
+   assetsAudioPlayer.open(
       Audio("assets/audio/story/ellyatschool.mp3"),
+    );
+  }
+
+  void onPlayAudio4() async {
+    assetsAudioPlayer.open(
+      Audio("assets/audio/story/firstlevel.mp3"),
     );
   }
 }

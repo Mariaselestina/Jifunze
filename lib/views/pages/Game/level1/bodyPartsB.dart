@@ -147,7 +147,7 @@ class _BodyPartsBState extends State<BodyPartsB> {
               ),
               onPressed: () {
                 Navigator.pushNamed(context, bodyPartsC);
-              _assetsAudioPlayer.stop();
+                _assetsAudioPlayer.stop();
               },
             ),
           ),
@@ -157,32 +157,26 @@ class _BodyPartsBState extends State<BodyPartsB> {
   }
 
   void onPlayAudio0() async {
-    AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
-    assetsAudioPlayer.open(
+    _assetsAudioPlayer.open(
       Audio("assets/audio/story/showsafeparts.mp3"),
     );
   }
 
   void onPlayAudio() async {
-    AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
-    assetsAudioPlayer.open(
+    _assetsAudioPlayer.open(
       Audio("assets/audio/story/nonono.mp3"),
     );
   }
 
   void onPlayAudio1() async {
-    AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
-    assetsAudioPlayer.open(
+    _assetsAudioPlayer.open(
       Audio("assets/audio/story/noprivatepart.mp3"),
     );
   }
 
   void onPlayAudio2() async {
-    AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
-    assetsAudioPlayer.open(
+    _assetsAudioPlayer.open(
       Audio("assets/audio/story/verygood.mp3"),
     );
   }
-
-
 }

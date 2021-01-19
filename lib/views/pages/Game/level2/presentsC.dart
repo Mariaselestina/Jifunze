@@ -17,6 +17,11 @@ class _PresentsCState extends State<PresentsC> {
   bool carAccepted = false;
   AssetsAudioPlayer _assetsAudioPlayer = AssetsAudioPlayer();
   @override
+  void initState() {
+    playAudio1();
+    super.initState();
+  }
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
@@ -306,6 +311,7 @@ class _PresentsCState extends State<PresentsC> {
               ),
               onPressed: () {
                 Navigator.pushNamed(context, presentsCC);
+                _assetsAudioPlayer.stop();
               },
             ),
           ),
@@ -324,8 +330,14 @@ class _PresentsCState extends State<PresentsC> {
     if (tree1Accepted && road1Accepted && carAccepted) {
       print('hi');
       _assetsAudioPlayer.open(
-        Audio("assets/audio/story/verygood.mp3"),
+        Audio("assets/audio/story/strangercars.mp3"),
       );
     }
   }
+
+   void playAudio1() async {
+   _assetsAudioPlayer.open(
+      Audio("assets/audio/story/moveshape.mp3"),
+    );
+  } 
 }

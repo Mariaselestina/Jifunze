@@ -1,13 +1,19 @@
-
-
 import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:jifunze/constants/routes.dart';
 
-class EnvironmentCCC extends StatelessWidget {
-  
- 
+class EnvironmentCCC extends StatefulWidget {
+  @override
+  _EnvironmentCCCState createState() => _EnvironmentCCCState();
+}
 
+class _EnvironmentCCCState extends State<EnvironmentCCC> {
+  AssetsAudioPlayer _assetsAudioPlayer = AssetsAudioPlayer();
+  @override
+  void initState() {
+onPlayAudio2();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,53 +25,59 @@ class EnvironmentCCC extends StatelessWidget {
             child: Image.asset('assets/images/environment/envthree4.png',
                 fit: BoxFit.fill),
           ),
-         Positioned(
+          Positioned(
             bottom: MediaQuery.of(context).size.height / 16,
             right: MediaQuery.of(context).size.width / 1.29,
-                    child: InkWell(
-                                          child: Container(
-             height:250, width:100,
-             //color:Colors.black
-           ),
-           onTap: (){
-             onPlayAudio1();
-           },
-                    ),
-         ),
-            Positioned(
+            child: InkWell(
+              child: Container(
+                height: 250, width: 100,
+                //color:Colors.black
+              ),
+              onTap: () {
+                onPlayAudio1();
+              },
+            ),
+          ),
+          Positioned(
             bottom: MediaQuery.of(context).size.height / 16,
             right: MediaQuery.of(context).size.width / 1.9,
-                    child: InkWell(
-                                          child: Container(
-             height:250, width:100,
-             // color:Colors.blue
-           ),
-           onTap: (){},
-                    ),
-         ),
-         Positioned(
+            child: InkWell(
+              child: Container(
+                height: 250, width: 100,
+                // color:Colors.blue
+              ),
+              onTap: () {
+                onPlayAudio3();
+              },
+            ),
+          ),
+          Positioned(
             bottom: MediaQuery.of(context).size.height / 16,
             right: MediaQuery.of(context).size.width / 2.9,
-                    child: InkWell(
-                                          child: Container(
-             height:250, width:100, 
-             //color:Colors.blue
-           ),
-           onTap: (){},
-                    ),
-         ),
-         Positioned(
+            child: InkWell(
+              child: Container(
+                height: 250, width: 100,
+                //color:Colors.blue
+              ),
+              onTap: () {
+                onPlayAudio4();
+              },
+            ),
+          ),
+          Positioned(
             bottom: MediaQuery.of(context).size.height / 16,
             right: MediaQuery.of(context).size.width / 8,
-                    child: InkWell(
-                                          child: Container(
-             height:250, width:100,
-             // color:Colors.blue
-           ),
-           onTap: (){},
-                    ),
-         ),
-           Align(
+            child: InkWell(
+              child: Container(
+                height: 250, width: 100,
+                // color:Colors.blue
+              ),
+              onTap: () {
+                onPlayAudio5();
+              },
+            ),
+          ),
+          Align(
             alignment: Alignment.topLeft,
             child: IconButton(
               icon: Icon(Icons.home, color: Colors.blue, size: 70),
@@ -74,7 +86,6 @@ class EnvironmentCCC extends StatelessWidget {
               },
             ),
           ),
-         
           Positioned(
             bottom: MediaQuery.of(context).size.height / 16,
             right: MediaQuery.of(context).size.width / 1.1,
@@ -94,12 +105,52 @@ class EnvironmentCCC extends StatelessWidget {
             right: MediaQuery.of(context).size.width / 14,
             child: IconButton(
               icon: Icon(
-               Icons.arrow_forward_ios,
+                Icons.arrow_forward_ios,
                 color: Colors.red,
                 size: 60,
               ),
               onPressed: () {
-                Navigator.pushNamed(context, levelsPage);
+                showDialog(
+                  context: context,
+                  builder: (_) => AlertDialog(
+                    title: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("Congratulations!"),
+                      ],
+                    ),
+                    backgroundColor: Colors.white,
+                    content: Container(
+                      width: 40,
+                      height: 85,
+                      //color: Colors.blue,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset(
+                            'assets/icons/star.png',
+                            fit: BoxFit.fill,
+                          ),
+                          Image.asset(
+                            'assets/icons/star.png',
+                            fit: BoxFit.fill,
+                          ),
+                          Image.asset(
+                            'assets/icons/star.png',
+                            fit: BoxFit.fill,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+
+                  barrierColor: Colors.transparent,
+
+                  //barrierDismissible: true,
+                );
+                _assetsAudioPlayer.stop();
+                //Navigator.pushNamed(context, levelsPage);
+                playAudio();
               },
             ),
           ),
@@ -107,11 +158,37 @@ class EnvironmentCCC extends StatelessWidget {
       ),
     );
   }
- void onPlayAudio1() async {
-    AssetsAudioPlayer _assetsAudioPlayer = AssetsAudioPlayer();
+
+  void playAudio() async {
+    _assetsAudioPlayer.open(
+      Audio("assets/audio/story/winner.mp3"),
+    );
+  }
+  void onPlayAudio2() async {
+    _assetsAudioPlayer.open(
+      Audio("assets/audio/story/teachyou.mp3"),
+    );
+  }
+
+  void onPlayAudio1() async {
     _assetsAudioPlayer.open(
       Audio("assets/audio/story/reporteacher.mp3"),
     );
   }
-
+    
+    void onPlayAudio3() async {
+    _assetsAudioPlayer.open(
+      Audio("assets/audio/story/reporttoparent.mp3"),
+    );
+  }
+   void onPlayAudio4() async {
+    _assetsAudioPlayer.open(
+      Audio("assets/audio/story/norunaway.mp3"),
+    );
+  }
+   void onPlayAudio5() async {
+    _assetsAudioPlayer.open(
+      Audio("assets/audio/story/shouthelp.mp3"),
+    );
+  }
 }

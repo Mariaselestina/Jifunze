@@ -1,12 +1,25 @@
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 
 import 'package:jifunze/constants/routes.dart';
 
-class EnvironmentC extends StatelessWidget {
-  final double kHeight = 50.0;
-  final double kWeight = 150.0;
-  final double tSize = 15.0;
+class EnvironmentC extends StatefulWidget {
+  @override
+  _EnvironmentCState createState() => _EnvironmentCState();
+}
 
+class _EnvironmentCState extends State<EnvironmentC> {
+   AssetsAudioPlayer _assetsAudioPlayer = AssetsAudioPlayer();
+  final double kHeight = 50.0;
+
+  final double kWeight = 150.0;
+
+  final double tSize = 15.0;
+@override
+  void initState() {
+    playAudio();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -77,11 +90,17 @@ class EnvironmentC extends StatelessWidget {
               ),
               onPressed: () {
                 Navigator.pushNamed(context, environmentCC);
+                 _assetsAudioPlayer.stop();
               },
             ),
           ),
         ],
       ),
+    );
+  }
+   void playAudio() async {
+    _assetsAudioPlayer.open(
+      Audio("assets/audio/story/feelbadontheway.mp3"),
     );
   }
 }

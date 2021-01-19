@@ -43,6 +43,7 @@ class _LevelsPageState extends State<LevelsPage> {
           child: IconButton(
             icon: Icon(Icons.info_outline, color: Colors.black, size: 50),
             onPressed: () {
+                 _assetsAudioPlayer.stop();
               showDialog(
                   context: context,
                   builder: (BuildContext context) {

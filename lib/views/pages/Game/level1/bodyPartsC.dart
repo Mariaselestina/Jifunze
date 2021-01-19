@@ -30,18 +30,19 @@ class _BodyPartsCState extends State<BodyPartsC> {
         children: [
           _isBoyClothes ? BoyClothes() : GirlClothes(),
           Positioned(
-            bottom: MediaQuery.of(context).size.height / 1.2,
+            bottom: MediaQuery.of(context).size.height / 1.3,
             left: MediaQuery.of(context).size.width / 1.8,
             child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
               InkWell(
                 onTap: () {
+                 
                   setState(() {
                     _isBoyClothes = false;
                   });
                 },
                 child: Container(
-                  height: 60,
-                  width: 90,
+                  height: 85,
+                  width: 115,
                   child: SvgPicture.asset(
                     'assets/images/characters/girl.svg',
                     fit: BoxFit.cover,
@@ -51,12 +52,14 @@ class _BodyPartsCState extends State<BodyPartsC> {
               InkWell(
                 onTap: () {
                   setState(() {
+                    
                     _isBoyClothes = true;
+                     onPlayAudio1();
                   });
                 },
                 child: Container(
-                  height: 50,
-                  width: 70,
+                  height: 78,
+                  width: 100,
                   child: SvgPicture.asset(
                     'assets/images/characters/boy.svg',
                     fit: BoxFit.fill,
@@ -66,7 +69,7 @@ class _BodyPartsCState extends State<BodyPartsC> {
             ]),
           ),
           Align(
-            alignment: Alignment(0.52, -0.8),
+            alignment: Alignment(0.65, -0.7),
             child: Container(
               width: 50,
               height: 50,
@@ -121,15 +124,13 @@ class _BodyPartsCState extends State<BodyPartsC> {
     );
   }
   void onPlayAudio0() async {
-    AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
-    assetsAudioPlayer.open(
+    _assetsAudioPlayer.open(
       Audio("assets/audio/story/dragtocoverelly.mp3"),
     );
   }
    void onPlayAudio1() async {
-    AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
-    assetsAudioPlayer.open(
-      Audio("assets/audio/story/dragtocoverelly.mp3"),
+   _assetsAudioPlayer.open(
+      Audio("assets/audio/story/dragtocoveribra.mp3"),
     );
   }
   

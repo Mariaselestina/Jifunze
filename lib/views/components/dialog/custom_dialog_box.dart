@@ -203,20 +203,20 @@ class _AvailableLinks extends StatelessWidget {
            Card(
           child: ListTile(
             leading: Icon(Icons.link),
-            title: Text('Child Sexual Abuse Prevention'),
+            title: Text('Child Sexual Abuse Prevention \"Stop it Now\"'),
             onTap: () {
               _launchURL(
-                  'https://www.nsvrc.org/preventing-child-sexual-abuse-resources');
+                  'https://www.stopitnow.org/sites/default/files/documents/files/prevent_child_sexual_abuse.pdf');
             },
           ),
         ),
          Card(
           child: ListTile(
             leading: Icon(Icons.link),
-            title: Text('Child Sexual Abuse Prevention'),
+            title: Text('10 Ways to teach your child'),
             onTap: () {
               _launchURL(
-                  'https://www.nsvrc.org/preventing-child-sexual-abuse-resources');
+                  'https://childmind.org/article/10-ways-to-teach-your-child-the-skills-to-prevent-sexual-abuse/');
             },
           ),
         )

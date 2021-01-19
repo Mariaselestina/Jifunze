@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:jifunze/constants/routes.dart';
 
-
 class EnvironmentAA extends StatefulWidget {
   @override
   _EnvironmentAAState createState() => _EnvironmentAAState();
@@ -12,11 +11,12 @@ class EnvironmentAA extends StatefulWidget {
 class _EnvironmentAAState extends State<EnvironmentAA> {
   AssetsAudioPlayer _assetsAudioPlayer = AssetsAudioPlayer();
 
-@override
+  @override
   void initState() {
-   onPlayAudio1();
+    onPlayAudio1();
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,32 +28,36 @@ class _EnvironmentAAState extends State<EnvironmentAA> {
             child: Image.asset('assets/images/environment/envthree2.png',
                 fit: BoxFit.fill),
           ),
-           Positioned(
+          Positioned(
             top: MediaQuery.of(context).size.height / 2,
             left: MediaQuery.of(context).size.width / 1.2,
-            child:SvgPicture.asset('assets/images/characters/boydressed.svg',
-               
-              width: 40,
-              height: 60,
-              fit: BoxFit.fill,
+            child: InkWell(
+              child: SvgPicture.asset(
+                'assets/images/characters/boydressed.svg',
+                width: 40,
+                height: 60,
+                fit: BoxFit.fill,
+              ),
+              onTap: () {
+                onPlayAudio2();
+              },
             ),
           ),
-      Container(
+          Container(
             height: MediaQuery.of(context).size.height,
             width: 100,
             color: Colors.white,
             child: Align(
-                alignment: Alignment.center,
-            
+              alignment: Alignment.center,
               child: SvgPicture.asset(
                 'assets/images/characters/boydressed.svg',
-                
                 width: 70,
-              height: 150,fit: BoxFit.fill,
+                height: 150,
+                fit: BoxFit.fill,
               ),
             ),
           ),
-           Align(
+          Align(
             alignment: Alignment.topLeft,
             child: IconButton(
               icon: Icon(Icons.home, color: Colors.blue, size: 70),
@@ -62,7 +66,6 @@ class _EnvironmentAAState extends State<EnvironmentAA> {
               },
             ),
           ),
-         
           Positioned(
             bottom: MediaQuery.of(context).size.height / 16,
             right: MediaQuery.of(context).size.width / 1.1,
@@ -82,12 +85,13 @@ class _EnvironmentAAState extends State<EnvironmentAA> {
             right: MediaQuery.of(context).size.width / 14,
             child: IconButton(
               icon: Icon(
-               Icons.arrow_forward_ios,
+                Icons.arrow_forward_ios,
                 color: Colors.red,
                 size: 60,
               ),
               onPressed: () {
                 Navigator.pushNamed(context, environmentB);
+                _assetsAudioPlayer.stop();
               },
             ),
           ),
@@ -95,9 +99,16 @@ class _EnvironmentAAState extends State<EnvironmentAA> {
       ),
     );
   }
-   void onPlayAudio1() async {
+
+  void onPlayAudio1() async {
     _assetsAudioPlayer.open(
       Audio("assets/audio/story/findibra.mp3"),
+    );
+  }
+
+  void onPlayAudio2() async {
+    _assetsAudioPlayer.open(
+      Audio("assets/audio/story/roadwithpeople.mp3"),
     );
   }
 }

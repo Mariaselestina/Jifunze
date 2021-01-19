@@ -1,3 +1,4 @@
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -17,6 +18,7 @@ class _PresentsCCCState extends State<PresentsCCC> {
   bool tree1Accepted = false;
   bool road1Accepted = false;
   bool carAccepted = false;
+  AssetsAudioPlayer _assetsAudioPlayer = AssetsAudioPlayer();
   @override
   Widget build(BuildContext context) {
     final _levelProvider = Provider.of<LevelProvider>(context);
@@ -42,6 +44,7 @@ class _PresentsCCCState extends State<PresentsCCC> {
                   setState(() {
                     road1Accepted = true;
                   });
+                  playAudio();
                 },
                 onLeave: (value) {
                   //Alert the user their value ddint land
@@ -76,6 +79,7 @@ class _PresentsCCCState extends State<PresentsCCC> {
                   setState(() {
                     shadowstrangerAccepted = true;
                   });
+                  playAudio();
                 },
                 onLeave: (value) {
                   //Alert the user their value ddint land
@@ -110,6 +114,7 @@ class _PresentsCCCState extends State<PresentsCCC> {
                   setState(() {
                     carAccepted = true;
                   });
+                  playAudio();
                 },
                 onLeave: (value) {
                   //Alert the user their value ddint land
@@ -304,12 +309,68 @@ class _PresentsCCCState extends State<PresentsCCC> {
               ),
               onPressed: () {
                 _levelProvider.toogleLevel = 3;
-                Navigator.pushNamed(context, levelsPage);
+               // Navigator.pushNamed(context, levelsPage);
+                 showDialog(
+                  context: context,
+                  builder: (_) => AlertDialog(
+                    title: Row(
+                       mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("Congratulations!"),
+                      ],
+                    ),
+                    backgroundColor: Colors.white,
+                    content: Container(
+                      width: 40,
+                      height: 85,
+                      //color: Colors.blue,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset(
+                            'assets/icons/star.png',
+                           
+                            fit: BoxFit.fill,
+                          ),
+                          Image.asset(
+                            'assets/icons/star.png',
+                           
+                            fit: BoxFit.fill,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+
+                  barrierColor: Colors.transparent,
+
+                  //barrierDismissible: true,
+                );
+                _assetsAudioPlayer.stop();
+                playAudio1();
               },
             ),
           ),
         ],
       ),
+    );
+  }
+  void playAudio() async {
+    print('carAccepted: ' + carAccepted.toString());
+    print('road1Accepted: ' + road1Accepted.toString());
+
+    print('shadowstrangerAccepted: ' + shadowstrangerAccepted.toString());
+
+    if (carAccepted && road1Accepted && shadowstrangerAccepted) {
+      print('hi');
+      _assetsAudioPlayer.open(
+        Audio("assets/audio/story/dontreceivegiftsontheway.mp3"),
+      );
+    }
+  }
+   void playAudio1() async {
+    _assetsAudioPlayer.open(
+      Audio("assets/audio/story/secondlevel.mp3"),
     );
   }
 }
