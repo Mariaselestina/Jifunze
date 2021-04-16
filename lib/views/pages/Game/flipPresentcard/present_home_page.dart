@@ -177,19 +177,19 @@ class Details {
 
 List<Details> _list = [
   Details(
-      name: "EASY",
+      name: "RAHISI",
       primarycolor: Colors.green,
       secomdarycolor: Colors.green[300],
       noOfstar: 1,
       goto: PresentCardGame(Level.Easy)),
   Details(
-      name: "MEDIUM",
+      name: "KATIKATI",
       primarycolor: Colors.orange,
       secomdarycolor: Colors.orange[300],
       noOfstar: 2,
       goto: PresentCardGame(Level.Medium)),
   Details(
-      name: "HARD",
+      name: "NGUMU",
       primarycolor: Colors.red,
       secomdarycolor: Colors.red[300],
       noOfstar: 3,

@@ -1,4 +1,5 @@
 
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:jifunze/constants/routes.dart';
 
@@ -12,6 +13,7 @@ class BeginingPage extends StatefulWidget {
 }
 
 class _BeginingPageState extends State<BeginingPage> {
+  AssetsAudioPlayer _assetsAudioPlayer = AssetsAudioPlayer();
   VideoPlayerController _videoPlayerController;
   Future<void> _initializeVideoPlayerFuture;
 
@@ -24,6 +26,8 @@ class _BeginingPageState extends State<BeginingPage> {
 
   @override
   void initState() {
+    onPlayAudio();
+
     _videoPlayerController = VideoPlayerController.asset("assets/video/privateparts.m4v");
     _initializeVideoPlayerFuture = _videoPlayerController.initialize(); 
    _videoPlayerController.setLooping(true);
@@ -61,16 +65,20 @@ class _BeginingPageState extends State<BeginingPage> {
               Align(
           alignment: Alignment.topLeft,
           child: IconButton(
-            icon: Icon(Icons.home, color: Colors.orangeAccent, size: 70),
+            iconSize: 90,
+            icon: Icon(Icons.home, color: Colors.orangeAccent, size: 90),
             onPressed: () {
               Navigator.pushNamed(context, levelsPage);
+              _assetsAudioPlayer.stop();
+              
             },
           ),
         ),
              Positioned(
-          bottom: MediaQuery.of(context).size.height / 16,
-          right: MediaQuery.of(context).size.width / 1.1,
+          top: MediaQuery.of(context).size.height / 1.26,
+          right: MediaQuery.of(context).size.width / 1.2,
           child: IconButton(
+            iconSize: 70,
             icon: Icon(
               Icons.arrow_back_ios,
               color: Colors.red,
@@ -78,14 +86,16 @@ class _BeginingPageState extends State<BeginingPage> {
             ),
             onPressed: () {
               Navigator.pushNamed(context, levelsPage);
+                 _assetsAudioPlayer.stop();
             },
           ),
         ),
          
         Positioned(
-          bottom: MediaQuery.of(context).size.height / 16,
+          top: MediaQuery.of(context).size.height / 1.26,
           right: MediaQuery.of(context).size.width / 14,
           child: IconButton(
+             iconSize: 70,
             icon: Icon(
               Icons.arrow_forward_ios,
               color: Colors.red,
@@ -93,7 +103,7 @@ class _BeginingPageState extends State<BeginingPage> {
             ),
             onPressed: () {
               Navigator.pushNamed(context, bodyPartsB);
-                       
+                 _assetsAudioPlayer.stop();                    
               
              
             },
@@ -150,5 +160,11 @@ class _BeginingPageState extends State<BeginingPage> {
       
      );
   }
+   void onPlayAudio() async {
+    _assetsAudioPlayer.open(
+      Audio("assets/audio/story/chezavideo.mp3"),
+    );
+  }
+  
   
 }

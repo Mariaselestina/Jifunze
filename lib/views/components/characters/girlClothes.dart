@@ -9,6 +9,7 @@ class GirlClothes extends StatefulWidget {
 }
 
 class _GirlClothesState extends State<GirlClothes> {
+   AssetsAudioPlayer _assetsAudioPlayer = AssetsAudioPlayer();
   final double _shirtSize = 70;
 
   bool blouse1Accepted = false;
@@ -36,7 +37,7 @@ class _GirlClothesState extends State<GirlClothes> {
               child: DragTarget<String>(
                 onWillAccept: (value) => value == 'SKIRT1',
                 onAccept: (value) {
-                  onPlayAudioSkirt();
+                  onPlayAudio3();
                   setState(() {
                     skirt1Accepted = true;
                     skirt2Accepted = false;
@@ -59,7 +60,9 @@ class _GirlClothesState extends State<GirlClothes> {
                           height: 80,
                           width: 150,
                         );
+                        
                 },
+                
               )),
           Positioned(
               top: MediaQuery.of(context).size.height / 1.8,
@@ -67,7 +70,7 @@ class _GirlClothesState extends State<GirlClothes> {
               child: DragTarget<String>(
                 onWillAccept: (value) => value == 'SKIRT2',
                 onAccept: (value) {
-                  onPlayAudioSkirt();
+                  onPlayAudio3();
                   setState(() {
                     skirt2Accepted = true;
                     skirt1Accepted = false;
@@ -98,10 +101,11 @@ class _GirlClothesState extends State<GirlClothes> {
               child: DragTarget<String>(
                 onWillAccept: (value) => value == 'BLOUSE1',
                 onAccept: (value) {
-                  onPlayAudioBlouse1();
+                  onPlayAudio2();
                   setState(() {
                     blouse1Accepted = true;
                     blouse2Accepted = false;
+                    //blouse1Accepted = false;
                   });
                 },
                 onLeave: (value) {
@@ -126,7 +130,7 @@ class _GirlClothesState extends State<GirlClothes> {
               child: DragTarget<String>(
                 onWillAccept: (value) => value == 'BLOUSE2',
                 onAccept: (value) {
-                  onPlayAudioBlouse2();
+                  onPlayAudio2();
                   setState(() {
                     blouse2Accepted = true;
                     blouse1Accepted = false;
@@ -342,24 +346,17 @@ class _GirlClothesState extends State<GirlClothes> {
     );
   }
 
-  void onPlayAudioBlouse1() async {
-    AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
-    assetsAudioPlayer.open(
-      Audio("assets/audio/story/verygood.mp3"),
+
+  
+
+   void onPlayAudio3() async {
+   _assetsAudioPlayer.open(
+      Audio("assets/audio/story/sketinzuri.mp3"),
     );
   }
-
-  void onPlayAudioBlouse2() async {
-    AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
-    assetsAudioPlayer.open(
-      Audio("assets/audio/story/verygood.mp3"),
-    );
-  }
-
-  void onPlayAudioSkirt() async {
-    AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
-    assetsAudioPlayer.open(
-      Audio("assets/audio/story/verygood.mp3"),
+   void onPlayAudio2() async {
+   _assetsAudioPlayer.open(
+      Audio("assets/audio/story/vizurisana.mp3"),
     );
   }
 }

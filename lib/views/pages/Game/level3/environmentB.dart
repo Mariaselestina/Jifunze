@@ -1,3 +1,4 @@
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:jifunze/constants/routes.dart';
 
@@ -8,6 +9,12 @@ class EnvironmentB extends StatefulWidget {
 }
 
 class _EnvironmentBState extends State<EnvironmentB> {
+   AssetsAudioPlayer _assetsAudioPlayer = AssetsAudioPlayer();
+   @override
+  void initState() {
+   onPlayAudio1();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,9 +30,11 @@ class _EnvironmentBState extends State<EnvironmentB> {
            Align(
             alignment: Alignment.topLeft,
             child: IconButton(
-              icon: Icon(Icons.home, color: Colors.blue, size: 70),
+              iconSize: 90,
+              icon: Icon(Icons.home, color: Colors.blue, size: 80),
               onPressed: () {
                 Navigator.pushNamed(context, levelsPage);
+                 _assetsAudioPlayer.stop();
               },
             ),
           ),
@@ -41,6 +50,7 @@ class _EnvironmentBState extends State<EnvironmentB> {
               ),
               onPressed: () {
                 Navigator.pop(context);
+                _assetsAudioPlayer.stop();
               },
             ),
           ),
@@ -55,11 +65,17 @@ class _EnvironmentBState extends State<EnvironmentB> {
               ),
               onPressed: () {
                 Navigator.pushNamed(context, environmentBB);
+                _assetsAudioPlayer.stop();
               },
             ),
           ),
         ],
       ),
+    );
+  }
+    void onPlayAudio1() async {
+   _assetsAudioPlayer.open(
+      Audio("assets/audio/story/chumbachawazazi.mp3"),
     );
   }
 }

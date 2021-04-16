@@ -1,3 +1,4 @@
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +15,7 @@ class FlipCardGame extends StatefulWidget {
 }
 
 class _FlipCardGameState extends State<FlipCardGame> {
+  AssetsAudioPlayer _assetsAudioPlayer = AssetsAudioPlayer();
   _FlipCardGameState(this._level);
 
   int _previousIndex = -1;
@@ -96,6 +98,7 @@ class _FlipCardGameState extends State<FlipCardGame> {
               child: GestureDetector(
                 onTap: () {
                   setState(() {
+                     onPlayAudio2();
                     restart();
                   });
                 },
@@ -108,7 +111,7 @@ class _FlipCardGameState extends State<FlipCardGame> {
                     borderRadius: BorderRadius.circular(24),
                   ),
                   child: Text(
-                    "Replay",
+                    "Hongera Sana!\n      Rudia",
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 17,
@@ -131,7 +134,7 @@ class _FlipCardGameState extends State<FlipCardGame> {
                               style: Theme.of(context).textTheme.headline3,
                             )
                           : Text(
-                              'Left:$_left',
+                              'Baki:$_left',
                               style: Theme.of(context).textTheme.headline3,
                             ),
                     ),
@@ -187,6 +190,7 @@ class _FlipCardGameState extends State<FlipCardGame> {
                                         if (_cardFlips
                                             .every((t) => t == false)) {
                                           print("Won");
+                                           onPlayAudio2();
                                           Future.delayed(
                                               const Duration(milliseconds: 160),
                                               () {
@@ -233,5 +237,10 @@ class _FlipCardGameState extends State<FlipCardGame> {
               ),
             ),
           );
+  }
+  void onPlayAudio2() async {
+    _assetsAudioPlayer.open(
+      Audio("assets/audio/story/vizurisana.mp3"),
+    );
   }
 }

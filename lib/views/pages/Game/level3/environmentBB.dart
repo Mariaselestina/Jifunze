@@ -1,3 +1,4 @@
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:jifunze/constants/routes.dart';
 import 'package:flutter_svg/svg.dart';
@@ -9,7 +10,13 @@ class EnvironmentBB extends StatefulWidget {
 }
 
 class _EnvironmentBBState extends State<EnvironmentBB> {
-  
+   AssetsAudioPlayer _assetsAudioPlayer = AssetsAudioPlayer();
+   @override
+  void initState() {
+    onPlayAudio1();
+    super.initState();
+  }
+   
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,19 +71,26 @@ class _EnvironmentBBState extends State<EnvironmentBB> {
            Positioned(
             top: MediaQuery.of(context).size.height / 2,
             left: MediaQuery.of(context).size.width / 1.2,
-      child:SvgPicture.asset('assets/images/characters/boydressed.svg',
-               
-              width: 50,
-              height: 90,
-              fit: BoxFit.fill,
-            ),
+      child:InkWell(
+              child: SvgPicture.asset('assets/images/characters/boydressed.svg',
+                 
+                width: 50,
+                height: 90,
+                fit: BoxFit.fill,
+              ),
+              onTap: (){
+                onPlayAudio2();
+              },
+      ),
           ),
            Align(
             alignment: Alignment.topLeft,
             child: IconButton(
-              icon: Icon(Icons.home, color: Colors.blue, size: 70),
+              iconSize: 90,
+              icon: Icon(Icons.home, color: Colors.blue, size: 80),
               onPressed: () {
                 Navigator.pushNamed(context, levelsPage);
+                 _assetsAudioPlayer.stop();
               },
             ),
           ),
@@ -92,6 +106,7 @@ class _EnvironmentBBState extends State<EnvironmentBB> {
               ),
               onPressed: () {
                 Navigator.pop(context);
+                _assetsAudioPlayer.stop();
               },
             ),
           ),
@@ -106,11 +121,22 @@ class _EnvironmentBBState extends State<EnvironmentBB> {
               ),
               onPressed: () {
                 Navigator.pushNamed(context, environmentBBB);
+                _assetsAudioPlayer.stop();
               },
             ),
           ),
         ],
       ),
+    );
+  }
+   void onPlayAudio1() async {
+   _assetsAudioPlayer.open(
+      Audio("assets/audio/story/tafutaibra.mp3"),
+    );
+  } 
+  void onPlayAudio2() async {
+   _assetsAudioPlayer.open(
+      Audio("assets/audio/story/chumbachawageni.mp3"),
     );
   }
 }

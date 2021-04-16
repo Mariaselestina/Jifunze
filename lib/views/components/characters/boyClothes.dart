@@ -8,6 +8,7 @@ class BoyClothes extends StatefulWidget {
 }
 
 class _BoyClothesState extends State<BoyClothes> {
+   AssetsAudioPlayer _assetsAudioPlayer = AssetsAudioPlayer();
   
   final double _shirtSize = 70;
 
@@ -34,7 +35,7 @@ class _BoyClothesState extends State<BoyClothes> {
               child: DragTarget<String>(
                 onWillAccept: (value) => value == 'TROUSER',
                 onAccept: (value) {
-                onPlayAudioShort();
+                onPlayAudio2();
                   setState(() {
                     short1Accepted = true;
                     short2Accepted =false;
@@ -69,7 +70,7 @@ class _BoyClothesState extends State<BoyClothes> {
               child: DragTarget<String>(
                 onWillAccept: (value) => value == 'SHORT',
                 onAccept: (value) {
-                onPlayAudioShort();
+                onPlayAudio2();
                   setState(() {
                     short2Accepted = true;
                     short1Accepted =false;
@@ -105,7 +106,7 @@ class _BoyClothesState extends State<BoyClothes> {
               child: DragTarget<String>(
                 onWillAccept: (value) => value == 'SHIRT1',
                 onAccept: (value) {
-                   onPlayAudioShirt1();
+                   onPlayAudio2();
                   setState(() {
                     shirt1Accepted = true;
                     shirt2Accepted =false;
@@ -133,7 +134,7 @@ class _BoyClothesState extends State<BoyClothes> {
               child: DragTarget<String>(
                 onWillAccept: (value) => value == 'SHIRT2',
                 onAccept: (value) {
-                onPlayAudioShirt2();
+                onPlayAudio2();
                   setState(() {
                     shirt2Accepted = true;
                     shirt1Accepted = false;
@@ -341,22 +342,11 @@ class _BoyClothesState extends State<BoyClothes> {
     );
   }
 
-  void onPlayAudioShirt1() async {
-    AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
-    assetsAudioPlayer.open(
-      Audio("assets/audio/story/verygood.mp3"),
+  void onPlayAudio2() async {
+   _assetsAudioPlayer.open(
+      Audio("assets/audio/story/vizurisana.mp3"),
     );
   }
-   void onPlayAudioShirt2() async {
-    AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
-    assetsAudioPlayer.open(
-      Audio("assets/audio/story/verygood.mp3"),
-    );
-  }
-  void onPlayAudioShort() async {
-    AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
-    assetsAudioPlayer.open(
-      Audio("assets/audio/story/verygood.mp3"),
-    );
-  }
+   
+ 
 }

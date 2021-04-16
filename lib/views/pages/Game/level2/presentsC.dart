@@ -17,6 +17,11 @@ class _PresentsCState extends State<PresentsC> {
   bool carAccepted = false;
   AssetsAudioPlayer _assetsAudioPlayer = AssetsAudioPlayer();
   @override
+  void initState() {
+    playAudio1();
+    super.initState();
+  }
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
@@ -275,9 +280,11 @@ class _PresentsCState extends State<PresentsC> {
           Align(
             alignment: Alignment.topLeft,
             child: IconButton(
-              icon: Icon(Icons.home, color: Colors.blue, size: 70),
+              iconSize: 90,
+              icon: Icon(Icons.home, color: Colors.blue, size: 80),
               onPressed: () {
                 Navigator.pushNamed(context, levelsPage);
+                 _assetsAudioPlayer.stop();
               },
             ),
           ),
@@ -292,6 +299,7 @@ class _PresentsCState extends State<PresentsC> {
               ),
               onPressed: () {
                 Navigator.pop(context);
+                _assetsAudioPlayer.stop();
               },
             ),
           ),
@@ -306,6 +314,7 @@ class _PresentsCState extends State<PresentsC> {
               ),
               onPressed: () {
                 Navigator.pushNamed(context, presentsCC);
+                _assetsAudioPlayer.stop();
               },
             ),
           ),
@@ -324,8 +333,15 @@ class _PresentsCState extends State<PresentsC> {
     if (tree1Accepted && road1Accepted && carAccepted) {
       print('hi');
       _assetsAudioPlayer.open(
-        Audio("assets/audio/story/verygood.mp3"),
+        Audio("assets/audio/story/garilamtuusiemfahamu.mp3"),
       );
     }
   }
+
+   void playAudio1() async {
+   _assetsAudioPlayer.open(
+      Audio("assets/audio/story/sogezapicha.mp3"),
+    );
+  }
+     
 }

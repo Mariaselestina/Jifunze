@@ -54,6 +54,7 @@ class _EnvironmentAState extends State<EnvironmentA> {
                 fit: BoxFit.cover,
               ),
               onTap: () {
+                onPlayAudio2();
                  
                   },
             ),
@@ -61,9 +62,11 @@ class _EnvironmentAState extends State<EnvironmentA> {
           Align(
             alignment: Alignment.topLeft,
             child: IconButton(
-              icon: Icon(Icons.home, color: Colors.blue, size: 70),
+              iconSize: 90,
+              icon: Icon(Icons.home, color: Colors.blue, size: 80),
               onPressed: () {
                 Navigator.pushNamed(context, levelsPage);
+                 _assetsAudioPlayer.stop();
               },
             ),
           ),
@@ -78,6 +81,7 @@ class _EnvironmentAState extends State<EnvironmentA> {
               ),
               onPressed: () {
                 Navigator.pop(context);
+                _assetsAudioPlayer.stop();
               },
             ),
           ),
@@ -92,6 +96,7 @@ class _EnvironmentAState extends State<EnvironmentA> {
               ),
               onPressed: () {
                 Navigator.pushNamed(context, environmentAA);
+                _assetsAudioPlayer.stop();
               },
             ),
           ),
@@ -102,12 +107,12 @@ class _EnvironmentAState extends State<EnvironmentA> {
 
     void onPlayAudio1() async {
     _assetsAudioPlayer.open(
-      Audio("assets/audio/story/findelly.mp3"),
+      Audio("assets/audio/story/tafutaelly.mp3"),
     );
   }
     void onPlayAudio2() async {
     _assetsAudioPlayer.open(
-      Audio("assets/audio/story/nearbush.mp3"),
+      Audio("assets/audio/story/karibunakichaka.mp3"),
     );
   }
 }

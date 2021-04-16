@@ -1,12 +1,25 @@
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 
 import 'package:jifunze/constants/routes.dart';
 
-class EnvironmentC extends StatelessWidget {
-  final double kHeight = 50.0;
-  final double kWeight = 150.0;
-  final double tSize = 15.0;
+class EnvironmentC extends StatefulWidget {
+  @override
+  _EnvironmentCState createState() => _EnvironmentCState();
+}
 
+class _EnvironmentCState extends State<EnvironmentC> {
+   AssetsAudioPlayer _assetsAudioPlayer = AssetsAudioPlayer();
+  final double kHeight = 50.0;
+
+  final double kWeight = 150.0;
+
+  final double tSize = 15.0;
+@override
+  void initState() {
+    playAudio();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,9 +58,11 @@ class EnvironmentC extends StatelessWidget {
            Align(
             alignment: Alignment.topLeft,
             child: IconButton(
-              icon: Icon(Icons.home, color: Colors.blue, size: 70),
+              iconSize: 90,
+              icon: Icon(Icons.home, color: Colors.blue, size: 80),
               onPressed: () {
                 Navigator.pushNamed(context, levelsPage);
+                 _assetsAudioPlayer.stop();
               },
             ),
           ),
@@ -63,12 +78,13 @@ class EnvironmentC extends StatelessWidget {
               ),
               onPressed: () {
                 Navigator.pop(context);
+                _assetsAudioPlayer.stop();
               },
             ),
           ),
           Positioned(
             bottom: MediaQuery.of(context).size.height / 16,
-            right: MediaQuery.of(context).size.width / 14,
+            right: MediaQuery.of(context).size.width / 30,
             child: IconButton(
               icon: Icon(
                Icons.arrow_forward_ios,
@@ -77,11 +93,17 @@ class EnvironmentC extends StatelessWidget {
               ),
               onPressed: () {
                 Navigator.pushNamed(context, environmentCC);
+                 _assetsAudioPlayer.stop();
               },
             ),
           ),
         ],
       ),
+    );
+  }
+   void playAudio() async {
+    _assetsAudioPlayer.open(
+      Audio("assets/audio/story/msaadanjiani.mp3"),
     );
   }
 }

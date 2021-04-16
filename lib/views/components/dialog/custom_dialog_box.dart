@@ -91,14 +91,14 @@ class _CustomDialogBoxState extends State<CustomDialogBox> {
                     Expanded(
                       child: Container(),
                     ),
-                    Text('Answer:'),
+                    Text('Jibu:'),
                     Expanded(
                       child: TextFormField(
                         focusNode: _answerFocusNode,
                         controller: _answerTextEditingController,
                         validator: (val) {
                           if (val.isEmpty)
-                            return 'Enter the answer';
+                            return 'Andika Jibu';
                           else
                             return null;
                         },
@@ -125,7 +125,7 @@ class _CustomDialogBoxState extends State<CustomDialogBox> {
                               Navigator.pop(context);
                             },
                             child: Text(
-                              'Cancel',
+                              'Ghairi',
                               style: TextStyle(fontSize: 18),
                             )),
                       ),
@@ -147,13 +147,13 @@ class _CustomDialogBoxState extends State<CustomDialogBox> {
                                           builder: (_) => _AvailableLinks()));
                                 } else {
                                   Scaffold.of(context).showSnackBar(SnackBar(
-                                    content: Text("Sending Message"),
+                                    content: Text("Tuma Ujumbe"),
                                   ));
                                 }
                               }
                             },
                             child: Text(
-                              'Submit',
+                              'Tuma',
                               style: TextStyle(fontSize: 18),
                             )),
                       ),
@@ -187,13 +187,13 @@ class _AvailableLinks extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Available Links'),
+        title: Text('Masomo yaliyopo'),
       ),
       body: ListView(children: <Widget>[
         Card(
           child: ListTile(
             leading: Icon(Icons.link),
-            title: Text('Child Sexual Abuse Resources'),
+            title: Text('Masomo ya Unyanyasaji wa kijinsia wa ngono kwa watoto'),
             onTap: () {
               _launchURL(
                   'https://www.nsvrc.org/preventing-child-sexual-abuse-resources');
@@ -203,20 +203,20 @@ class _AvailableLinks extends StatelessWidget {
            Card(
           child: ListTile(
             leading: Icon(Icons.link),
-            title: Text('Child Sexual Abuse Prevention'),
+            title: Text('Child Sexual Abuse Prevention \"Stop it Now\"'),
             onTap: () {
               _launchURL(
-                  'https://www.nsvrc.org/preventing-child-sexual-abuse-resources');
+                  'https://www.stopitnow.org/sites/default/files/documents/files/prevent_child_sexual_abuse.pdf');
             },
           ),
         ),
          Card(
           child: ListTile(
             leading: Icon(Icons.link),
-            title: Text('Child Sexual Abuse Prevention'),
+            title: Text('Njia 10 za kumfundisha mwanao'),
             onTap: () {
               _launchURL(
-                  'https://www.nsvrc.org/preventing-child-sexual-abuse-resources');
+                  'https://childmind.org/article/10-ways-to-teach-your-child-the-skills-to-prevent-sexual-abuse/');
             },
           ),
         )

@@ -24,15 +24,17 @@ class _BeginingenvironmentState extends State<Beginingenvironment> {
           Container(
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
-            child: Image.asset('assets/images/environment/pangala.png',
+            child: Image.asset('assets/images/storyline/storylinestreet.png',
                 fit: BoxFit.fill),
           ),
           Align(
             alignment: Alignment.topLeft,
             child: IconButton(
-              icon: Icon(Icons.home, color: Colors.blue, size: 70),
+              iconSize: 90,
+              icon: Icon(Icons.home, color: Colors.blue, size: 80),
               onPressed: () {
                 Navigator.pushNamed(context, levelsPage);
+                 _assetsAudioPlayer.stop();
               },
             ),
           ),
@@ -47,6 +49,7 @@ class _BeginingenvironmentState extends State<Beginingenvironment> {
               ),
               onPressed: () {
                 Navigator.pop(context);
+                _assetsAudioPlayer.stop();
               },
             ),
           ),
@@ -71,7 +74,7 @@ class _BeginingenvironmentState extends State<Beginingenvironment> {
   }
    void onPlayAudio1() async {
     _assetsAudioPlayer.open(
-      Audio("assets/audio/story/standingatchurch.mp3"),
+      Audio("assets/audio/story/simamakanisani.mp3"),
     );
   }
 }

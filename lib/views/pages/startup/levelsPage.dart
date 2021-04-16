@@ -43,13 +43,14 @@ class _LevelsPageState extends State<LevelsPage> {
           child: IconButton(
             icon: Icon(Icons.info_outline, color: Colors.black, size: 50),
             onPressed: () {
+                 _assetsAudioPlayer.stop();
               showDialog(
                   context: context,
                   builder: (BuildContext context) {
                     return CustomDialogBox(
-                      title: "Are you a parent?",
-                      descriptions: "Please answer the question below!",
-                      text: "Yes",
+                      title: "Je wewe ni mzazi?",
+                      descriptions: "Tafadhali jibu swali lifuatalo!",
+                      text: "Ndio",
                       number1: rng.nextInt(100),
                       number2: rng.nextInt(100),
                     );
@@ -81,6 +82,20 @@ class _LevelsPageState extends State<LevelsPage> {
             ),
           ),
         ),
+          Align(
+            alignment: Alignment(-0.5, -0.47),
+            
+              child: Container(
+                width: 70,
+                height: 70,
+                //color: Colors.blue,
+                child: Image.asset(
+                  'assets/images/gifimages/hand.gif',
+                  fit: BoxFit.fill,
+                ),
+              ),
+              
+          ),
         Positioned(
             bottom: 285,
             left: MediaQuery.of(context).size.width / 4,

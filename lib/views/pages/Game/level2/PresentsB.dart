@@ -2,10 +2,19 @@ import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:jifunze/constants/routes.dart';
 
+class PresentsB extends StatefulWidget {
+  @override
+  _PresentsBState createState() => _PresentsBState();
+}
 
+class _PresentsBState extends State<PresentsB> {
+  AssetsAudioPlayer _assetsAudioPlayer = AssetsAudioPlayer();
+  @override
+  void initState() {
+    onPlayAudio1();
+    super.initState();
+  }
 
-class PresentsB extends StatelessWidget {
- 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,59 +22,60 @@ class PresentsB extends StatelessWidget {
       body: Stack(
         children: [
           Positioned(
-              bottom: MediaQuery.of(context).size.height / 3,
-          right: MediaQuery.of(context).size.width / 1.9,
-                      child: Container(
+            bottom: MediaQuery.of(context).size.height / 3,
+            right: MediaQuery.of(context).size.width / 1.9,
+            child: Container(
               height: 210,
               width: 300,
               child: Image.asset('assets/images/environment/envtwoBhome.png',
                   fit: BoxFit.cover),
             ),
           ),
-           Positioned(
-          bottom: MediaQuery.of(context).size.height / 3,
-          right: MediaQuery.of(context).size.width / 1.5,
-          child: Container(
-            height: 60,
-            width: 60,
-            child: Image.asset(
-              'assets/images/gifimages/gift.gif',
-              fit: BoxFit.cover,
+          Positioned(
+            bottom: MediaQuery.of(context).size.height / 3,
+            right: MediaQuery.of(context).size.width / 1.5,
+            child: Container(
+              height: 60,
+              width: 60,
+              child: Image.asset(
+                'assets/images/gifimages/gift.gif',
+                fit: BoxFit.cover,
+              ),
             ),
           ),
-        ),
-         Positioned(
-              bottom: MediaQuery.of(context).size.height / 3,
-          left: MediaQuery.of(context).size.width / 1.9,
-                      child: Container(
+          Positioned(
+            bottom: MediaQuery.of(context).size.height / 3,
+            left: MediaQuery.of(context).size.width / 1.9,
+            child: Container(
               height: 210,
               width: 300,
               child: Image.asset('assets/images/environment/envtwoBstreet.png',
                   fit: BoxFit.fill),
             ),
           ),
-           Positioned(
-          bottom: MediaQuery.of(context).size.height / 3,
-          left: MediaQuery.of(context).size.width / 1.1,
-          child: Container(
-            height: 60,
-            width: 60,
-            child: Image.asset(
-              'assets/images/gifimages/gift.gif',
-              fit: BoxFit.cover,
+          Positioned(
+            bottom: MediaQuery.of(context).size.height / 3,
+            left: MediaQuery.of(context).size.width / 1.1,
+            child: Container(
+              height: 60,
+              width: 60,
+              child: Image.asset(
+                'assets/images/gifimages/gift.gif',
+                fit: BoxFit.cover,
+              ),
             ),
           ),
-        ),
-    Align(
+          Align(
             alignment: Alignment.topLeft,
             child: IconButton(
+              iconSize: 90,
               icon: Icon(Icons.home, color: Colors.blue, size: 70),
               onPressed: () {
                 Navigator.pushNamed(context, levelsPage);
+                 _assetsAudioPlayer.stop();
               },
             ),
           ),
-         
           Positioned(
             bottom: MediaQuery.of(context).size.height / 16,
             right: MediaQuery.of(context).size.width / 1.1,
@@ -77,6 +87,7 @@ class PresentsB extends StatelessWidget {
               ),
               onPressed: () {
                 Navigator.pop(context);
+                _assetsAudioPlayer.stop();
               },
             ),
           ),
@@ -85,13 +96,13 @@ class PresentsB extends StatelessWidget {
             right: MediaQuery.of(context).size.width / 14,
             child: IconButton(
               icon: Icon(
-               Icons.arrow_forward_ios,
+                Icons.arrow_forward_ios,
                 color: Colors.red,
                 size: 60,
               ),
               onPressed: () {
-                onPlayAudio2();
                 Navigator.pushNamed(context, presentsC);
+                _assetsAudioPlayer.stop();
               },
             ),
           ),
@@ -99,11 +110,10 @@ class PresentsB extends StatelessWidget {
       ),
     );
   }
-  void onPlayAudio2() async {
-    AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
-    assetsAudioPlayer.open(
-      Audio("assets/audio/story/moveshape.mp3"),
-    );
-  } 
-}
 
+  void onPlayAudio1() async {
+    _assetsAudioPlayer.open(
+      Audio("assets/audio/story/sogezapicha.mp3"),
+    );
+  }
+}

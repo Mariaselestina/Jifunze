@@ -32,28 +32,28 @@ class _BodyPartsBState extends State<BodyPartsB> {
             ),
           ),
           Positioned(
-              top: MediaQuery.of(context).size.height / 7,
+              top: MediaQuery.of(context).size.height / 8.5,
               left: MediaQuery.of(context).size.width / 1.84,
               child: InkWell(
                   onTap: () {
                     onPlayAudio2();
                   },
                   child: Container(
-                    height: 350,
-                    width: 120,
-                    // color: Colors.green,
+                    height: 400,
+                    width: 140,
+                     //color: Colors.green,
                   ))),
           Positioned(
-              top: MediaQuery.of(context).size.height / 7,
+              top: MediaQuery.of(context).size.height / 8.5,
               left: MediaQuery.of(context).size.width / 4.4,
               child: InkWell(
                   onTap: () {
                     onPlayAudio2();
                   },
                   child: Container(
-                    height: 350,
-                    width: 130,
-                    // color: Colors.green,
+                    height: 400,
+                    width: 140,
+                    //color: Colors.green,
                   ))),
           Positioned(
               top: MediaQuery.of(context).size.height / 3.4,
@@ -76,113 +76,118 @@ class _BodyPartsBState extends State<BodyPartsB> {
                     onPlayAudio1();
                   },
                   child: Container(
-                    height: 20,
-                    width: 35,
+                    height: 30,
+                    width: 45,
                     //color: Colors.black,
                   ))),
           Positioned(
-              bottom: MediaQuery.of(context).size.height / 3,
-              left: MediaQuery.of(context).size.width / 3.7,
+              bottom: MediaQuery.of(context).size.height / 3.9,
+              left: MediaQuery.of(context).size.width / 3.9,
               child: InkWell(
                   onTap: () {
                     onPlayAudio();
                   },
                   child: Container(
-                    height: 50, width: 80,
+                    height: 80, width: 100,
                     //color: Colors.red
                   ))),
           Positioned(
-              top: MediaQuery.of(context).size.height / 2.6,
-              left: MediaQuery.of(context).size.width / 1.74,
+              top: MediaQuery.of(context).size.height / 2.8,
+              left: MediaQuery.of(context).size.width / 1.76,
               child: InkWell(
                   onTap: () {
-                    onPlayAudio();
+                    onPlayAudio1();
                   },
                   child: Container(
-                    height: 50, width: 70,
+                    height: 70, width: 80,
                     //color: Colors.blue
                   ))),
           Positioned(
-              bottom: MediaQuery.of(context).size.height / 3.2,
+              bottom: MediaQuery.of(context).size.height / 3.5,
               left: MediaQuery.of(context).size.width / 1.74,
               child: InkWell(
                   onTap: () {
                     onPlayAudio1();
                   },
                   child: Container(
-                    height: 60, width: 85,
+                    height: 80, width: 80,
                     //color: Colors.red
                   ))),
           Align(
             alignment: Alignment.topLeft,
             child: IconButton(
-              icon: Icon(Icons.home, color: Colors.blue, size: 70),
+              iconSize: 90,
+              icon: Icon(Icons.home, color: Colors.blue, size: 80),
               onPressed: () {
                 Navigator.pushNamed(context, levelsPage);
+                 _assetsAudioPlayer.stop();
               },
             ),
           ),
           Positioned(
-            bottom: MediaQuery.of(context).size.height / 16,
-            right: MediaQuery.of(context).size.width / 1.1,
-            child: IconButton(
-              icon: Icon(
-                Icons.arrow_back_ios,
-                color: Colors.red,
-                size: 70,
-              ),
-              onPressed: () {
-                Navigator.pop(context);
-              },
+          top: MediaQuery.of(context).size.height / 1.26,
+          right: MediaQuery.of(context).size.width / 1.2,
+          child: IconButton(
+            iconSize: 70,
+            icon: Icon(
+              Icons.arrow_back_ios,
+              color: Colors.red,
+              size: 60,
             ),
-          ),
-          Positioned(
-            bottom: MediaQuery.of(context).size.height / 16,
-            right: MediaQuery.of(context).size.width / 14,
-            child: IconButton(
-              icon: Icon(
-                Icons.arrow_forward_ios,
-                color: Colors.red,
-                size: 60,
-              ),
-              onPressed: () {
-                Navigator.pushNamed(context, bodyPartsC);
+            onPressed: () {
+              Navigator.pushNamed(context, levelsPage);
               _assetsAudioPlayer.stop();
-              },
-            ),
+              
+              
+            },
           ),
+        ),
+         
+        Positioned(
+          top: MediaQuery.of(context).size.height / 1.26,
+          right: MediaQuery.of(context).size.width / 14,
+          child: IconButton(
+             iconSize: 70,
+            icon: Icon(
+              Icons.arrow_forward_ios,
+              color: Colors.red,
+              size: 60,
+            ),
+            onPressed: () {
+              Navigator.pushNamed(context, bodyPartsC);
+              _assetsAudioPlayer.stop(); 
+                       
+              
+             
+            },
+          ),
+        ),
         ],
       ),
     );
   }
 
   void onPlayAudio0() async {
-    AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
-    assetsAudioPlayer.open(
-      Audio("assets/audio/story/showsafeparts.mp3"),
+    _assetsAudioPlayer.open(
+      Audio("assets/audio/story/onyeshasehemusalama.mp3"),
     );
   }
 
   void onPlayAudio() async {
-    AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
-    assetsAudioPlayer.open(
-      Audio("assets/audio/story/nonono.mp3"),
+    _assetsAudioPlayer.open(
+      Audio("assets/audio/story/hapansehemuzasiri.mp3"),
     );
   }
 
   void onPlayAudio1() async {
-    AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
-    assetsAudioPlayer.open(
-      Audio("assets/audio/story/noprivatepart.mp3"),
+    _assetsAudioPlayer.open(
+      Audio("assets/audio/story/hapansehemuzasiri.mp3"),
     );
   }
 
   void onPlayAudio2() async {
-    AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
-    assetsAudioPlayer.open(
-      Audio("assets/audio/story/verygood.mp3"),
+    _assetsAudioPlayer.open(
+      Audio("assets/audio/story/vizurisana.mp3"),
     );
   }
-
-
 }

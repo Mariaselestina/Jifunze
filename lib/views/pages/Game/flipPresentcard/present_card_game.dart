@@ -1,3 +1,4 @@
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +16,7 @@ class PresentCardGame extends StatefulWidget {
 }
 
 class _PresentCardGameState extends State<PresentCardGame> {
+  AssetsAudioPlayer _assetsAudioPlayer = AssetsAudioPlayer();
   _PresentCardGameState(this._level);
 
   int _previousIndex = -1;
@@ -69,7 +71,7 @@ class _PresentCardGameState extends State<PresentCardGame> {
     _left = (_data.length ~/ 2);
 
     _isFinished = false;
-    Future.delayed(const Duration(seconds: 6), () {
+    Future.delayed(const Duration(seconds: 5), () {
       setState(() {
         _start = true;
         _timer.cancel();
@@ -97,24 +99,44 @@ class _PresentCardGameState extends State<PresentCardGame> {
               child: GestureDetector(
                 onTap: () {
                   setState(() {
+                    onPlayAudio2();
                     restart();
                   });
                 },
-                child: Container(
-                  height: 50,
-                  width: 200,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    color: Colors.blue,
-                    borderRadius: BorderRadius.circular(24),
-                  ),
-                  child: Text(
-                    "Replay",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 17,
-                        fontWeight: FontWeight.w500),
-                  ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      height: 50,
+                      width: 200,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: Colors.blue,
+                        borderRadius: BorderRadius.circular(24),
+                      ),
+                      child: Text(
+                        "Vizuri Sana!\n      Rudia",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 17,
+                            fontWeight: FontWeight.w500),
+                      ),
+                    ),
+                    Container(
+                        //alignment: Alignment.center,
+                      child: IconButton(
+                        icon: Icon(
+                          Icons.arrow_back_ios,
+                          color: Colors.red,
+                          size: 60,
+                        ),
+                        onPressed: () {
+                          Navigator.pop(context);
+                          _assetsAudioPlayer.stop();
+                        },
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -132,7 +154,7 @@ class _PresentCardGameState extends State<PresentCardGame> {
                               style: Theme.of(context).textTheme.headline3,
                             )
                           : Text(
-                              'Left:$_left',
+                              'Baki:$_left',
                               style: Theme.of(context).textTheme.headline3,
                             ),
                     ),
@@ -142,14 +164,15 @@ class _PresentCardGameState extends State<PresentCardGame> {
                               left: 100.0,
                               right: 100,
                             )
-                          :  (_level == Level.Medium
-                          ?  EdgeInsets.only(
-                              left: 140.0,
-                              right: 140,
-                            ):EdgeInsets.only(
-                              left: 40.0,
-                              right: 40,
-                            )),
+                          : (_level == Level.Medium
+                              ? EdgeInsets.only(
+                                  left: 140.0,
+                                  right: 140,
+                                )
+                              : EdgeInsets.only(
+                                  left: 40.0,
+                                  right: 40,
+                                )),
                       child: GridView.builder(
                         shrinkWrap: true,
                         physics: NeverScrollableScrollPhysics(),
@@ -201,6 +224,7 @@ class _PresentCardGameState extends State<PresentCardGame> {
                                         });
                                         if (_cardFlips
                                             .every((t) => t == false)) {
+                                          onPlayAudio2();
                                           print("Won");
                                           Future.delayed(
                                               const Duration(milliseconds: 160),
@@ -248,5 +272,11 @@ class _PresentCardGameState extends State<PresentCardGame> {
               ),
             ),
           );
+  }
+
+  void onPlayAudio2() async {
+    _assetsAudioPlayer.open(
+      Audio("assets/audio/story/vizurisana.mp3"),
+    );
   }
 }

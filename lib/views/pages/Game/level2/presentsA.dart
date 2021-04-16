@@ -34,9 +34,11 @@ class _PresentsAState extends State<PresentsA> {
           Align(
             alignment: Alignment.topLeft,
             child: IconButton(
+              iconSize: 90,
               icon: Icon(Icons.home, color: Colors.blue, size: 70),
               onPressed: () {
                 Navigator.pushNamed(context, levelsPage);
+                 _assetsAudioPlayer.stop();
               },
             ),
           ),
@@ -52,6 +54,7 @@ class _PresentsAState extends State<PresentsA> {
               ),
               onPressed: () {
                 Navigator.pop(context);
+                _assetsAudioPlayer.stop();
               },
             ),
           ),
@@ -76,7 +79,7 @@ class _PresentsAState extends State<PresentsA> {
   }
    void onPlayAudio1() async {
     _assetsAudioPlayer.open(
-      Audio("assets/audio/story/ellyshop.mp3"),
+      Audio("assets/audio/story/ellydukani.mp3"),
     );
   }
 }

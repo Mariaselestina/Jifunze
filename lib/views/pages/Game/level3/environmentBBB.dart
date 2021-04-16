@@ -1,9 +1,21 @@
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:jifunze/constants/routes.dart';
 import 'package:flutter_svg/svg.dart';
 
 
-class EnvironmentBBB extends StatelessWidget {
+class EnvironmentBBB extends StatefulWidget {
+  @override
+  _EnvironmentBBBState createState() => _EnvironmentBBBState();
+}
+
+class _EnvironmentBBBState extends State<EnvironmentBBB> {
+   AssetsAudioPlayer _assetsAudioPlayer = AssetsAudioPlayer();
+   @override
+ void initState() {
+    onPlayAudio();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,19 +74,26 @@ class EnvironmentBBB extends StatelessWidget {
             Positioned(
             top: MediaQuery.of(context).size.height / 2.4,
             right: MediaQuery.of(context).size.width / 1.2,
-            child:Image.asset('assets/images/characters/stranger.png',
-               
-              width: 50,
-              height: 120,
-              fit: BoxFit.fill,
+            child:InkWell(
+                          child: Image.asset('assets/images/characters/stranger.png',
+                 
+                width: 50,
+                height: 120,
+                fit: BoxFit.fill,
+              ),
+              onTap: (){
+                onPlayAudio1();
+              },
             ),
           ),
            Align(
             alignment: Alignment.topLeft,
             child: IconButton(
-              icon: Icon(Icons.home, color: Colors.blue, size: 70),
+              iconSize: 90,
+              icon: Icon(Icons.home, color: Colors.blue, size: 80),
               onPressed: () {
                 Navigator.pushNamed(context, levelsPage);
+                 _assetsAudioPlayer.stop();
               },
             ),
           ),
@@ -90,6 +109,7 @@ class EnvironmentBBB extends StatelessWidget {
               ),
               onPressed: () {
                 Navigator.pop(context);
+                _assetsAudioPlayer.stop();
               },
             ),
           ),
@@ -104,6 +124,7 @@ class EnvironmentBBB extends StatelessWidget {
               ),
               onPressed: () {
                 Navigator.pushNamed(context, environmentC);
+                 _assetsAudioPlayer.stop();
               },
             ),
           ),
@@ -111,4 +132,16 @@ class EnvironmentBBB extends StatelessWidget {
       ),
     );
   }
+   void onPlayAudio() async {
+   _assetsAudioPlayer.open(
+      Audio("assets/audio/story/tafutamgeni.mp3"),
+    );
+  }
+   void onPlayAudio1() async {
+   _assetsAudioPlayer.open(
+      Audio("assets/audio/story/mgenichumbani.mp3"),
+    );
+  }
+
+
 }

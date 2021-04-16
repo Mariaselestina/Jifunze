@@ -1,3 +1,4 @@
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -17,6 +18,13 @@ class _PresentsCCCState extends State<PresentsCCC> {
   bool tree1Accepted = false;
   bool road1Accepted = false;
   bool carAccepted = false;
+  AssetsAudioPlayer _assetsAudioPlayer = AssetsAudioPlayer();
+  @override
+  void initState() {
+    playAudio2();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     final _levelProvider = Provider.of<LevelProvider>(context);
@@ -42,6 +50,7 @@ class _PresentsCCCState extends State<PresentsCCC> {
                   setState(() {
                     road1Accepted = true;
                   });
+                  playAudio();
                 },
                 onLeave: (value) {
                   //Alert the user their value ddint land
@@ -76,6 +85,7 @@ class _PresentsCCCState extends State<PresentsCCC> {
                   setState(() {
                     shadowstrangerAccepted = true;
                   });
+                  playAudio();
                 },
                 onLeave: (value) {
                   //Alert the user their value ddint land
@@ -110,6 +120,7 @@ class _PresentsCCCState extends State<PresentsCCC> {
                   setState(() {
                     carAccepted = true;
                   });
+                  playAudio();
                 },
                 onLeave: (value) {
                   //Alert the user their value ddint land
@@ -271,32 +282,49 @@ class _PresentsCCCState extends State<PresentsCCC> {
                 ],
               )),
           Align(
+            alignment: Alignment(-0.95, -0.7),
+            child: Container(
+              width: 70,
+              height: 70,
+              //color: Colors.blue,
+              child: Image.asset(
+                'assets/images/gifimages/hand.gif',
+                fit: BoxFit.fill,
+              ),
+            ),
+          ),
+          Align(
             alignment: Alignment.topLeft,
             child: IconButton(
-              icon: Icon(Icons.home, color: Colors.blue, size: 70),
+              iconSize: 90,
+              icon: Icon(Icons.home, color: Colors.blue, size: 80),
               onPressed: () {
                 Navigator.pushNamed(context, levelsPage);
+                _assetsAudioPlayer.stop();
               },
             ),
           ),
           Positioned(
-            bottom: MediaQuery.of(context).size.height / 16,
-            right: MediaQuery.of(context).size.width / 1.1,
+            top: MediaQuery.of(context).size.height / 1.26,
+            right: MediaQuery.of(context).size.width / 1.2,
             child: IconButton(
+              iconSize: 70,
               icon: Icon(
                 Icons.arrow_back_ios,
                 color: Colors.red,
-                size: 70,
+                size: 60,
               ),
               onPressed: () {
-                Navigator.pop(context);
+                Navigator.pushNamed(context, levelsPage);
+                _assetsAudioPlayer.stop();
               },
             ),
           ),
           Positioned(
-            bottom: MediaQuery.of(context).size.height / 16,
+            top: MediaQuery.of(context).size.height / 1.26,
             right: MediaQuery.of(context).size.width / 14,
             child: IconButton(
+              iconSize: 70,
               icon: Icon(
                 Icons.arrow_forward_ios,
                 color: Colors.red,
@@ -304,12 +332,83 @@ class _PresentsCCCState extends State<PresentsCCC> {
               ),
               onPressed: () {
                 _levelProvider.toogleLevel = 3;
-                Navigator.pushNamed(context, levelsPage);
+                // Navigator.pushNamed(context, levelsPage);
+                showDialog(
+                  context: context,
+                  builder: (_) => AlertDialog(
+                    title: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("Hongera!"),
+                      ],
+                    ),
+                    backgroundColor: Colors.white,
+                    content: Container(
+                      width: 40,
+                      height: 85,
+                      //color: Colors.blue,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset(
+                            'assets/icons/star.png',
+                            fit: BoxFit.fill,
+                          ),
+                          Image.asset(
+                            'assets/icons/star.png',
+                            fit: BoxFit.fill,
+                          ),
+                          IconButton(
+                            iconSize: 50,
+                            icon:
+                                Icon(Icons.home_outlined, color: Colors.blue, size: 80),
+                            onPressed: () {
+                              Navigator.pushNamed(context, levelsPage);
+                              _assetsAudioPlayer.stop();
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+
+                  barrierColor: Colors.transparent,
+
+                  //barrierDismissible: true,
+                );
+                _assetsAudioPlayer.stop();
+                playAudio1();
               },
             ),
           ),
         ],
       ),
+    );
+  }
+
+  void playAudio() async {
+    print('carAccepted: ' + carAccepted.toString());
+    print('road1Accepted: ' + road1Accepted.toString());
+
+    print('shadowstrangerAccepted: ' + shadowstrangerAccepted.toString());
+
+    if (carAccepted && road1Accepted && shadowstrangerAccepted) {
+      print('hi');
+      _assetsAudioPlayer.open(
+        Audio("assets/audio/story/usipokeezawadinjiani.mp3"),
+      );
+    }
+  }
+
+  void playAudio1() async {
+    _assetsAudioPlayer.open(
+      Audio("assets/audio/story/sehemuyapili.mp3"),
+    );
+  }
+
+  void playAudio2() async {
+    _assetsAudioPlayer.open(
+      Audio("assets/audio/story/sogezapicha.mp3"),
     );
   }
 }

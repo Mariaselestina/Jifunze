@@ -3,7 +3,19 @@ import 'package:flutter/material.dart';
 
 import 'package:jifunze/constants/routes.dart';
 
-class BodyPartsD extends StatelessWidget {
+class BodyPartsD extends StatefulWidget {
+  @override
+  _BodyPartsDState createState() => _BodyPartsDState();
+}
+
+class _BodyPartsDState extends State<BodyPartsD> {
+  AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
+  @override
+  void initState() {
+   onPlayAudio5();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,12 +74,28 @@ class BodyPartsD extends StatelessWidget {
               },
             ),
           ),
+              Align(
+            alignment: Alignment(-0.95, -0.7),
+            
+              child: Container(
+                width: 70,
+                height: 70,
+                //color: Colors.blue,
+                child: Image.asset(
+                  'assets/images/gifimages/hand.gif',
+                  fit: BoxFit.fill,
+                ),
+              ),
+              
+          ),
           Align(
             alignment: Alignment.topLeft,
             child: IconButton(
-              icon: Icon(Icons.home, color: Colors.blue, size: 70),
+              iconSize: 90,
+              icon: Icon(Icons.home, color: Colors.blue, size: 80),
               onPressed: () {
                 Navigator.pushNamed(context, levelsPage);
+                
               },
             ),
           ),
@@ -82,6 +110,7 @@ class BodyPartsD extends StatelessWidget {
               ),
               onPressed: () {
                 Navigator.pop(context);
+                
               },
             ),
           ),
@@ -95,7 +124,50 @@ class BodyPartsD extends StatelessWidget {
                 size: 60,
               ),
               onPressed: () {
-                Navigator.pushNamed(context, levelsPage);
+                
+                //Navigator.pushNamed(context, levelsPage);
+                showDialog(
+                  context: context,
+                  builder: (_) => AlertDialog(
+                    title: Row(
+                       mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("Hongera!",),
+                      ],
+                    ),
+                    backgroundColor: Colors.white,
+                    content: Container(
+                      width: 40,
+                      height: 85,
+                      //color: Colors.blue,
+                      child: Row(
+                         mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset(
+                            'assets/icons/star.png',
+                            //height: 50,
+                            fit: BoxFit.fill,
+                          ),
+                          IconButton(
+                            iconSize: 50,
+                            icon:
+                                Icon(Icons.home_outlined, color: Colors.blue, size: 80),
+                            onPressed: () {
+                              Navigator.pushNamed(context, levelsPage);
+                              assetsAudioPlayer.stop();
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+
+                  barrierColor: Colors.transparent,
+
+                  //barrierDismissible: true,
+                );
+                assetsAudioPlayer.stop();
+                onPlayAudio4();
               },
             ),
           ),
@@ -105,16 +177,26 @@ class BodyPartsD extends StatelessWidget {
   }
 
   void onPlayAudio2() async {
-    AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
     assetsAudioPlayer.open(
-      Audio("assets/audio/story/ibrahome.mp3"),
+      Audio("assets/audio/story/ibraakiwanyumbani.mp3"),
     );
   }
 
   void onPlayAudio3() async {
-    AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
-    assetsAudioPlayer.open(
-      Audio("assets/audio/story/ellyatschool.mp3"),
+   assetsAudioPlayer.open(
+      Audio("assets/audio/story/ellyshule.mp3"),
     );
   }
+
+  void onPlayAudio4() async {
+    assetsAudioPlayer.open(
+      Audio("assets/audio/story/sehemuyakwanza.mp3"),
+    );
+  }
+   void onPlayAudio5() async {
+    assetsAudioPlayer.open(
+      Audio("assets/audio/story/mguseEllyIbra.mp3"),
+    );
+  }
+  
 }

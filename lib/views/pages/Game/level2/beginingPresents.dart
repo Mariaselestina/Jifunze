@@ -48,9 +48,11 @@ AssetsAudioPlayer _assetsAudioPlayer = AssetsAudioPlayer();
       Align(
           alignment: Alignment.topLeft,
           child: IconButton(
-            icon: Icon(Icons.home, color: Colors.blue, size: 70),
+            iconSize: 90,
+            icon: Icon(Icons.home, color: Colors.blue, size: 80),
             onPressed: () {
               Navigator.pushNamed(context, levelsPage);
+               _assetsAudioPlayer.stop();
             },
           ),
         ),
@@ -65,6 +67,7 @@ AssetsAudioPlayer _assetsAudioPlayer = AssetsAudioPlayer();
             ),
             onPressed: () {
               Navigator.pop(context);
+              _assetsAudioPlayer.stop();
             },
           ),
         ),
@@ -88,7 +91,7 @@ AssetsAudioPlayer _assetsAudioPlayer = AssetsAudioPlayer();
   }
    void onPlayAudio1() async {
     _assetsAudioPlayer.open(
-      Audio("assets/audio/story/matchpresents.mp3"),
+      Audio("assets/audio/story/fananishazawadi.mp3"),
     );
   }
 }
